@@ -1,3 +1,5 @@
+export {default as batchStates} from './batch_states.js';
+export {default as mintRpcError} from './mint_rpc_error.js';
 export {default as outpointAsTransaction} from './outpoint_as_transaction.js';
 export {default as receiveStatuses} from './receive_statuses.js';
 export {default as rpcAddrAsAddress} from './rpc_addr_as_address.js';
@@ -36,3 +38,8 @@ export type {SendEvent} from './rpc_send_event_as_send_event.js';
 export {default as rpcTransferAsTransfer} from './rpc_transfer_as_transfer.js';
 export type {RpcTransfer} from './rpc_transfer_as_transfer.js';
 export type {Transfer} from './rpc_transfer_as_transfer.js';
+export {default as rpcBatchAsBatch} from './rpc_batch_as_batch.js';
+export type {Batch} from './rpc_batch_as_batch.js';
+export type {PendingAsset} from './rpc_batch_as_batch.js';
+export type {RpcMintingBatch} from './rpc_batch_as_batch.js';
+export type {RpcVerboseBatch} from './rpc_batch_as_batch.js';

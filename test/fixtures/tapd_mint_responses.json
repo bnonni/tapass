@@ -1,0 +1,1126 @@
+{
+  "cancelBatch": {
+    "batch_key": {
+      "$hex": "020f6975d70317c3c26bda3d0be07f24a8cd7985133e81daa7dd4ee0066da3320a"
+    }
+  },
+  "finalizeBatch": {
+    "batch": {
+      "assets": [
+        {
+          "asset_version": "ASSET_VERSION_V0",
+          "asset_type": "NORMAL",
+          "name": "mint-g-mva2r3sw",
+          "asset_meta": {
+            "data": {
+              "$hex": ""
+            },
+            "type": "META_TYPE_OPAQUE",
+            "meta_hash": {
+              "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+            }
+          },
+          "amount": "777",
+          "new_grouped_asset": false,
+          "group_key": {
+            "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+          },
+          "group_anchor": "",
+          "group_internal_key": {
+            "raw_key_bytes": {
+              "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+            },
+            "key_loc": {
+              "key_family": 212,
+              "key_index": 24
+            }
+          },
+          "group_tapscript_root": {
+            "$hex": ""
+          },
+          "script_key": {
+            "pub_key": {
+              "$hex": "278e634d3d1236c9c89c2036f6c4283f903bc52cce4b3ff4a843710ed3ff2adf"
+            },
+            "key_desc": {
+              "raw_key_bytes": {
+                "$hex": "03660061a2ce3fbab5549c55ee9652980c61d5f8f420a0d6c57c5a1b8df094f917"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 25
+              }
+            },
+            "tap_tweak": {
+              "$hex": ""
+            },
+            "type": "SCRIPT_KEY_BIP86"
+          }
+        },
+        {
+          "asset_version": "ASSET_VERSION_V0",
+          "asset_type": "NORMAL",
+          "name": "mint-g2-mva2r3sw",
+          "asset_meta": {
+            "data": {
+              "$hex": ""
+            },
+            "type": "META_TYPE_OPAQUE",
+            "meta_hash": {
+              "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+            }
+          },
+          "amount": "10",
+          "new_grouped_asset": false,
+          "group_key": {
+            "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+          },
+          "group_anchor": "",
+          "group_internal_key": {
+            "raw_key_bytes": {
+              "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+            },
+            "key_loc": {
+              "key_family": 212,
+              "key_index": 24
+            }
+          },
+          "group_tapscript_root": {
+            "$hex": ""
+          },
+          "script_key": {
+            "pub_key": {
+              "$hex": "90703257659a9925425b45804ccfc32cd6c092bef5738de9749a12b00c515e91"
+            },
+            "key_desc": {
+              "raw_key_bytes": {
+                "$hex": "037a517ebfdb50af8b66740ead8e63aac2f12da0646e10a460b0f2b0f40ad26575"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 27
+              }
+            },
+            "tap_tweak": {
+              "$hex": ""
+            },
+            "type": "SCRIPT_KEY_BIP86"
+          }
+        }
+      ],
+      "batch_key": {
+        "$hex": "02e764d795b2882a2cd859452be4f47571c4b937bb9f87711056b17969715695b9"
+      },
+      "batch_txid": "dee378b1f58ecf4d91bd3d7c4326537a198f01733f4bbb2ed44894f7ded62627",
+      "state": "BATCH_STATE_BROADCAST",
+      "created_at": "1792101148",
+      "height_hint": 112,
+      "batch_psbt": {
+        "$hex": "70736274ff01008902000000018efc06b65d4b2dd258ab75b87cbc78e910d8b563aa2b3bea8c2c0d0e3f5f808000000000000000000002e803000000000000225120c2beb726cc7e30b07d80965eb8a03fe185b15703d20df7367ec2b67d5b4535a57ded052a010000002251202111dbee8daa44832139b9887e2537acfdd2653791b3124d6d1bb6a91c8fb3dc000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028010842014082831d98a18193ec9fb7f3184b15095b5aad396e730b81ed61bc18dbee733ac409f2cb12117e8ab610fde4b05d86656709e47a49a77af0d2f463ae3e2f9b3f9e00002202028a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9180000000056000080000000800000008001000000040000000105208a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb921078a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9190000000000560000800000008000000080010000000400000000"
+      }
+    }
+  },
+  "fundBatch": {
+    "batch": {
+      "unsealed_assets": [
+        {
+          "asset": {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "seal-g-mva2ronu",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "42",
+            "new_grouped_asset": true,
+            "group_key": {
+              "$hex": ""
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "03f47555b1ce2db7347a4698c71f40c2789dd8c58c2e083c18da24e3f54144f368"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 28
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "68e6a569b5c8c1c147991710d9f10442179a91e8c7af8aef330621cb41f32aff"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "0339f6b1c1b65de86fce6964e18ef904d7f8f3823635128cfb6d4a9a62aaed9860"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 29
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          },
+          "group_key_request": {
+            "raw_key": {
+              "raw_key_bytes": {
+                "$hex": "03f47555b1ce2db7347a4698c71f40c2789dd8c58c2e083c18da24e3f54144f368"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 28
+              }
+            },
+            "anchor_genesis": {
+              "genesis_point": "1bc447d31e6a0850046336556716a3ddd76d05a96c463c1c556e40cb239d8b99:0",
+              "name": "seal-g-mva2ronu",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              },
+              "asset_id": {
+                "$hex": "02524cce6cd5866b9938ac5c395d7788b114adde969bbc715f711e4f8453ea9a"
+              },
+              "asset_type": "NORMAL",
+              "output_index": 0
+            },
+            "tapscript_root": {
+              "$hex": ""
+            },
+            "new_asset": {
+              "$hex": "0001000259998b9d23cb406e551c3c466ca9056dd7dda316675536630450086a1ed347c41b000000000f7365616c2d672d6d766132726f6e75f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd000000000004010006012a0b690167016500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e02000010210268e6a569b5c8c1c147991710d9f10442179a91e8c7af8aef330621cb41f32aff"
+            },
+            "external_key": null
+          },
+          "group_virtual_tx": {
+            "transaction": {
+              "$hex": "0200000001de80bb582c464b6595c409e43173e82ac81166f747b5b298566aed41de821540000000000000000000012a00000000000000225120d44190546ce61233c8f21c3aedf70d4a754a2a2bfab04b7b9efe2daf4032562000000000"
+            },
+            "prev_out": {
+              "value": "42",
+              "pk_script": {
+                "$hex": "5120e5355ffd3918ce3e71cf517bf7d3792df0bb47529442a0ef6f71420c7f4085f5"
+              }
+            },
+            "genesis_id": {
+              "$hex": "02524cce6cd5866b9938ac5c395d7788b114adde969bbc715f711e4f8453ea9a"
+            },
+            "tweaked_key": {
+              "$hex": "03e5355ffd3918ce3e71cf517bf7d3792df0bb47529442a0ef6f71420c7f4085f5"
+            }
+          },
+          "group_virtual_psbt": "cHNidP8BAF4CAAAAAd6Au1gsRktllcQJ5DFz6CrIEWb3R7WymFZq7UHeghVAAAAAAAAAAAAAASoAAAAAAAAAIlEg1EGQVGzmEjPI8hw67fcNSnVKKiv6sEt7nv4tr0AyViAAAAAAAAEBKyoAAAAAAAAAIlEg5TVf/TkYzj5xz1F799N5LfC7R1KUQqDvb3FCDH9AhfUiBgP0dVWxzi23NHpGmMcfQMJ4ndjFjC4IPBjaJOP1QUTzaBgAAAAA+QMAgAEAAIDUAACAAAAAABwAAAAhFvR1VbHOLbc0ekaYxx9Awnid2MWMLgg8GNok4/VBRPNoGQAAAAAA+QMAgAEAAIDUAACAAAAAABwAAAABFyD0dVWxzi23NHpGmMcfQMJ4ndjFjC4IPBjaJOP1QUTzaAAA"
+        }
+      ],
+      "batch": {
+        "assets": [],
+        "batch_key": {
+          "$hex": "020ede99548c5361d3ff977ca0eceb5c7de355ca209351231bde3586b70aa98f2f"
+        },
+        "batch_txid": "",
+        "state": "BATCH_STATE_PENDING",
+        "created_at": "1792101175",
+        "height_hint": 113,
+        "batch_psbt": {
+          "$hex": "70736274ff0100890200000001998b9d23cb406e551c3c466ca9056dd7dda316675536630450086a1ed347c41b00000000000000000002e80300000000000022512000000000000000000000000000000000000000000000000000000000000000007ded052a0100000022512014e70408747691318b999d01b59bfd7fd42cd49983946f7df84d9436ee68390f000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028220603c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f66180000000056000080000000800000008000000000000000002116c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f6619000000000056000080000000800000008000000000000000000000220203cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c18000000005600008000000080000000800100000005000000010520cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c2107cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c190000000000560000800000008000000080010000000500000000"
+        }
+      }
+    }
+  },
+  "listBatchesVerbose": {
+    "batches": [
+      {
+        "unsealed_assets": [
+          {
+            "asset": {
+              "asset_version": "ASSET_VERSION_V0",
+              "asset_type": "NORMAL",
+              "name": "seal-g-mva2ronu",
+              "asset_meta": {
+                "data": {
+                  "$hex": ""
+                },
+                "type": "META_TYPE_OPAQUE",
+                "meta_hash": {
+                  "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+                }
+              },
+              "amount": "42",
+              "new_grouped_asset": true,
+              "group_key": {
+                "$hex": ""
+              },
+              "group_anchor": "",
+              "group_internal_key": {
+                "raw_key_bytes": {
+                  "$hex": "03f47555b1ce2db7347a4698c71f40c2789dd8c58c2e083c18da24e3f54144f368"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 28
+                }
+              },
+              "group_tapscript_root": {
+                "$hex": ""
+              },
+              "script_key": {
+                "pub_key": {
+                  "$hex": "68e6a569b5c8c1c147991710d9f10442179a91e8c7af8aef330621cb41f32aff"
+                },
+                "key_desc": {
+                  "raw_key_bytes": {
+                    "$hex": "0339f6b1c1b65de86fce6964e18ef904d7f8f3823635128cfb6d4a9a62aaed9860"
+                  },
+                  "key_loc": {
+                    "key_family": 212,
+                    "key_index": 29
+                  }
+                },
+                "tap_tweak": {
+                  "$hex": ""
+                },
+                "type": "SCRIPT_KEY_BIP86"
+              }
+            },
+            "group_key_request": {
+              "raw_key": {
+                "raw_key_bytes": {
+                  "$hex": "03f47555b1ce2db7347a4698c71f40c2789dd8c58c2e083c18da24e3f54144f368"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 28
+                }
+              },
+              "anchor_genesis": {
+                "genesis_point": "1bc447d31e6a0850046336556716a3ddd76d05a96c463c1c556e40cb239d8b99:0",
+                "name": "seal-g-mva2ronu",
+                "meta_hash": {
+                  "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+                },
+                "asset_id": {
+                  "$hex": "02524cce6cd5866b9938ac5c395d7788b114adde969bbc715f711e4f8453ea9a"
+                },
+                "asset_type": "NORMAL",
+                "output_index": 0
+              },
+              "tapscript_root": {
+                "$hex": ""
+              },
+              "new_asset": {
+                "$hex": "0001000259998b9d23cb406e551c3c466ca9056dd7dda316675536630450086a1ed347c41b000000000f7365616c2d672d6d766132726f6e75f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd000000000004010006012a0b690167016500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e02000010210268e6a569b5c8c1c147991710d9f10442179a91e8c7af8aef330621cb41f32aff"
+              },
+              "external_key": null
+            },
+            "group_virtual_tx": {
+              "transaction": {
+                "$hex": "0200000001de80bb582c464b6595c409e43173e82ac81166f747b5b298566aed41de821540000000000000000000012a00000000000000225120d44190546ce61233c8f21c3aedf70d4a754a2a2bfab04b7b9efe2daf4032562000000000"
+              },
+              "prev_out": {
+                "value": "42",
+                "pk_script": {
+                  "$hex": "5120e5355ffd3918ce3e71cf517bf7d3792df0bb47529442a0ef6f71420c7f4085f5"
+                }
+              },
+              "genesis_id": {
+                "$hex": "02524cce6cd5866b9938ac5c395d7788b114adde969bbc715f711e4f8453ea9a"
+              },
+              "tweaked_key": {
+                "$hex": "03e5355ffd3918ce3e71cf517bf7d3792df0bb47529442a0ef6f71420c7f4085f5"
+              }
+            },
+            "group_virtual_psbt": "cHNidP8BAF4CAAAAAd6Au1gsRktllcQJ5DFz6CrIEWb3R7WymFZq7UHeghVAAAAAAAAAAAAAASoAAAAAAAAAIlEg1EGQVGzmEjPI8hw67fcNSnVKKiv6sEt7nv4tr0AyViAAAAAAAAEBKyoAAAAAAAAAIlEg5TVf/TkYzj5xz1F799N5LfC7R1KUQqDvb3FCDH9AhfUiBgP0dVWxzi23NHpGmMcfQMJ4ndjFjC4IPBjaJOP1QUTzaBgAAAAA+QMAgAEAAIDUAACAAAAAABwAAAAhFvR1VbHOLbc0ekaYxx9Awnid2MWMLgg8GNok4/VBRPNoGQAAAAAA+QMAgAEAAIDUAACAAAAAABwAAAABFyD0dVWxzi23NHpGmMcfQMJ4ndjFjC4IPBjaJOP1QUTzaAAA"
+          }
+        ],
+        "batch": {
+          "assets": [],
+          "batch_key": {
+            "$hex": "020ede99548c5361d3ff977ca0eceb5c7de355ca209351231bde3586b70aa98f2f"
+          },
+          "batch_txid": "",
+          "state": "BATCH_STATE_PENDING",
+          "created_at": "1792101175",
+          "height_hint": 113,
+          "batch_psbt": {
+            "$hex": "70736274ff0100890200000001998b9d23cb406e551c3c466ca9056dd7dda316675536630450086a1ed347c41b00000000000000000002e80300000000000022512000000000000000000000000000000000000000000000000000000000000000007ded052a0100000022512014e70408747691318b999d01b59bfd7fd42cd49983946f7df84d9436ee68390f000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028220603c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f66180000000056000080000000800000008000000000000000002116c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f6619000000000056000080000000800000008000000000000000000000220203cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c18000000005600008000000080000000800100000005000000010520cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c2107cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c190000000000560000800000008000000080010000000500000000"
+          }
+        }
+      }
+    ]
+  },
+  "mintAsset": {
+    "pending_batch": {
+      "assets": [
+        {
+          "asset_version": "ASSET_VERSION_V0",
+          "asset_type": "NORMAL",
+          "name": "mint-a-mva2r3sw",
+          "asset_meta": {
+            "data": {
+              "$hex": "7b22646563696d616c5f646973706c6179223a322c226465736372697074696f6e223a2274657374227d"
+            },
+            "type": "META_TYPE_JSON",
+            "meta_hash": {
+              "$hex": "e1740020a74f6a80b17a1d8e84a90668bb9f6d818a6a7f0573cf86cdb50efcc2"
+            }
+          },
+          "amount": "5000",
+          "new_grouped_asset": false,
+          "group_key": {
+            "$hex": ""
+          },
+          "group_anchor": "",
+          "group_internal_key": null,
+          "group_tapscript_root": {
+            "$hex": ""
+          },
+          "script_key": {
+            "pub_key": {
+              "$hex": "7b30d8053ef530ebf738c0d1915d127ef8bb5233320e74580319bc642c5165fd"
+            },
+            "key_desc": {
+              "raw_key_bytes": {
+                "$hex": "02833dbd2bfa068a71991713b63feb6ba75893006c0184d599113ccbdd438a9e7d"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 21
+              }
+            },
+            "tap_tweak": {
+              "$hex": ""
+            },
+            "type": "SCRIPT_KEY_BIP86"
+          }
+        },
+        {
+          "asset_version": "ASSET_VERSION_V0",
+          "asset_type": "COLLECTIBLE",
+          "name": "mint-nft-mva2r3sw",
+          "asset_meta": {
+            "data": {
+              "$hex": "612070696374757265"
+            },
+            "type": "META_TYPE_OPAQUE",
+            "meta_hash": {
+              "$hex": "b2e0fe8c310dca028cebb0970005975dfec0f2358bf07039c339df1d8a909958"
+            }
+          },
+          "amount": "1",
+          "new_grouped_asset": false,
+          "group_key": {
+            "$hex": ""
+          },
+          "group_anchor": "",
+          "group_internal_key": null,
+          "group_tapscript_root": {
+            "$hex": ""
+          },
+          "script_key": {
+            "pub_key": {
+              "$hex": "80e1cf528edb0d4c5bd2e2913b92d314f531c6a9d8254245d986d663744297c3"
+            },
+            "key_desc": {
+              "raw_key_bytes": {
+                "$hex": "0358cee50b12e7decfd0c3308e12627925ffc3b4a84b1a13bfc4e3f31e8ad0f9a1"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 23
+              }
+            },
+            "tap_tweak": {
+              "$hex": ""
+            },
+            "type": "SCRIPT_KEY_BIP86"
+          }
+        }
+      ],
+      "batch_key": {
+        "$hex": "020f6975d70317c3c26bda3d0be07f24a8cd7985133e81daa7dd4ee0066da3320a"
+      },
+      "batch_txid": "",
+      "state": "BATCH_STATE_PENDING",
+      "created_at": "1792101148",
+      "height_hint": 112,
+      "batch_psbt": {
+        "$hex": ""
+      }
+    }
+  },
+  "mintEvents": [
+    {
+      "timestamp": "1792101148788546",
+      "batch_state": "BATCH_STATE_FROZEN",
+      "batch": {
+        "assets": [
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g2-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "10",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "90703257659a9925425b45804ccfc32cd6c092bef5738de9749a12b00c515e91"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "037a517ebfdb50af8b66740ead8e63aac2f12da0646e10a460b0f2b0f40ad26575"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 27
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          },
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "777",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "278e634d3d1236c9c89c2036f6c4283f903bc52cce4b3ff4a843710ed3ff2adf"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "03660061a2ce3fbab5549c55ee9652980c61d5f8f420a0d6c57c5a1b8df094f917"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 25
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          }
+        ],
+        "batch_key": {
+          "$hex": "02e764d795b2882a2cd859452be4f47571c4b937bb9f87711056b17969715695b9"
+        },
+        "batch_txid": "",
+        "state": "BATCH_STATE_FROZEN",
+        "created_at": "1792101148",
+        "height_hint": 112,
+        "batch_psbt": {
+          "$hex": "70736274ff01008902000000018efc06b65d4b2dd258ab75b87cbc78e910d8b563aa2b3bea8c2c0d0e3f5f808000000000000000000002e803000000000000225120c2beb726cc7e30b07d80965eb8a03fe185b15703d20df7367ec2b67d5b4535a57ded052a010000002251202111dbee8daa44832139b9887e2537acfdd2653791b3124d6d1bb6a91c8fb3dc000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028220603c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f66180000000056000080000000800000008000000000000000002116c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f66190000000000560000800000008000000080000000000000000000002202028a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9180000000056000080000000800000008001000000040000000105208a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb921078a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9190000000000560000800000008000000080010000000400000000"
+        }
+      },
+      "error": ""
+    },
+    {
+      "timestamp": "1792101148793553",
+      "batch_state": "BATCH_STATE_COMMITTED",
+      "batch": {
+        "assets": [
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "777",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "278e634d3d1236c9c89c2036f6c4283f903bc52cce4b3ff4a843710ed3ff2adf"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "03660061a2ce3fbab5549c55ee9652980c61d5f8f420a0d6c57c5a1b8df094f917"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 25
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          },
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g2-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "10",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "90703257659a9925425b45804ccfc32cd6c092bef5738de9749a12b00c515e91"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "037a517ebfdb50af8b66740ead8e63aac2f12da0646e10a460b0f2b0f40ad26575"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 27
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          }
+        ],
+        "batch_key": {
+          "$hex": "02e764d795b2882a2cd859452be4f47571c4b937bb9f87711056b17969715695b9"
+        },
+        "batch_txid": "dee378b1f58ecf4d91bd3d7c4326537a198f01733f4bbb2ed44894f7ded62627",
+        "state": "BATCH_STATE_COMMITTED",
+        "created_at": "1792101148",
+        "height_hint": 112,
+        "batch_psbt": {
+          "$hex": "70736274ff01008902000000018efc06b65d4b2dd258ab75b87cbc78e910d8b563aa2b3bea8c2c0d0e3f5f808000000000000000000002e803000000000000225120c2beb726cc7e30b07d80965eb8a03fe185b15703d20df7367ec2b67d5b4535a57ded052a010000002251202111dbee8daa44832139b9887e2537acfdd2653791b3124d6d1bb6a91c8fb3dc000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028010842014082831d98a18193ec9fb7f3184b15095b5aad396e730b81ed61bc18dbee733ac409f2cb12117e8ab610fde4b05d86656709e47a49a77af0d2f463ae3e2f9b3f9e00002202028a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9180000000056000080000000800000008001000000040000000105208a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb921078a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9190000000000560000800000008000000080010000000400000000"
+        }
+      },
+      "error": ""
+    },
+    {
+      "timestamp": "1792101148799104",
+      "batch_state": "BATCH_STATE_BROADCAST",
+      "batch": {
+        "assets": [
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "777",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "278e634d3d1236c9c89c2036f6c4283f903bc52cce4b3ff4a843710ed3ff2adf"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "03660061a2ce3fbab5549c55ee9652980c61d5f8f420a0d6c57c5a1b8df094f917"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 25
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          },
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g2-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "10",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "90703257659a9925425b45804ccfc32cd6c092bef5738de9749a12b00c515e91"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "037a517ebfdb50af8b66740ead8e63aac2f12da0646e10a460b0f2b0f40ad26575"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 27
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          }
+        ],
+        "batch_key": {
+          "$hex": "02e764d795b2882a2cd859452be4f47571c4b937bb9f87711056b17969715695b9"
+        },
+        "batch_txid": "dee378b1f58ecf4d91bd3d7c4326537a198f01733f4bbb2ed44894f7ded62627",
+        "state": "BATCH_STATE_BROADCAST",
+        "created_at": "1792101148",
+        "height_hint": 112,
+        "batch_psbt": {
+          "$hex": "70736274ff01008902000000018efc06b65d4b2dd258ab75b87cbc78e910d8b563aa2b3bea8c2c0d0e3f5f808000000000000000000002e803000000000000225120c2beb726cc7e30b07d80965eb8a03fe185b15703d20df7367ec2b67d5b4535a57ded052a010000002251202111dbee8daa44832139b9887e2537acfdd2653791b3124d6d1bb6a91c8fb3dc000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028010842014082831d98a18193ec9fb7f3184b15095b5aad396e730b81ed61bc18dbee733ac409f2cb12117e8ab610fde4b05d86656709e47a49a77af0d2f463ae3e2f9b3f9e00002202028a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9180000000056000080000000800000008001000000040000000105208a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb921078a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9190000000000560000800000008000000080010000000400000000"
+        }
+      },
+      "error": ""
+    },
+    {
+      "timestamp": "1792101148892369",
+      "batch_state": "BATCH_STATE_CONFIRMED",
+      "batch": {
+        "assets": [
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "777",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "278e634d3d1236c9c89c2036f6c4283f903bc52cce4b3ff4a843710ed3ff2adf"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "03660061a2ce3fbab5549c55ee9652980c61d5f8f420a0d6c57c5a1b8df094f917"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 25
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          },
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g2-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "10",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "90703257659a9925425b45804ccfc32cd6c092bef5738de9749a12b00c515e91"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "037a517ebfdb50af8b66740ead8e63aac2f12da0646e10a460b0f2b0f40ad26575"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 27
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          }
+        ],
+        "batch_key": {
+          "$hex": "02e764d795b2882a2cd859452be4f47571c4b937bb9f87711056b17969715695b9"
+        },
+        "batch_txid": "dee378b1f58ecf4d91bd3d7c4326537a198f01733f4bbb2ed44894f7ded62627",
+        "state": "BATCH_STATE_CONFIRMED",
+        "created_at": "1792101148",
+        "height_hint": 112,
+        "batch_psbt": {
+          "$hex": "70736274ff01008902000000018efc06b65d4b2dd258ab75b87cbc78e910d8b563aa2b3bea8c2c0d0e3f5f808000000000000000000002e803000000000000225120c2beb726cc7e30b07d80965eb8a03fe185b15703d20df7367ec2b67d5b4535a57ded052a010000002251202111dbee8daa44832139b9887e2537acfdd2653791b3124d6d1bb6a91c8fb3dc000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028010842014082831d98a18193ec9fb7f3184b15095b5aad396e730b81ed61bc18dbee733ac409f2cb12117e8ab610fde4b05d86656709e47a49a77af0d2f463ae3e2f9b3f9e00002202028a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9180000000056000080000000800000008001000000040000000105208a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb921078a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9190000000000560000800000008000000080010000000400000000"
+        }
+      },
+      "error": ""
+    },
+    {
+      "timestamp": "1792101148893082",
+      "batch_state": "BATCH_STATE_FINALIZED",
+      "batch": {
+        "assets": [
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "777",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "278e634d3d1236c9c89c2036f6c4283f903bc52cce4b3ff4a843710ed3ff2adf"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "03660061a2ce3fbab5549c55ee9652980c61d5f8f420a0d6c57c5a1b8df094f917"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 25
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          },
+          {
+            "asset_version": "ASSET_VERSION_V0",
+            "asset_type": "NORMAL",
+            "name": "mint-g2-mva2r3sw",
+            "asset_meta": {
+              "data": {
+                "$hex": ""
+              },
+              "type": "META_TYPE_OPAQUE",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              }
+            },
+            "amount": "10",
+            "new_grouped_asset": false,
+            "group_key": {
+              "$hex": "02e40a5057a4d16deae9303056ad82179861c61abfe9ee000fd483dc649dd2a5cb"
+            },
+            "group_anchor": "",
+            "group_internal_key": {
+              "raw_key_bytes": {
+                "$hex": "0319278e639afedc405eac8c388008feb017e35f1d36337e89b31f517f3902c7ba"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 24
+              }
+            },
+            "group_tapscript_root": {
+              "$hex": ""
+            },
+            "script_key": {
+              "pub_key": {
+                "$hex": "90703257659a9925425b45804ccfc32cd6c092bef5738de9749a12b00c515e91"
+              },
+              "key_desc": {
+                "raw_key_bytes": {
+                  "$hex": "037a517ebfdb50af8b66740ead8e63aac2f12da0646e10a460b0f2b0f40ad26575"
+                },
+                "key_loc": {
+                  "key_family": 212,
+                  "key_index": 27
+                }
+              },
+              "tap_tweak": {
+                "$hex": ""
+              },
+              "type": "SCRIPT_KEY_BIP86"
+            }
+          }
+        ],
+        "batch_key": {
+          "$hex": "02e764d795b2882a2cd859452be4f47571c4b937bb9f87711056b17969715695b9"
+        },
+        "batch_txid": "dee378b1f58ecf4d91bd3d7c4326537a198f01733f4bbb2ed44894f7ded62627",
+        "state": "BATCH_STATE_FINALIZED",
+        "created_at": "1792101148",
+        "height_hint": 112,
+        "batch_psbt": {
+          "$hex": "70736274ff01008902000000018efc06b65d4b2dd258ab75b87cbc78e910d8b563aa2b3bea8c2c0d0e3f5f808000000000000000000002e803000000000000225120c2beb726cc7e30b07d80965eb8a03fe185b15703d20df7367ec2b67d5b4535a57ded052a010000002251202111dbee8daa44832139b9887e2537acfdd2653791b3124d6d1bb6a91c8fb3dc000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028010842014082831d98a18193ec9fb7f3184b15095b5aad396e730b81ed61bc18dbee733ac409f2cb12117e8ab610fde4b05d86656709e47a49a77af0d2f463ae3e2f9b3f9e00002202028a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9180000000056000080000000800000008001000000040000000105208a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb921078a4db7fdfdec966ee1ad644fe5f95f40997aed923b3251b551b521064b217eb9190000000000560000800000008000000080010000000400000000"
+        }
+      },
+      "error": ""
+    }
+  ],
+  "sealBatch": {
+    "batch": {
+      "assets": [
+        {
+          "asset_version": "ASSET_VERSION_V0",
+          "asset_type": "NORMAL",
+          "name": "seal-g-mva2ronu",
+          "asset_meta": {
+            "data": {
+              "$hex": ""
+            },
+            "type": "META_TYPE_OPAQUE",
+            "meta_hash": {
+              "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+            }
+          },
+          "amount": "42",
+          "new_grouped_asset": true,
+          "group_key": {
+            "$hex": "03e5355ffd3918ce3e71cf517bf7d3792df0bb47529442a0ef6f71420c7f4085f5"
+          },
+          "group_anchor": "",
+          "group_internal_key": {
+            "raw_key_bytes": {
+              "$hex": "03f47555b1ce2db7347a4698c71f40c2789dd8c58c2e083c18da24e3f54144f368"
+            },
+            "key_loc": {
+              "key_family": 212,
+              "key_index": 28
+            }
+          },
+          "group_tapscript_root": {
+            "$hex": ""
+          },
+          "script_key": {
+            "pub_key": {
+              "$hex": "68e6a569b5c8c1c147991710d9f10442179a91e8c7af8aef330621cb41f32aff"
+            },
+            "key_desc": {
+              "raw_key_bytes": {
+                "$hex": "0339f6b1c1b65de86fce6964e18ef904d7f8f3823635128cfb6d4a9a62aaed9860"
+              },
+              "key_loc": {
+                "key_family": 212,
+                "key_index": 29
+              }
+            },
+            "tap_tweak": {
+              "$hex": ""
+            },
+            "type": "SCRIPT_KEY_BIP86"
+          }
+        }
+      ],
+      "batch_key": {
+        "$hex": "020ede99548c5361d3ff977ca0eceb5c7de355ca209351231bde3586b70aa98f2f"
+      },
+      "batch_txid": "",
+      "state": "BATCH_STATE_PENDING",
+      "created_at": "1792101175",
+      "height_hint": 113,
+      "batch_psbt": {
+        "$hex": "70736274ff0100890200000001998b9d23cb406e551c3c466ca9056dd7dda316675536630450086a1ed347c41b00000000000000000002e80300000000000022512000000000000000000000000000000000000000000000000000000000000000007ded052a0100000022512014e70408747691318b999d01b59bfd7fd42cd49983946f7df84d9436ee68390f000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c39028220603c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f66180000000056000080000000800000008000000000000000002116c28c36a32d0d03b867e4a01074803c2d6a78d7470bce71aedc9ede5a4ef71f6619000000000056000080000000800000008000000000000000000000220203cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c18000000005600008000000080000000800100000005000000010520cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c2107cb87fa3bf7999d11b51347572a7154f0b54db892eb7d3bce71bf9b81ea0d0e6c190000000000560000800000008000000080010000000500000000"
+      }
+    }
+  }
+}
