@@ -39,9 +39,12 @@ const {tapd} = authenticatedTapdGrpc({
 - [burnAsset](#burnasset): Burn asset units
 - [cancelMintBatch](#cancelmintbatch): Cancel the pending mint batch
 - [createAssetAddress](#createassetaddress): Create a Taproot Assets address to receive an asset
+- [createAssetInvoice](#createassetinvoice): Create an invoice that is paid with an asset, over an asset channel
 - [createTapdMacaroon](#createtapdmacaroon): Create a tapd macaroon with specific permissions
 - [decodeAssetAddress](#decodeassetaddress): Decode a Taproot Assets address
+- [decodeAssetPaymentRequest](#decodeassetpaymentrequest): Decode a payment request and get its amount in units of an asset
 - [decodeAssetProof](#decodeassetproof): Decode an asset proof or one proof in an asset proof file
+- [encodeAssetCustomRecords](#encodeassetcustomrecords): Encode the first hop custom records of an asset payment
 - [exportAssetProof](#exportassetproof): Export the proof file of an asset
 - [finalizeMintBatch](#finalizemintbatch): Finalize the pending mint batch, and broadcast the genesis transaction
 - [fundMintBatch](#fundmintbatch): Fund the pending mint batch with a genesis input
@@ -51,21 +54,29 @@ const {tapd} = authenticatedTapdGrpc({
 - [getAssetBurns](#getassetburns): Get the asset burns that this node made
 - [getAssetForwards](#getassetforwards): Get the asset swaps that this edge node forwarded
 - [getAssetGroups](#getassetgroups): Get the asset groups of the assets that this node owns
+- [getAssetInvoices](#getassetinvoices): Get invoices that received an asset, newest first
 - [getAssetMetadata](#getassetmetadata): Get the metadata of an asset
+- [getAssetPayments](#getassetpayments): Get confirmed payments that sent an asset, newest first
 - [getAssetReceives](#getassetreceives): Get the inbound asset transfers to Taproot Assets addresses, newest first
 - [getAssets](#getassets): Get the assets that this node owns
 - [getAssetTransfers](#getassettransfers): Get the outbound asset transfers of this node
 - [getAssetUtxos](#getassetutxos): Get the on-chain outputs that hold the assets of this node
 - [getMintBatches](#getmintbatches): Get mint batches, including pending and cancelled batches
 - [getTapdInfo](#gettapdinfo): Get information about tapd and its lnd node
+- [openAssetChannel](#openassetchannel): Open a channel that is funded with an asset
+- [payAssetInvoice](#payassetinvoice): Pay a payment request with an asset, over an asset channel
 - [registerAssetTransfer](#registerassettransfer): Register an inbound asset transfer that has no Taproot Assets address
 - [sealMintBatch](#sealmintbatch): Seal the pending mint batch with asset group witnesses
 - [sendAsset](#sendasset): Send assets to Taproot Assets addresses
+- [sendAssetKeysend](#sendassetkeysend): Send an asset to a channel peer with a keysend payment
 - [setTapdDebugLevel](#settapddebuglevel): Set the log level of tapd
 - [stopTapd](#stoptapd): Stop tapd
+- [subscribeToAssetInvoices](#subscribetoassetinvoices): Subscribe to invoices that receive an asset
+- [subscribeToAssetPayments](#subscribetoassetpayments): Subscribe to the status of current outgoing asset payments
 - [subscribeToAssetReceives](#subscribetoassetreceives): Subscribe to inbound asset transfers to Taproot Assets addresses
 - [subscribeToAssetSends](#subscribetoassetsends): Subscribe to the state changes of outbound asset sends
 - [subscribeToMintEvents](#subscribetomintevents): Subscribe to the state changes of mint batches
+- [subscribeToPastAssetPayment](#subscribetopastassetpayment): Subscribe to the status of a past asset payment
 - [subscribeToRfqEvents](#subscribetorfqevents): Subscribe to RFQ events
 - [unpackAssetProofFile](#unpackassetprooffile): Get the individual proofs in an asset proof file
 - [verifyAssetProof](#verifyassetproof): Verify an asset proof file
@@ -527,6 +538,86 @@ import {createAssetAddress} from 'tapass';
 const {address} = await createAssetAddress({amount: '100', asset_id, tapd});
 ```
 
+### createAssetInvoice
+
+Create an invoice that is paid with an asset, over an asset channel
+
+The channel peer buys the asset for satoshis, at a rate in an RFQ quote
+
+tapd must run inside litd, with lnd and tapd in integrated mode
+
+Requires `channels:write` permission
+
+An `asset_id` or a `group_key` is required, but not both
+
+One of `amount`, `tokens`, or `mtokens` is required. With `tokens` or
+`mtokens`, the payer pays that satoshi value in the asset.
+
+Use an `id` to make a hold invoice. A hold invoice has no `secret`.
+
+A random `secret` is used when there is no `secret` and no `id`
+
+When there is no `min_amount`, the quote must fill the `amount`. Use `"0"` to
+accept a partial fill.
+
+`min_amount`, `min_rate`, and `is_fill_or_kill` need tapd v0.8.0 or later.
+Older tapd versions ignore them.
+
+    {
+      [amount]: <Asset Units To Receive Numeric String>
+      [asset_id]: <Asset Id Hex String>
+      [cltv_delta]: <Final CLTV Delta Number>
+      [description]: <Invoice Description String>
+      [description_hash]: <Hashed Description of Payment Hex String>
+      [expires_at]: <Expires At ISO 8601 Date String>
+      [group_key]: <Asset Group Key Hex String>
+      [id]: <Hold Invoice Payment Hash Hex String>
+      [is_fill_or_kill]: <Reject a Quote That Does Not Fill the Amount Bool>
+      [is_including_private_channels]: <Include Private Channels Bool>
+      [min_amount]: <Minimum Asset Units Numeric String>
+      [min_rate]: <Minimum Rate Asset Units Per BTC Decimal String>
+      [mtokens]: <Millitokens To Receive String>
+      [peer_public_key]: <RFQ Peer Public Key Hex String>
+      [price_oracle_metadata]: <Price Oracle Metadata String>
+      [secret]: <Payment Preimage Hex String>
+      tapd: <Authenticated tapd API Object>
+      [tokens]: <Tokens To Receive Number>
+    }
+
+    @returns via cbk or Promise
+    {
+      [chain_address]: <Fallback Chain Address String>
+      created_at: <Created At ISO 8601 Date String>
+      [description]: <Invoice Description String>
+      id: <Payment Hash Hex String>
+      mtokens: <Millitokens To Receive String>
+      [payment]: <Payment Identifier Hex String>
+      [quote]: {
+        [accepted_max_amount]: <Accepted Maximum Asset Units Numeric String>
+        [asset_id]: <Asset Id Hex String>
+        channel: <Channel To Pay Over Standard Format Channel Id String>
+        expires_at: <Quote Expires At ISO 8601 Date String>
+        [group_key]: <Asset Group BIP340 Public Key Hex String>
+        id: <Quote Request Id Hex String>
+        max_amount: <Maximum Asset Units Numeric String>
+        min_transportable_amount: <Minimum Asset Units In One HTLC Numeric String>
+        peer_public_key: <Peer Public Key Hex String>
+        [price_oracle_metadata]: <Price Oracle Metadata String>
+        rate: <Ask Rate Asset Units Per BTC Exact Decimal String>
+      }
+      request: <BOLT 11 Encoded Payment Request String>
+      [secret]: <Payment Preimage Hex String>
+      tokens: <Tokens To Receive Rounded Down Number>
+    }
+
+Example:
+
+```js
+import {createAssetInvoice} from 'tapass';
+
+const {request} = await createAssetInvoice({amount: '100', asset_id, tapd});
+```
+
 ### createTapdMacaroon
 
 Create a tapd macaroon with specific permissions
@@ -601,6 +692,75 @@ import {decodeAssetAddress} from 'tapass';
 const {amount, asset_id} = await decodeAssetAddress({address, tapd});
 ```
 
+### decodeAssetPaymentRequest
+
+Decode a payment request and get its amount in units of an asset
+
+tapd asks its price oracle for the asset rate
+
+Requires `channels:read` permission
+
+An `asset_id` or a `group_key` is required, but not both
+
+    {
+      [asset_id]: <Asset Id Hex String>
+      [group_key]: <Asset Group Key Hex String>
+      [price_oracle_metadata]: <Price Oracle Metadata String>
+      request: <BOLT 11 Payment Request String>
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @returns via cbk or Promise
+    {
+      asset: {
+        amount: <Asset Units To Pay Numeric String>
+        [decimal_display]: <Decimal Places To Show Number>
+        [group_key]: <Asset Group Key Hex String>
+        id: <Asset Id Hex String>
+        is_collectible: <Asset Is Collectible Bool>
+        meta_hash: <Asset Metadata Hash Hex String>
+        name: <Asset Name String>
+      }
+      chain_address: <Fallback Chain Address String>
+      [cltv_delta]: <Final CLTV Delta Number>
+      created_at: <Payment Request Created At ISO 8601 Date String>
+      description: <Payment Description String>
+      description_hash: <Payment Longer Description Hash Hex String>
+      destination: <Public Key Hex String>
+      expires_at: <ISO 8601 Date String>
+      features: [{
+        bit: <BOLT 09 Feature Bit Number>
+        is_known: <Feature is Known Bool>
+        is_required: <Feature Support is Required To Pay Bool>
+        type: <Feature Type String>
+      }]
+      id: <Payment Hash Hex String>
+      is_expired: <Invoice is Expired Bool>
+      mtokens: <Requested Millitokens String>
+      [payment]: <Payment Identifier Hex Encoded String>
+      routes: [[{
+        [base_fee_mtokens]: <Base Routing Fee In Millitokens String>
+        [channel]: <Standard Format Channel Id String>
+        [cltv_delta]: <CLTV Blocks Delta Number>
+        [fee_rate]: <Fee Rate In Millitokens Per Million Number>
+        public_key: <Forward Edge Public Key Hex String>
+      }]]
+      safe_tokens: <Requested Tokens Rounded Up Number>
+      tokens: <Requested Tokens Rounded Down Number>
+    }
+
+Example:
+
+```js
+import {decodeAssetPaymentRequest} from 'tapass';
+
+const {asset, tokens} = await decodeAssetPaymentRequest({
+  asset_id,
+  request,
+  tapd,
+});
+```
+
 ### decodeAssetProof
 
 Decode an asset proof or one proof in an asset proof file
@@ -655,6 +815,47 @@ Example:
 import {decodeAssetProof} from 'tapass';
 
 const {asset} = await decodeAssetProof({proof, tapd});
+```
+
+### encodeAssetCustomRecords
+
+Encode the first hop custom records of an asset payment
+
+Use the records as the first hop custom records of an lnd payment, to pay
+with assets over an asset channel
+
+This method does not need a permission
+
+An `rfq_id` is for a payment that uses an accepted RFQ quote
+
+`assets` or an `rfq_id` is required
+
+    {
+      [assets]: [{
+        amount: <Asset Units Numeric String>
+        asset_id: <Asset Id Hex String>
+      }]
+      [rfq_id]: <RFQ Quote Id Hex String>
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @returns via cbk or Promise
+    {
+      records: [{
+        type: <Record Type Number String>
+        value: <Record Value Hex String>
+      }]
+    }
+
+Example:
+
+```js
+import {encodeAssetCustomRecords} from 'tapass';
+
+const {records} = await encodeAssetCustomRecords({
+  assets: [{amount: '100', asset_id}],
+  tapd,
+});
 ```
 
 ### exportAssetProof
@@ -1076,6 +1277,77 @@ import {getAssetGroups} from 'tapass';
 const {groups} = await getAssetGroups({tapd});
 ```
 
+### getAssetInvoices
+
+Get invoices that received an asset, newest first
+
+lnd pages over all invoices, then tapd keeps only the asset invoices, so a
+page can have fewer invoices than the limit. Use `next` until it is empty.
+
+Requires `channels:read` permission
+
+This method needs tapd v0.8.1 or later
+
+The invoice fields are the same as in lightning getInvoices
+
+    {
+      [created_after]: <Created At or After ISO 8601 Date String>
+      [created_before]: <Created At or Before ISO 8601 Date String>
+      [is_unconfirmed]: <Only Unconfirmed Invoices Bool>
+      [limit]: <Page Result Limit Number>
+      tapd: <Authenticated tapd API Object>
+      [token]: <Opaque Paging Token String>
+    }
+
+    @returns via cbk or Promise
+    {
+      invoices: [{
+        assets: [{
+          amount: <Asset Units Numeric String>
+          asset_id: <Asset Id Hex String>
+          [group_key]: <Asset Group Key Hex String>
+        }]
+        [chain_address]: <Fallback Chain Address String>
+        cltv_delta: <Final CLTV Delta Number>
+        [confirmed_at]: <Settled at ISO 8601 Date String>
+        [confirmed_index]: <Confirmed Index Number>
+        created_at: <ISO 8601 Date String>
+        description: <Description String>
+        [description_hash]: <Description Hash Hex String>
+        expires_at: <ISO 8601 Date String>
+        features: [{
+          bit: <BOLT 09 Feature Bit Number>
+          is_known: <Feature is Known Bool>
+          is_required: <Feature Support is Required To Pay Bool>
+          type: <Feature Type String>
+        }]
+        id: <Payment Hash Hex String>
+        index: <Invoice Add Index Number>
+        [is_canceled]: <Invoice is Canceled Bool>
+        is_confirmed: <Invoice is Confirmed Bool>
+        [is_held]: <HTLC is Held Bool>
+        is_private: <Invoice is Private Bool>
+        [is_push]: <Invoice is Push Payment Bool>
+        mtokens: <Millitokens String>
+        [payment]: <Payment Identifying Secret Hex String>
+        payments: [<lightning Invoice Payment Object>]
+        received: <Received Tokens Number>
+        received_mtokens: <Received Millitokens String>
+        [request]: <Bolt 11 Invoice String>
+        secret: <Secret Preimage Hex String>
+        tokens: <Tokens Number>
+      }]
+      [next]: <Next Opaque Paging Token String>
+    }
+
+Example:
+
+```js
+import {getAssetInvoices} from 'tapass';
+
+const {invoices, next} = await getAssetInvoices({limit: 10, tapd});
+```
+
 ### getAssetMetadata
 
 Get the metadata of an asset
@@ -1111,6 +1383,64 @@ Example:
 import {getAssetMetadata} from 'tapass';
 
 const {data} = await getAssetMetadata({asset_id, tapd});
+```
+
+### getAssetPayments
+
+Get confirmed payments that sent an asset, newest first
+
+lnd pages over all payments, then tapd keeps only the asset payments, so a
+page can have fewer payments than the limit. Use `next` until it is empty.
+
+Requires `channels:read` permission
+
+This method needs tapd v0.8.1 or later
+
+The payment fields are the same as in lightning getPayments
+
+    {
+      [created_after]: <Created At or After ISO 8601 Date String>
+      [created_before]: <Created At or Before ISO 8601 Date String>
+      [limit]: <Page Result Limit Number>
+      tapd: <Authenticated tapd API Object>
+      [token]: <Opaque Paging Token String>
+    }
+
+    @returns via cbk or Promise
+    {
+      payments: [{
+        assets: [{
+          amount: <Asset Units Numeric String>
+          asset_id: <Asset Id Hex String>
+          [group_key]: <Asset Group Key Hex String>
+        }]
+        attempts: [<lightning Payment Attempt Object>]
+        [confirmed_at]: <Payment Confirmed At ISO 8601 Date String>
+        created_at: <Payment at ISO-8601 Date String>
+        [destination]: <Destination Node Public Key Hex String>
+        [fee]: <Paid Routing Fee Rounded Down Tokens Number>
+        [fee_mtokens]: <Paid Routing Fee in Millitokens String>
+        hops: [<First Route Hop Public Key Hex String>]
+        id: <Payment Preimage Hash String>
+        [index]: <Payment Add Index Number>
+        is_confirmed: <Payment is Confirmed Bool>
+        is_outgoing: <Transaction Is Outgoing Bool>
+        mtokens: <Millitokens Sent to Destination String>
+        [request]: <BOLT 11 Payment Request String>
+        [safe_fee]: <Payment Forwarding Fee Rounded Up Tokens Number>
+        safe_tokens: <Payment Tokens Rounded Up Number>
+        [secret]: <Payment Preimage Hex String>
+        tokens: <Rounded Down Tokens Sent to Destination Number>
+      }]
+      [next]: <Next Opaque Paging Token String>
+    }
+
+Example:
+
+```js
+import {getAssetPayments} from 'tapass';
+
+const {payments, next} = await getAssetPayments({limit: 10, tapd});
 ```
 
 ### getAssetReceives
@@ -1504,6 +1834,141 @@ import {getTapdInfo} from 'tapass';
 const {is_synced_to_chain, version} = await getTapdInfo({tapd});
 ```
 
+### openAssetChannel
+
+Open a channel that is funded with an asset
+
+The peer must be connected. tapd sets the satoshi amount of the channel.
+
+tapd must run inside litd, with lnd and tapd in integrated mode
+
+Requires `channels:write` permission
+
+An `asset_id` or a `group_key` is required, but not both
+
+`give_tokens` is a gift to the peer, in the same way as with openChannel
+
+    {
+      amount: <Asset Units To Fund the Channel With Numeric String>
+      [asset_id]: <Asset Id Hex String>
+      chain_fee_tokens_per_vbyte: <Chain Fee Tokens Per Virtual Byte Number>
+      [give_tokens]: <Tokens To Give To the Peer Number>
+      [group_key]: <Asset Group Key Hex String>
+      partner_public_key: <Connected Peer Public Key Hex String>
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @returns via cbk or Promise
+    {
+      transaction_id: <Funding Transaction Id Hex String>
+      transaction_vout: <Funding Transaction Output Index Number>
+    }
+
+Example:
+
+```js
+import {openAssetChannel} from 'tapass';
+
+const {transaction_id} = await openAssetChannel({
+  amount: '1000',
+  asset_id,
+  chain_fee_tokens_per_vbyte: 2,
+  partner_public_key,
+  tapd,
+});
+```
+
+### payAssetInvoice
+
+Pay a payment request with an asset, over an asset channel
+
+The channel peer sells satoshis for the asset, at a rate in an RFQ quote
+
+tapd must run inside litd, with lnd and tapd in integrated mode
+
+Requires `channels:write` permission
+
+An `asset_id` or a `group_key` is required, but not both
+
+Use an `rfq_id` of an accepted sell quote to pay with that quote
+
+Without `max_fee` or `max_fee_mtokens`, only routes with no fee are used,
+the same as lnd
+
+The default `pathfinding_timeout` is 25 seconds. The default `max_paths` is 1.
+
+tapd rejects a payment that is too small to carry one asset unit, unless
+`is_overpay_allowed` is set
+
+    {
+      [asset_id]: <Asset Id Hex String>
+      [group_key]: <Asset Group Key Hex String>
+      [is_overpay_allowed]: <Allow a Payment Above the Request Amount Bool>
+      [max_fee]: <Maximum Fee Tokens Number>
+      [max_fee_mtokens]: <Maximum Fee Millitokens String>
+      [max_paths]: <Maximum Payment Paths Number>
+      [pathfinding_timeout]: <Time To Spend Finding a Route Milliseconds Number>
+      [peer_public_key]: <RFQ Peer Public Key Hex String>
+      [price_oracle_metadata]: <Price Oracle Metadata String>
+      request: <BOLT 11 Payment Request String>
+      [rfq_id]: <Accepted Sell Quote Id Hex String>
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @returns via cbk or Promise
+    {
+      confirmed_at: <Payment Confirmed At ISO 8601 Date String>
+      created_at: <Payment Created At ISO 8601 Date String>
+      destination: <Payment Destination Public Key Hex String>
+      fee: <Total Fee Tokens Paid Rounded Down Number>
+      fee_mtokens: <Total Fee Millitokens Paid String>
+      hops: [{
+        channel: <Standard Format Channel Id String>
+        channel_capacity: <Channel Capacity Tokens Number>
+        fee: <Fee Tokens Rounded Down Number>
+        fee_mtokens: <Fee Millitokens String>
+        forward: <Forward Tokens Number>
+        forward_mtokens: <Forward Millitokens String>
+        public_key: <Public Key Hex String>
+        timeout: <Timeout Block Height Number>
+      }]
+      id: <Payment Hash Hex String>
+      [index]: <Payment Index Number String>
+      mtokens: <Total Millitokens Paid String>
+      paths: [{
+        fee_mtokens: <Total Fee Millitokens Paid String>
+        hops: [<Hop Object>]
+        mtokens: <Total Millitokens Paid String>
+      }]
+      quotes: [{
+        [accepted_max_mtokens]: <Accepted Maximum Payment Millitokens String>
+        amount: <Asset Units Numeric String>
+        [asset_id]: <Asset Id Hex String>
+        channel: <Channel To Pay Over Standard Format Channel Id String>
+        expires_at: <Quote Expires At ISO 8601 Date String>
+        [group_key]: <Asset Group BIP340 Public Key Hex String>
+        id: <Quote Request Id Hex String>
+        min_transportable_mtokens: <Minimum Millitokens To Send One Unit String>
+        peer_public_key: <Peer Public Key Hex String>
+        [price_oracle_metadata]: <Price Oracle Metadata String>
+        rate: <Bid Rate Asset Units Per BTC Exact Decimal String>
+      }]
+      [request]: <BOLT 11 Payment Request String>
+      safe_fee: <Total Fee Tokens Paid Rounded Up Number>
+      safe_tokens: <Total Tokens Paid, Rounded Up Number>
+      secret: <Payment Preimage Hex String>
+      timeout: <Expiration Block Height Number>
+      tokens: <Total Tokens Paid Rounded Down Number>
+    }
+
+Example:
+
+```js
+import {payAssetInvoice} from 'tapass';
+
+const {fee, secret} = await payAssetInvoice({asset_id, request, tapd});
+```
+
 ### registerAssetTransfer
 
 Register an inbound asset transfer that has no Taproot Assets address
@@ -1718,6 +2183,87 @@ import {sendAsset} from 'tapass';
 const transfer = await sendAsset({addresses: [{address}], tapd});
 ```
 
+### sendAssetKeysend
+
+Send an asset to a channel peer with a keysend payment
+
+tapd only sends an asset keysend payment to a direct asset channel peer
+
+tapd must run inside litd, with lnd and tapd in integrated mode
+
+Requires `channels:write` permission
+
+An `asset_id` or a `group_key` is required, but not both
+
+The default `tokens` is 354, the smallest amount that tapd accepts
+
+A random `secret` is used when there is no `secret`
+
+Without `max_fee` or `max_fee_mtokens`, only routes with no fee are used,
+the same as lnd
+
+    {
+      amount: <Asset Units To Send Numeric String>
+      [asset_id]: <Asset Id Hex String>
+      destination: <Destination Peer Public Key Hex String>
+      [group_key]: <Asset Group Key Hex String>
+      [max_fee]: <Maximum Fee Tokens Number>
+      [max_fee_mtokens]: <Maximum Fee Millitokens String>
+      [max_paths]: <Maximum Payment Paths Number>
+      [pathfinding_timeout]: <Time To Spend Finding a Route Milliseconds Number>
+      [peer_public_key]: <RFQ Peer Public Key Hex String>
+      [price_oracle_metadata]: <Price Oracle Metadata String>
+      [secret]: <Payment Preimage Hex String>
+      tapd: <Authenticated tapd API Object>
+      [tokens]: <Tokens That Carry the Asset Units Number>
+    }
+
+    @returns via cbk or Promise
+    {
+      confirmed_at: <Payment Confirmed At ISO 8601 Date String>
+      created_at: <Payment Created At ISO 8601 Date String>
+      destination: <Payment Destination Public Key Hex String>
+      fee: <Total Fee Tokens Paid Rounded Down Number>
+      fee_mtokens: <Total Fee Millitokens Paid String>
+      hops: [{
+        channel: <Standard Format Channel Id String>
+        channel_capacity: <Channel Capacity Tokens Number>
+        fee: <Fee Tokens Rounded Down Number>
+        fee_mtokens: <Fee Millitokens String>
+        forward: <Forward Tokens Number>
+        forward_mtokens: <Forward Millitokens String>
+        public_key: <Public Key Hex String>
+        timeout: <Timeout Block Height Number>
+      }]
+      id: <Payment Hash Hex String>
+      [index]: <Payment Index Number String>
+      mtokens: <Total Millitokens Paid String>
+      paths: [{
+        fee_mtokens: <Total Fee Millitokens Paid String>
+        hops: [<Hop Object>]
+        mtokens: <Total Millitokens Paid String>
+      }]
+      quotes: [<Accepted Sell Quote Object>]
+      safe_fee: <Total Fee Tokens Paid Rounded Up Number>
+      safe_tokens: <Total Tokens Paid, Rounded Up Number>
+      secret: <Payment Preimage Hex String>
+      timeout: <Expiration Block Height Number>
+      tokens: <Total Tokens Paid Rounded Down Number>
+    }
+
+Example:
+
+```js
+import {sendAssetKeysend} from 'tapass';
+
+const {fee, secret} = await sendAssetKeysend({
+  amount: '100',
+  asset_id,
+  destination,
+  tapd,
+});
+```
+
 ### setTapdDebugLevel
 
 Set the log level of tapd
@@ -1760,6 +2306,118 @@ Example:
 import {stopTapd} from 'tapass';
 
 await stopTapd({tapd});
+```
+
+### subscribeToAssetInvoices
+
+Subscribe to invoices that receive an asset
+
+tapd only sends updates of invoices that involve an asset
+
+Use `added_after` and `confirmed_after` to get past updates after an index
+
+Requires `channels:read` permission
+
+This method needs tapd v0.8.1 or later
+
+The invoice fields are the same as in lightning getInvoices
+
+    {
+      [added_after]: <Invoice Add Index To Start After Number>
+      [confirmed_after]: <Invoice Confirmed Index To Start After Number>
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @throws
+    <Error>
+
+    @returns
+    <Subscription EventEmitter Object>
+
+    @event 'invoice_updated'
+    {
+      assets: [{
+        amount: <Asset Units Numeric String>
+        asset_id: <Asset Id Hex String>
+        [group_key]: <Asset Group Key Hex String>
+      }]
+      created_at: <ISO 8601 Date String>
+      id: <Payment Hash Hex String>
+      index: <Invoice Add Index Number>
+      is_confirmed: <Invoice is Confirmed Bool>
+      ...<lightning Invoice Object>
+    }
+
+Example:
+
+```js
+import {subscribeToAssetInvoices} from 'tapass';
+
+const sub = subscribeToAssetInvoices({tapd});
+
+sub.on('invoice_updated', invoice => console.log(invoice));
+```
+
+### subscribeToAssetPayments
+
+Subscribe to the status of current outgoing asset payments
+
+The events are the same as in lightning subscribeToPayments, and each
+event also has the asset amounts of the payment
+
+tapd only sends updates of payments that involve an asset
+
+Requires `channels:read` permission
+
+This method needs tapd v0.8.1 or later
+
+    {
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @throws
+    <Error>
+
+    @returns
+    <Subscription EventEmitter Object>
+
+    @event 'confirmed'
+    {
+      assets: [{
+        amount: <Asset Units Numeric String>
+        asset_id: <Asset Id Hex String>
+        [group_key]: <Asset Group Key Hex String>
+      }]
+      confirmed_at: <Payment Confirmed At ISO 8601 Date String>
+      ...<lightning Confirmed Payment Object>
+    }
+
+    @event 'failed'
+    {
+      assets: [<Asset Amount Object>]
+      id: <Payment Hash Hex String>
+      is_canceled: <Payment Canceled Bool>
+      is_insufficient_balance: <Failed Due To Lack of Balance Bool>
+      is_invalid_payment: <Failed Due to Payment Rejected At Destination Bool>
+      is_pathfinding_timeout: <Failed Due to Pathfinding Timeout Bool>
+      is_route_not_found: <Failed Due to Absence of Path Through Graph Bool>
+    }
+
+    @event 'paying'
+    {
+      assets: [<Asset Amount Object>]
+      created_at: <Payment Created At ISO 8601 Date String>
+      ...<lightning Pending Payment Object>
+    }
+
+Example:
+
+```js
+import {subscribeToAssetPayments} from 'tapass';
+
+const sub = subscribeToAssetPayments({tapd});
+
+sub.on('confirmed', payment => console.log(payment));
 ```
 
 ### subscribeToAssetReceives
@@ -1988,6 +2646,69 @@ import {subscribeToMintEvents} from 'tapass';
 const sub = subscribeToMintEvents({tapd});
 
 sub.on('batch', ({at, batch}) => console.log(at, batch.state));
+```
+
+### subscribeToPastAssetPayment
+
+Subscribe to the status of a past asset payment
+
+The events are the same as in lightning subscribeToPastPayment, and each
+event also has the asset amounts of the payment
+
+tapd only sends updates of a payment that involves an asset
+
+Requires `channels:read` permission
+
+This method needs tapd v0.8.1 or later
+
+    {
+      id: <Payment Hash Hex String>
+      tapd: <Authenticated tapd API Object>
+    }
+
+    @throws
+    <Error>
+
+    @returns
+    <Subscription EventEmitter Object>
+
+    @event 'confirmed'
+    {
+      assets: [{
+        amount: <Asset Units Numeric String>
+        asset_id: <Asset Id Hex String>
+        [group_key]: <Asset Group Key Hex String>
+      }]
+      confirmed_at: <Payment Confirmed At ISO 8601 Date String>
+      ...<lightning Confirmed Payment Object>
+    }
+
+    @event 'failed'
+    {
+      assets: [<Asset Amount Object>]
+      id: <Payment Hash Hex String>
+      is_canceled: <Payment Canceled Bool>
+      is_insufficient_balance: <Failed Due To Lack of Balance Bool>
+      is_invalid_payment: <Failed Due to Payment Rejected At Destination Bool>
+      is_pathfinding_timeout: <Failed Due to Pathfinding Timeout Bool>
+      is_route_not_found: <Failed Due to Absence of Path Through Graph Bool>
+    }
+
+    @event 'paying'
+    {
+      assets: [<Asset Amount Object>]
+      created_at: <Payment Created At ISO 8601 Date String>
+      ...<lightning Pending Payment Object>
+    }
+
+Example:
+
+```js
+import {subscribeToPastAssetPayment} from 'tapass';
+
+const sub = subscribeToPastAssetPayment({id, tapd});
+
+sub.on('confirmed', payment => console.log(payment));
 ```
 
 ### subscribeToRfqEvents
