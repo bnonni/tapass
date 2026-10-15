@@ -1,5 +1,6 @@
 export * from './address/index.js';
 export * from './assets/index.js';
+export * from './channels/index.js';
 export * from './daemon/index.js';
 export * from './info/index.js';
 export * from './mint/index.js';

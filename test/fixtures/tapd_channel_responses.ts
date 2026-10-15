@@ -1,3 +1,4 @@
+import {EventEmitter} from 'node:events';
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -20,6 +21,8 @@ const reviver = (_: string, value: any) => {
 /** Real responses from the Polar regtest nodes, with the v0.8.5 protos
 
   decodeAssetPayReq: tapd v0.7.0 DecodeAssetPayReq of an invoice of alice
+  knownPreimageRequest: lnd v0.20.0 payment request of alice, with a known
+    preimage of 32 0x11 bytes
   lndInvoice: lnd v0.20.0 open invoice of alice, from lnd ListInvoices
 */
 export const responses: Record<string, any> = JSON.parse(
@@ -156,4 +159,21 @@ export const payment = {
   destination,
   id: hash.toString('hex'),
   secret: preimage.toString('hex'),
+};
+
+/** Fake stream that sends events after the caller adds its listeners
+
+  [[<Event Name String>, <Event Data Object>]]
+
+  @returns
+  <EventEmitter Object With a Cancel Method>
+*/
+export const fakeStream = (events: [string, unknown][]) => {
+  const stream = Object.assign(new EventEmitter(), {cancel: () => {}});
+
+  setImmediate(() =>
+    events.forEach(([event, data]) => stream.emit(event, data)),
+  );
+
+  return stream;
 };

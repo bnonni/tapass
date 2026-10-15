@@ -116,5 +116,9 @@
     "is_amp": false,
     "is_blinded": false,
     "blinded_path_config": null
+  },
+  "knownPreimageRequest": {
+    "preimage": "1111111111111111111111111111111111111111111111111111111111111111",
+    "request": "lnbcrt20u1p4dz57epp5qt2yngclhvn8ere496vk3fu78e0ujhqmh649qt7kg48tmedyhmwqdq4v9ehxet5945kuan0d93k2cqzzsxqyz5vqsp5g5rq9w5r6f2cdsan7ajukyl57ru44hvyc0uj0c7dvywn8hqczcmq9qxpqysgq2n5p8pg640e6fe64ldpezez7y00zy069vepn62lyttg9t58gqtgnqgt87gd0g2jhuzrpv7hj2jv39hzsfwr8hunsmm5gs60cu8nf66cqxwedlp"
   }
 }

@@ -1,7 +1,11 @@
 export * from './tapd_grpc/index.js';
 export * from './tapd_methods/index.js';
 export type {Address} from './tapd_responses/index.js';
+export type {AssetAmount} from './tapd_responses/index.js';
 export type {AssetForward} from './tapd_responses/index.js';
+export type {AssetInvoice} from './tapd_responses/index.js';
+export type {AssetPaymentRequest} from './tapd_responses/index.js';
+export type {AssetPayment} from './tapd_responses/index.js';
 export type {Asset} from './tapd_responses/index.js';
 export type {Balance} from './tapd_responses/index.js';
 export type {Batch} from './tapd_responses/index.js';
