@@ -1,0 +1,120 @@
+{
+  "decodeAssetPayReq": {
+    "asset_amount": "5000",
+    "decimal_display": {
+      "decimal_display": 0
+    },
+    "asset_group": null,
+    "genesis_info": {
+      "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+      "name": "smoke-coin",
+      "meta_hash": {
+        "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+      },
+      "asset_id": {
+        "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+      },
+      "asset_type": "NORMAL",
+      "output_index": 0
+    },
+    "pay_req": {
+      "route_hints": [],
+      "blinded_paths": [],
+      "features": {
+        "8": {
+          "name": "tlv-onion",
+          "is_required": true,
+          "is_known": true
+        },
+        "14": {
+          "name": "payment-addr",
+          "is_required": true,
+          "is_known": true
+        },
+        "17": {
+          "name": "multi-path-payments",
+          "is_required": false,
+          "is_known": true
+        },
+        "25": {
+          "name": "route-blinding",
+          "is_required": false,
+          "is_known": true
+        }
+      },
+      "destination": "02cf61838510d5654b99eba1c48c0df72fbc0841ccb6735a449e9ac444be7a42f7",
+      "payment_hash": "47dc192123551b37f18beccf1793a7dbe13451ae6783c2779757132f44a5cbe3",
+      "num_satoshis": "5000",
+      "timestamp": "1792103136",
+      "expiry": "86400",
+      "description": "smoke",
+      "description_hash": "",
+      "fallback_addr": "",
+      "cltv_expiry": "80",
+      "payment_addr": {
+        "$hex": "ba7a2309fe44ac5bbbd1d33796dc7282d7ae69f20929855d87e8f43a75ec362a"
+      },
+      "num_msat": "5000000"
+    }
+  },
+  "lndInvoice": {
+    "route_hints": [],
+    "htlcs": [],
+    "features": {
+      "8": {
+        "name": "tlv-onion",
+        "is_required": true,
+        "is_known": true
+      },
+      "14": {
+        "name": "payment-addr",
+        "is_required": true,
+        "is_known": true
+      },
+      "17": {
+        "name": "multi-path-payments",
+        "is_required": false,
+        "is_known": true
+      },
+      "25": {
+        "name": "route-blinding",
+        "is_required": false,
+        "is_known": true
+      }
+    },
+    "amp_invoice_state": {},
+    "memo": "smoke",
+    "r_preimage": {
+      "$hex": "8e88f360c243f82c0cbdacfb4d1e480320b6dfa1c766e60749d0572a8c43cfd0"
+    },
+    "r_hash": {
+      "$hex": "47dc192123551b37f18beccf1793a7dbe13451ae6783c2779757132f44a5cbe3"
+    },
+    "value": "5000",
+    "settled": false,
+    "creation_date": "1792103136",
+    "settle_date": "0",
+    "payment_request": "lnbcrt50u1p4dz5hqpp5glwpjgfr25dn0uvtan830ya8m0sng5dwv7puyauh2ufj7399e03sdqgwdkk76m9cqzzsxqyz5vqsp5hfazxz07gjk9hw736vmedhrjstt6u60jpy5c2hv8ar6r5a0vxc4q9qxpqysgqcts0e2f28azqx49feadcm4erdqv5dprn6m49vr9nqkmgn7vt5ns5vn89d6rhvwcarjhyv8papczk08gzddkea6fk7keghkqs0f9uytcppkz6a6",
+    "description_hash": {
+      "$hex": ""
+    },
+    "expiry": "86400",
+    "fallback_addr": "",
+    "cltv_expiry": "80",
+    "private": false,
+    "add_index": "1",
+    "settle_index": "0",
+    "amt_paid": "0",
+    "amt_paid_sat": "0",
+    "amt_paid_msat": "0",
+    "state": "OPEN",
+    "value_msat": "5000000",
+    "is_keysend": false,
+    "payment_addr": {
+      "$hex": "ba7a2309fe44ac5bbbd1d33796dc7282d7ae69f20929855d87e8f43a75ec362a"
+    },
+    "is_amp": false,
+    "is_blinded": false,
+    "blinded_path_config": null
+  }
+}
