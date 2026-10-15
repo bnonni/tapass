@@ -1,0 +1,297 @@
+{
+  "exportProof": {
+    "raw_proof_file": {
+      "$hex": "544150460000000001fd03a85441505000040000000002243b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000045000000020f926203e686fca0fd93f90c41cce425e0eedd215e39f1717dee5cc65993ef075c1ec96b1417206b2a4ee66520c70d35926ad84ca14f605397a315e00e9a1429f6c2ed16affff7f200100000006cd020000000001013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b0140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b10000000008220101186aa52d9715af576aae2e79167ff7fe7104040abf62a46172f6b2c2b13414000af500010002543b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b19000000000a736d6f6b652d636f696ef19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd00000000000401000605fe000f42400b690167016500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e020000102102aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b0c9f00040000000002210373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7037401490001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e204220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff022700010202220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0d30012e000400000001022102ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e10503040101110b000100020005040000000016040000006717543b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b19000000000a736d6f6b652d636f696ef19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd0000000000db175d27085897a0b0467fd24d6dbbcc9a5c1c03791c9911c11ce73947497e9e"
+    },
+    "genesis_point": ""
+  },
+  "verifyProof": {
+    "valid": true,
+    "decoded_proof": {
+      "exclusion_proofs": [
+        {
+          "$hex": "000400000001022102ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e10503040101"
+        }
+      ],
+      "challenge_witness": [],
+      "proof_at_depth": 0,
+      "number_of_proofs": 1,
+      "asset": {
+        "prev_witnesses": [],
+        "version": "ASSET_VERSION_V0",
+        "asset_genesis": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        },
+        "amount": "1000000",
+        "lock_time": 0,
+        "relative_lock_time": 0,
+        "script_version": 0,
+        "script_key": {
+          "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+        },
+        "script_key_is_local": false,
+        "asset_group": null,
+        "chain_anchor": {
+          "anchor_tx": {
+            "$hex": "020000000001013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b0140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b100000000"
+          },
+          "anchor_block_hash": "6397509e072b77bdbeda969a26f354e7bfed3ca4eaadc008d082f3b84434ba0a",
+          "anchor_outpoint": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+          "internal_key": {
+            "$hex": "0373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7"
+          },
+          "merkle_root": {
+            "$hex": "eb7ec21b5822232b68cfde57b106b534a8cb1d2cc6a39372f38d312c5d09f09f"
+          },
+          "tapscript_sibling": {
+            "$hex": ""
+          },
+          "block_height": 103,
+          "block_timestamp": "1792093804"
+        },
+        "is_spent": false,
+        "lease_owner": {
+          "$hex": ""
+        },
+        "lease_expiry": "0",
+        "is_burn": false,
+        "script_key_declared_known": false,
+        "script_key_has_script_path": false,
+        "decimal_display": {
+          "decimal_display": 0
+        },
+        "script_key_type": "SCRIPT_KEY_UNKNOWN"
+      },
+      "meta_reveal": null,
+      "tx_merkle_proof": {
+        "$hex": "0101186aa52d9715af576aae2e79167ff7fe7104040abf62a46172f6b2c2b1341400"
+      },
+      "inclusion_proof": {
+        "$hex": "00040000000002210373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7037401490001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e204220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff022700010202220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "split_root_proof": {
+        "$hex": ""
+      },
+      "num_additional_inputs": 0,
+      "is_burn": false,
+      "genesis_reveal": {
+        "genesis_base_reveal": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        }
+      },
+      "group_key_reveal": {
+        "raw_group_key": {
+          "$hex": ""
+        },
+        "tapscript_root": {
+          "$hex": ""
+        }
+      },
+      "alt_leaves": {
+        "$hex": ""
+      }
+    }
+  },
+  "decodeProof": {
+    "decoded_proof": {
+      "exclusion_proofs": [
+        {
+          "$hex": "000400000001022102ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e10503040101"
+        }
+      ],
+      "challenge_witness": [],
+      "proof_at_depth": 0,
+      "number_of_proofs": 1,
+      "asset": {
+        "prev_witnesses": [],
+        "version": "ASSET_VERSION_V0",
+        "asset_genesis": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        },
+        "amount": "1000000",
+        "lock_time": 0,
+        "relative_lock_time": 0,
+        "script_version": 0,
+        "script_key": {
+          "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+        },
+        "script_key_is_local": false,
+        "asset_group": null,
+        "chain_anchor": {
+          "anchor_tx": {
+            "$hex": "020000000001013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b0140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b100000000"
+          },
+          "anchor_block_hash": "6397509e072b77bdbeda969a26f354e7bfed3ca4eaadc008d082f3b84434ba0a",
+          "anchor_outpoint": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+          "internal_key": {
+            "$hex": "0373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7"
+          },
+          "merkle_root": {
+            "$hex": "eb7ec21b5822232b68cfde57b106b534a8cb1d2cc6a39372f38d312c5d09f09f"
+          },
+          "tapscript_sibling": {
+            "$hex": ""
+          },
+          "block_height": 103,
+          "block_timestamp": "1792093804"
+        },
+        "is_spent": false,
+        "lease_owner": {
+          "$hex": ""
+        },
+        "lease_expiry": "0",
+        "is_burn": false,
+        "script_key_declared_known": false,
+        "script_key_has_script_path": false,
+        "decimal_display": {
+          "decimal_display": 0
+        },
+        "script_key_type": "SCRIPT_KEY_UNKNOWN"
+      },
+      "meta_reveal": {
+        "data": {
+          "$hex": ""
+        },
+        "type": "META_TYPE_OPAQUE",
+        "meta_hash": {
+          "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+        }
+      },
+      "tx_merkle_proof": {
+        "$hex": "0101186aa52d9715af576aae2e79167ff7fe7104040abf62a46172f6b2c2b1341400"
+      },
+      "inclusion_proof": {
+        "$hex": "00040000000002210373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7037401490001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e204220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff022700010202220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "split_root_proof": {
+        "$hex": ""
+      },
+      "num_additional_inputs": 0,
+      "is_burn": false,
+      "genesis_reveal": {
+        "genesis_base_reveal": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        }
+      },
+      "group_key_reveal": {
+        "raw_group_key": {
+          "$hex": ""
+        },
+        "tapscript_root": {
+          "$hex": ""
+        }
+      },
+      "alt_leaves": {
+        "$hex": ""
+      }
+    }
+  },
+  "unpackProofFile": {
+    "raw_proofs": [
+      {
+        "$hex": "5441505000040000000002243b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000045000000020f926203e686fca0fd93f90c41cce425e0eedd215e39f1717dee5cc65993ef075c1ec96b1417206b2a4ee66520c70d35926ad84ca14f605397a315e00e9a1429f6c2ed16affff7f200100000006cd020000000001013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b0140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b10000000008220101186aa52d9715af576aae2e79167ff7fe7104040abf62a46172f6b2c2b13414000af500010002543b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b19000000000a736d6f6b652d636f696ef19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd00000000000401000605fe000f42400b690167016500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e020000102102aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b0c9f00040000000002210373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7037401490001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e204220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff022700010202220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0d30012e000400000001022102ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e10503040101110b000100020005040000000016040000006717543b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b19000000000a736d6f6b652d636f696ef19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd0000000000"
+      }
+    ]
+  },
+  "decodeAddr": {
+    "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssyp4jlj3u0dxf2652tl6435flw40sgay2e4st3jnv2pf9fy2k22g4pqss9e9w4vfafjmhf4ylng5fz8h65ahmtcq6g5534hm5sjhu02nks0zqpgqkgrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xvuwve2j",
+    "asset_id": {
+      "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+    },
+    "asset_type": "NORMAL",
+    "amount": "100",
+    "group_key": {
+      "$hex": ""
+    },
+    "script_key": {
+      "$hex": "0206b2fca3c7b4c956a8a5ff558d13f755f04748acd60b8ca6c505254915652915"
+    },
+    "internal_key": {
+      "$hex": "02e4aeab13d4cb774d49f9a28911efaa76fb5e01a45291adf7484afc7aa7683c40"
+    },
+    "tapscript_sibling": {
+      "$hex": ""
+    },
+    "taproot_output_key": {
+      "$hex": "0a1e95996a4a8e5bbefbdd78c73f71d53fe887a9b9d2595daf45401b4d5ba522"
+    },
+    "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+    "asset_version": "ASSET_VERSION_V0",
+    "address_version": "ADDR_VERSION_V1"
+  },
+  "addrReceives": {
+    "events": []
+  },
+  "exportProofMissing": {
+    "error": {
+      "code": 2,
+      "details": "unable to find proof"
+    }
+  },
+  "decodeAddrBad": {
+    "error": {
+      "code": 2,
+      "details": "unable to decode addr: invalid character not part of charset: 111"
+    }
+  },
+  "decodeProofBad": {
+    "error": {
+      "code": 2,
+      "details": "invalid raw proof, could not identify decoding format"
+    }
+  },
+  "verifyProofBad": {
+    "error": {
+      "code": 2,
+      "details": "invalid raw proof, expect file, not single encoded mint or transition proof"
+    }
+  },
+  "unpackProofFileBad": {
+    "error": {
+      "code": 2,
+      "details": "unable to decode proof file: unknown proof blob type"
+    }
+  },
+  "decodeProofDepth": {
+    "error": {
+      "code": 2,
+      "details": "invalid depth 9 is greater than latest proof index of 0"
+    }
+  }
+}

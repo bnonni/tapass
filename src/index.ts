@@ -7,4 +7,7 @@ export type {Burn} from './tapd_responses/index.js';
 export type {Group} from './tapd_responses/index.js';
 export type {Metadata} from './tapd_responses/index.js';
 export type {Utxo} from './tapd_responses/index.js';
+export type {Proof} from './tapd_responses/index.js';
+export type {Receive} from './tapd_responses/index.js';
+export type {ReceiveUpdate} from './tapd_responses/index.js';
 export type * from './typescript/index.js';
