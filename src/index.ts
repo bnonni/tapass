@@ -1,3 +1,10 @@
 export * from './tapd_grpc/index.js';
 export * from './tapd_methods/index.js';
+export type {Address} from './tapd_responses/index.js';
+export type {Asset} from './tapd_responses/index.js';
+export type {Balance} from './tapd_responses/index.js';
+export type {Burn} from './tapd_responses/index.js';
+export type {Group} from './tapd_responses/index.js';
+export type {Metadata} from './tapd_responses/index.js';
+export type {Utxo} from './tapd_responses/index.js';
 export type * from './typescript/index.js';
