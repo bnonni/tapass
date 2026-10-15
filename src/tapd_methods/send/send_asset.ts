@@ -1,6 +1,7 @@
 import {auto as asyncAuto} from 'async';
 import {returnResult} from 'asyncjs-util';
 
+import {feeRateAsTokensPerKw} from '../../tapd_requests/index.js';
 import {isConnectionFailure} from '../../tapd_requests/index.js';
 import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {isTapd} from '../../tapd_requests/index.js';
@@ -22,8 +23,6 @@ const {isArray} = Array;
 const isNumeric = (n: unknown) => typeof n === 'string' && /^\d+$/.test(n);
 const method = 'sendAsset';
 const type = 'default';
-const weightUnitsPerVbyte = 4;
-const weightUnitsPerKw = 1e3;
 
 export type SendAssetArgs = AuthenticatedTapdArgs<{
   addresses: {
@@ -57,8 +56,8 @@ type Tasks = {
   address. When an address has an `amount`, tapd v0.8.0 or later is
   necessary.
 
-  tapd rejects a fee rate below 253 tokens per thousand weight units, which is
-  about 1.012 tokens per virtual byte
+  A fee rate below 253 tokens per thousand weight units (about 1.012 tokens
+  per virtual byte) is raised to 253, because tapd rejects a lower rate
 
   {
     addresses: [{
@@ -160,7 +159,6 @@ const sendAsset: TapdMethod<SendAssetArgs, SendAssetResult> = (
         send: [
           'validate',
           ({}, cbk) => {
-            const feeRate = args.fee_tokens_per_vbyte || 0;
             const hasAmounts = args.addresses.some(n => !!n.amount);
 
             // Older tapd versions only know the addresses without amounts
@@ -171,9 +169,7 @@ const sendAsset: TapdMethod<SendAssetArgs, SendAssetResult> = (
                     amount: n.amount || '0',
                     tap_addr: n.address,
                   })),
-              fee_rate: Math.ceil(
-                (feeRate * weightUnitsPerKw) / weightUnitsPerVbyte,
-              ),
+              fee_rate: feeRateAsTokensPerKw(args.fee_tokens_per_vbyte),
               label: args.label || '',
               skip_proof_courier_ping_check: !!args.is_courier_ping_skipped,
               tap_addrs: hasAmounts ? [] : args.addresses.map(n => n.address),

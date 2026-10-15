@@ -26,5 +26,8 @@ export default ({err}: {err?: Err | null}) => {
     return false;
   }
 
-  return err.code === unimplementedCode || err.details === unknownRequestText;
+  return (
+    err.code === unimplementedCode ||
+    String(err.details).includes(unknownRequestText)
+  );
 };

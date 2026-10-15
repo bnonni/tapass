@@ -1,5 +1,4 @@
-const feeRateFloor = 253;
-const vbytesPerKiloWeight = 250;
+import feeRateAsTokensPerKw from './fee_rate_as_tokens_per_kw.js';
 
 type Args = {
   /** Fee Tokens Per Virtual Byte Number */
@@ -39,8 +38,6 @@ type Args = {
   }
 */
 export default (args: Args) => {
-  const feeRate = (args.fee_tokens_per_vbyte || 0) * vbytesPerKiloWeight;
-
   return {
     branch: !args.tapscript_branch
       ? undefined
@@ -48,7 +45,7 @@ export default (args: Args) => {
           left_taphash: Buffer.from(args.tapscript_branch.left, 'hex'),
           right_taphash: Buffer.from(args.tapscript_branch.right, 'hex'),
         },
-    fee_rate: !feeRate ? 0 : Math.max(feeRateFloor, Math.ceil(feeRate)),
+    fee_rate: feeRateAsTokensPerKw(args.fee_tokens_per_vbyte),
     full_tree: !args.tapscript_leaves
       ? undefined
       : {

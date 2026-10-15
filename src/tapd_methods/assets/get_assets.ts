@@ -1,8 +1,8 @@
-import grpc from '@grpc/grpc-js';
 import {auto as asyncAuto} from 'async';
 import {returnResult} from 'asyncjs-util';
 
 import {isConnectionFailure} from '../../tapd_requests/index.js';
+import {isMethodUnsupported} from '../../tapd_requests/index.js';
 import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {isTapd} from '../../tapd_requests/index.js';
 import {scriptKeyTypeQuery} from '../../tapd_requests/index.js';
@@ -26,8 +26,6 @@ const {parse} = JSON;
 const sortDescending = 'SORT_DIRECTION_DESC';
 const {stringify} = JSON;
 const type = 'default';
-const unimplementedCode = grpc.status.UNIMPLEMENTED;
-const unknownRequestError = 'unknown request';
 
 export type GetAssetsArgs = AuthenticatedTapdArgs<{
   /** Asset Id Hex String */
@@ -279,12 +277,8 @@ const getAssets: TapdMethod<GetAssetsArgs, GetAssetsResult> = (
 
               const details = String(err?.details);
 
-              // tapd added FetchAsset in v0.8.0, litd sends "unknown request"
-              const isUnknownMethod =
-                err?.code === unimplementedCode ||
-                details.includes(unknownRequestError);
-
-              if (isFetch && isUnknownMethod) {
+              // tapd added FetchAsset in v0.8.0
+              if (isFetch && isMethodUnsupported({err})) {
                 return cbk([501, 'ExpectedNewerTapdToGetAssetsByAssetId']);
               }
 
