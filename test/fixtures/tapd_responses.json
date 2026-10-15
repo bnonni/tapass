@@ -1,0 +1,404 @@
+{
+  "listAssets": {
+    "assets": [
+      {
+        "prev_witnesses": [],
+        "version": "ASSET_VERSION_V0",
+        "asset_genesis": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        },
+        "amount": "1000000",
+        "lock_time": 0,
+        "relative_lock_time": 0,
+        "script_version": 0,
+        "script_key": {
+          "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+        },
+        "script_key_is_local": true,
+        "asset_group": null,
+        "chain_anchor": {
+          "anchor_tx": {
+            "$hex": "020000000001013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b0140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b100000000"
+          },
+          "anchor_block_hash": "6397509e072b77bdbeda969a26f354e7bfed3ca4eaadc008d082f3b84434ba0a",
+          "anchor_outpoint": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+          "internal_key": {
+            "$hex": "0373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7"
+          },
+          "merkle_root": {
+            "$hex": "eb7ec21b5822232b68cfde57b106b534a8cb1d2cc6a39372f38d312c5d09f09f"
+          },
+          "tapscript_sibling": {
+            "$hex": ""
+          },
+          "block_height": 103,
+          "block_timestamp": "1792093804"
+        },
+        "is_spent": false,
+        "lease_owner": {
+          "$hex": ""
+        },
+        "lease_expiry": "0",
+        "is_burn": false,
+        "script_key_declared_known": true,
+        "script_key_has_script_path": false,
+        "decimal_display": {
+          "decimal_display": 0
+        },
+        "script_key_type": "SCRIPT_KEY_BIP86"
+      }
+    ],
+    "unconfirmed_transfers": "0",
+    "unconfirmed_mints": "0"
+  },
+  "listUtxos": {
+    "managed_utxos": {
+      "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0": {
+        "assets": [
+          {
+            "prev_witnesses": [],
+            "version": "ASSET_VERSION_V0",
+            "asset_genesis": {
+              "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+              "name": "smoke-coin",
+              "meta_hash": {
+                "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+              },
+              "asset_id": {
+                "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+              },
+              "asset_type": "NORMAL",
+              "output_index": 0
+            },
+            "amount": "1000000",
+            "lock_time": 0,
+            "relative_lock_time": 0,
+            "script_version": 0,
+            "script_key": {
+              "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+            },
+            "script_key_is_local": true,
+            "asset_group": null,
+            "chain_anchor": {
+              "anchor_tx": {
+                "$hex": "020000000001013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b0140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b100000000"
+              },
+              "anchor_block_hash": "6397509e072b77bdbeda969a26f354e7bfed3ca4eaadc008d082f3b84434ba0a",
+              "anchor_outpoint": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+              "internal_key": {
+                "$hex": "0373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7"
+              },
+              "merkle_root": {
+                "$hex": "eb7ec21b5822232b68cfde57b106b534a8cb1d2cc6a39372f38d312c5d09f09f"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "block_height": 103,
+              "block_timestamp": "1792093804"
+            },
+            "is_spent": false,
+            "lease_owner": {
+              "$hex": ""
+            },
+            "lease_expiry": "0",
+            "is_burn": false,
+            "script_key_declared_known": true,
+            "script_key_has_script_path": false,
+            "decimal_display": {
+              "decimal_display": 0
+            },
+            "script_key_type": "SCRIPT_KEY_BIP86"
+          }
+        ],
+        "out_point": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+        "amt_sat": "1000",
+        "internal_key": {
+          "$hex": "0373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7"
+        },
+        "taproot_asset_root": {
+          "$hex": "eb7ec21b5822232b68cfde57b106b534a8cb1d2cc6a39372f38d312c5d09f09f"
+        },
+        "merkle_root": {
+          "$hex": "eb7ec21b5822232b68cfde57b106b534a8cb1d2cc6a39372f38d312c5d09f09f"
+        },
+        "lease_owner": {
+          "$hex": ""
+        },
+        "lease_expiry_unix": "-62135596800"
+      }
+    }
+  },
+  "listGroups": {
+    "groups": {}
+  },
+  "listBalances": {
+    "asset_balances": {
+      "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2": {
+        "asset_genesis": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        },
+        "balance": "1000000",
+        "group_key": {
+          "$hex": ""
+        }
+      }
+    },
+    "asset_group_balances": {},
+    "unconfirmed_transfers": "0"
+  },
+  "listTransfers": {
+    "transfers": []
+  },
+  "queryAddrs": {
+    "addrs": [
+      {
+        "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssyp4jlj3u0dxf2652tl6435flw40sgay2e4st3jnv2pf9fy2k22g4pqss9e9w4vfafjmhf4ylng5fz8h65ahmtcq6g5534hm5sjhu02nks0zqpgqkgrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xvuwve2j",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "asset_type": "NORMAL",
+        "amount": "100",
+        "group_key": {
+          "$hex": ""
+        },
+        "script_key": {
+          "$hex": "0206b2fca3c7b4c956a8a5ff558d13f755f04748acd60b8ca6c505254915652915"
+        },
+        "internal_key": {
+          "$hex": "02e4aeab13d4cb774d49f9a28911efaa76fb5e01a45291adf7484afc7aa7683c40"
+        },
+        "tapscript_sibling": {
+          "$hex": ""
+        },
+        "taproot_output_key": {
+          "$hex": "0a1e95996a4a8e5bbefbdd78c73f71d53fe887a9b9d2595daf45401b4d5ba522"
+        },
+        "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+        "asset_version": "ASSET_VERSION_V0",
+        "address_version": "ADDR_VERSION_V1"
+      },
+      {
+        "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssyqrry27s89xqggakf7at5nwtqh3cu6frdc9ctmfzcquw73arzrcxpqssx5kvuw7fkg2z8tjypzlaf2qyj62m70p6dm5xl3hpe92ndwpj6t6spgqswrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xvgtvymk",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "asset_type": "NORMAL",
+        "amount": "7",
+        "group_key": {
+          "$hex": ""
+        },
+        "script_key": {
+          "$hex": "02006322bd0394c0423b64fbaba4dcb05e38e69236e0b85ed22c038ef47a310f06"
+        },
+        "internal_key": {
+          "$hex": "0352cce3bc9b21423ae4408bfd4a8049695bf3c3a6ee86fc6e1c95536b832d2f50"
+        },
+        "tapscript_sibling": {
+          "$hex": ""
+        },
+        "taproot_output_key": {
+          "$hex": "11367f57a59c6acfca9cffb4a583daa82325eb59411c0dfc59ea4fde31ca0618"
+        },
+        "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+        "asset_version": "ASSET_VERSION_V0",
+        "address_version": "ADDR_VERSION_V1"
+      },
+      {
+        "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssyzwpw0yqml4azf2366qy87dyj8ujrxpehuktrss0hwgsjdhm3ddzpqss8u3vjjs9yy2dg46h53qnv78cg2sqkg5rzmagjpfu660rvqkv6ty7pgqkgrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xv2sfxmf",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "asset_type": "NORMAL",
+        "amount": "100",
+        "group_key": {
+          "$hex": ""
+        },
+        "script_key": {
+          "$hex": "0209c173c80dfebd12551d68043f9a491f9219839bf2cb1c20fbb910936fb8b5a2"
+        },
+        "internal_key": {
+          "$hex": "03f22c94a052114d45757a4413678f842a00b228316fa89053cd69e3602ccd2c9e"
+        },
+        "tapscript_sibling": {
+          "$hex": ""
+        },
+        "taproot_output_key": {
+          "$hex": "45a9f87bd5cc100ca11c6b9e1569abb5a9f3e77f4ff709f97725b1a339f1f5bb"
+        },
+        "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+        "asset_version": "ASSET_VERSION_V0",
+        "address_version": "ADDR_VERSION_V1"
+      },
+      {
+        "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssynxtpsg7uq2n7jq94jzrk5jr52ae0942fcd44s2fr9rfmsn6sdn6pqssxwa346548f0rpjwf5x7hv5v2kzxytuel0s9xrz2uzx6kydy799lzpgqswrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xv32nnks",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "asset_type": "NORMAL",
+        "amount": "7",
+        "group_key": {
+          "$hex": ""
+        },
+        "script_key": {
+          "$hex": "024ccb0c11ee0153f4805ac843b5243a2bb9796aa4e1b5ac14919469dc27a8367a"
+        },
+        "internal_key": {
+          "$hex": "033bb1aea953a5e30c9c9a1bd76518ab08c45f33f7c0a61895c11b562349e297e2"
+        },
+        "tapscript_sibling": {
+          "$hex": ""
+        },
+        "taproot_output_key": {
+          "$hex": "d017e4c91b96e64f413774b365ec5d8cba5e651d8f4cf01a0936d07aabfdcc4e"
+        },
+        "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+        "asset_version": "ASSET_VERSION_V0",
+        "address_version": "ADDR_VERSION_V1"
+      },
+      {
+        "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssyy404qmgt22edlnd2f8pxmyj2nqext8ex4p79jgswjuaet779mvcpqssypw524y59zvkzmqnjd54evrcnn4c42tlpkwayjrwxxagayq7tvz3pgqkgrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xvl7644d",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "asset_type": "NORMAL",
+        "amount": "100",
+        "group_key": {
+          "$hex": ""
+        },
+        "script_key": {
+          "$hex": "0212afa83685a9596fe6d524e136c9254c1932cf93543e2c91074b9dcafde2ed98"
+        },
+        "internal_key": {
+          "$hex": "0205d4554942899616c1393695cb0789ceb8aa97f0d9dd2486e31ba8e901e5b051"
+        },
+        "tapscript_sibling": {
+          "$hex": ""
+        },
+        "taproot_output_key": {
+          "$hex": "2dd63b0dcdbf25f383ccd9732d0579b904b1f54a00108ccd338c53385fc47a51"
+        },
+        "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+        "asset_version": "ASSET_VERSION_V0",
+        "address_version": "ADDR_VERSION_V1"
+      },
+      {
+        "encoded": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcssys9xcdhqv648t273p57exwmm463kc6nt86wwlsemclc09uhnwlsepqss8jkge400wc28zkxq9ngm6fc4ex7e5p0wxa0tadtq3eega4m52l3xpgqswrqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xvs389dd",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "asset_type": "NORMAL",
+        "amount": "7",
+        "group_key": {
+          "$hex": ""
+        },
+        "script_key": {
+          "$hex": "0240a6c36e066aa75abd10d3d933b7baea36c6a6b3e9cefc33bc7f0f2f2f377e19"
+        },
+        "internal_key": {
+          "$hex": "03cac8cd5ef76147158c02cd1bd2715c9bd9a05ee375ebeb5608e728ed77457e26"
+        },
+        "tapscript_sibling": {
+          "$hex": ""
+        },
+        "taproot_output_key": {
+          "$hex": "13e2f59c418f5006a1639e0240f70af262ab4ef0bcb00bb7d0b131e5533b05bf"
+        },
+        "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+        "asset_version": "ASSET_VERSION_V0",
+        "address_version": "ADDR_VERSION_V1"
+      }
+    ]
+  },
+  "listBatches": {
+    "batches": [
+      {
+        "unsealed_assets": [],
+        "batch": {
+          "assets": [
+            {
+              "asset_version": "ASSET_VERSION_V0",
+              "asset_type": "NORMAL",
+              "name": "smoke-coin",
+              "asset_meta": {
+                "data": {
+                  "$hex": ""
+                },
+                "type": "META_TYPE_OPAQUE",
+                "meta_hash": {
+                  "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+                }
+              },
+              "amount": "1000000",
+              "new_grouped_asset": false,
+              "group_key": {
+                "$hex": ""
+              },
+              "group_anchor": "",
+              "group_internal_key": null,
+              "group_tapscript_root": {
+                "$hex": ""
+              },
+              "script_key": {
+                "pub_key": {
+                  "$hex": "aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+                },
+                "key_desc": {
+                  "raw_key_bytes": {
+                    "$hex": "03a1831ee740ca3ed6a0008a0f3f8f2c7579ae7ae78e827d78271b3d40ba758d6d"
+                  },
+                  "key_loc": {
+                    "key_family": 212,
+                    "key_index": 0
+                  }
+                },
+                "tap_tweak": {
+                  "$hex": ""
+                },
+                "type": "SCRIPT_KEY_BIP86"
+              }
+            }
+          ],
+          "batch_key": {
+            "$hex": "0373a93fc36407348d84da4ff44d5669b13e9c17eecff835685079338561c177e7"
+          },
+          "batch_txid": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae",
+          "state": "BATCH_STATE_FINALIZED",
+          "created_at": "1792093801",
+          "height_hint": 102,
+          "batch_psbt": {
+            "$hex": "70736274ff01008902000000013b32a9f431ee3cbdb76411f4bdc6e30ae759e85cfaa445709cb833fa312d4b1900000000000000000002e80300000000000022512047c0ecafbb210b2c7b9b65b2537d4f9fcee6e33d048e523b39a4b4b6b49b9f860edf052a01000000225120fbee8eb57a9379d66b67f223754648c15c1583da21c038b86b7c57c684e51b2b000000000001012b00f2052a010000002251205cb728337bf724e42a44b0a73e794b04415720a47bbed8fee4a9d57211c390280108420140ed2e7f6fa566b718dee4422b2d8936984386ccac49319d53c9463cf964a15034e4ad3643a88ce7fe444e9daeff4dbc9903a7cc8bb27f37bd029f706cd59182b10000220202ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e118000000005600008000000080000000800100000000000000010520ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e12107ebcee54c13993fa49573e4fa21c2c383b5d678fc50f38a2ea84a1a48530198e1190000000000560000800000008000000080010000000000000000"
+          }
+        }
+      }
+    ]
+  },
+  "getInfo": {
+    "version": "0.7.0-alpha commit=v0.7.0",
+    "lnd_version": "0.20.0-beta",
+    "network": "regtest",
+    "lnd_identity_pubkey": "028548081b6e8c4026ac92beaec35d3b86aab214563a167bd64365e3676c190ff8",
+    "node_alias": "bob",
+    "block_height": 108,
+    "block_hash": "1b806a673ad16b34a5d9392148af7d6f05ca3905b56319b7aecd106daf210e64",
+    "sync_to_chain": true
+  }
+}

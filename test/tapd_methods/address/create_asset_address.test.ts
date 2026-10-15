@@ -118,7 +118,7 @@ const tests = [
       tapd: tapdWith((_, cbk) => cbk(null, response({encoded: ''}))),
     },
     description: 'An encoded address is expected',
-    error: [503, 'ExpectedEncodedAddressInAddressResponse'],
+    error: [503, 'ExpectedEncodedAddressInRpcAddress'],
   },
   {
     args: {
@@ -126,7 +126,7 @@ const tests = [
       tapd: tapdWith((_, cbk) => cbk(null, response({script_key: null}))),
     },
     description: 'Keys are expected',
-    error: [503, 'ExpectedKeysInAssetAddressResponse'],
+    error: [503, 'ExpectedKeysInRpcAddress'],
   },
   {
     args: {
@@ -134,7 +134,7 @@ const tests = [
       tapd: tapdWith((_, cbk) => cbk(null, response({address_version: 'X'}))),
     },
     description: 'A known address version is expected in the response',
-    error: [503, 'ExpectedKnownVersionInAddressResponse'],
+    error: [503, 'ExpectedKnownVersionInRpcAddress'],
   },
   {
     args: {amount: '100', asset_id: assetId, tapd},

@@ -4,6 +4,8 @@ import {returnResult} from 'asyncjs-util';
 import {isConnectionFailure} from '../../tapd_requests/index.js';
 import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {isTapd} from '../../tapd_requests/index.js';
+import {rpcAddrAsAddress} from '../../tapd_responses/index.js';
+import type {Address} from '../../tapd_responses/index.js';
 import type {AuthenticatedTapdArgs} from '../../typescript/index.js';
 import type {TapdCallback} from '../../typescript/index.js';
 import type {TapdError} from '../../typescript/index.js';
@@ -14,11 +16,8 @@ const addressVersions = [
   'ADDR_VERSION_V1',
   'ADDR_VERSION_V2',
 ];
-const assetVersions = ['ASSET_VERSION_V0', 'ASSET_VERSION_V1'];
-const bufferAsHex = (n: Buffer) => (!n.length ? undefined : n.toString('hex'));
 const {from} = Buffer;
 const isAssetId = (n: string) => /^[0-9A-F]{64}$/i.test(n);
-const isBuffer = (n: unknown): n is Buffer => Buffer.isBuffer(n);
 const isHex = (n: string) => !!n && !(n.length % 2) && /^[0-9A-F]*$/i.test(n);
 const isNumeric = (n: unknown) => typeof n === 'string' && /^\d+$/.test(n);
 const method = 'newAddr';
@@ -39,32 +38,7 @@ export type CreateAssetAddressArgs = AuthenticatedTapdArgs<{
   version?: number;
 }>;
 
-export type CreateAssetAddressResult = {
-  /** Encoded Taproot Assets Address String */
-  address: string;
-  /** Asset Units To Receive Numeric String */
-  amount: string;
-  /** Asset Id Hex String */
-  asset_id?: string;
-  /** Asset Version Number */
-  asset_version: number;
-  /** Asset Group Key Hex String */
-  group_key?: string;
-  /** Internal Key Hex String */
-  internal_key: string;
-  /** Asset Is Collectible Bool */
-  is_collectible: boolean;
-  /** Proof Courier Address String */
-  proof_courier: string;
-  /** Script Key Hex String */
-  script_key: string;
-  /** Tapscript Sibling Preimage Hex String */
-  tapscript_sibling?: string;
-  /** Taproot Output Key Hex String */
-  taproot_output_key: string;
-  /** Address Version Number */
-  version: number;
-};
+export type CreateAssetAddressResult = Address;
 
 type Tasks = {
   createAddress: CreateAssetAddressResult;
@@ -188,50 +162,11 @@ const createAssetAddress: TapdMethod<
                 return cbk([503, 'ExpectedResponseForAssetAddressCreation']);
               }
 
-              if (!res.encoded) {
-                return cbk([503, 'ExpectedEncodedAddressInAddressResponse']);
+              try {
+                return cbk(null, rpcAddrAsAddress(res));
+              } catch (err: any) {
+                return cbk([503, err.message]);
               }
-
-              if (!isNumeric(res.amount)) {
-                return cbk([503, 'ExpectedAmountInAssetAddressResponse']);
-              }
-
-              if (!isBuffer(res.asset_id) || !isBuffer(res.group_key)) {
-                return cbk([503, 'ExpectedAssetIdentityInAddressResponse']);
-              }
-
-              if (!isBuffer(res.internal_key) || !isBuffer(res.script_key)) {
-                return cbk([503, 'ExpectedKeysInAssetAddressResponse']);
-              }
-
-              if (!isBuffer(res.taproot_output_key)) {
-                return cbk([503, 'ExpectedOutputKeyInAssetAddressResponse']);
-              }
-
-              if (!isBuffer(res.tapscript_sibling)) {
-                return cbk([503, 'ExpectedTapscriptSiblingInAddressResponse']);
-              }
-
-              const version = addressVersions.indexOf(res.address_version);
-
-              if (version === -1) {
-                return cbk([503, 'ExpectedKnownVersionInAddressResponse']);
-              }
-
-              return cbk(null, {
-                version,
-                address: res.encoded,
-                amount: res.amount,
-                asset_id: bufferAsHex(res.asset_id),
-                asset_version: assetVersions.indexOf(res.asset_version),
-                group_key: bufferAsHex(res.group_key),
-                internal_key: res.internal_key.toString('hex'),
-                is_collectible: res.asset_type === 'COLLECTIBLE',
-                proof_courier: res.proof_courier_addr,
-                script_key: res.script_key.toString('hex'),
-                tapscript_sibling: bufferAsHex(res.tapscript_sibling),
-                taproot_output_key: res.taproot_output_key.toString('hex'),
-              });
             });
           },
         ],
