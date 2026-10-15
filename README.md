@@ -1,4 +1,4 @@
-# Assets
+# tapass
 
 Methods for working with the Taproot Assets Daemon. An extension of [@alexbosworth/lightning](https://github.com/alexbosworth/lightning.git).
 
@@ -16,8 +16,8 @@ the TAPD directory. (~/.tapd or ~/Library/Application Support/Tapd)
 You can then use these to interact with your TAPD directly.
 
 ```ts
-import { authenticatedTapdGrpc } from 'assets';
-// cjs: const { authenticatedTapdGrpc } = require('assets');
+import { authenticatedTapdGrpc } from 'tapass';
+// cjs: const { authenticatedTapdGrpc } = require('tapass');
 
 const { tapd } = authenticatedTapdGrpc({
     cert: 'base64 encoded tls.cert from taproot-assets dir',

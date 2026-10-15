@@ -1,5 +1,5 @@
 {
-  "name": "@bnonni/assets",
+  "name": "tapass",
   "version": "0.1.0",
   "type": "module",
   "description": "Taproot assets client methods similar @alexbosworth/lightning",
@@ -28,13 +28,13 @@
       "url": "https://github.com/bnonni"
     }
   ],
-  "homepage": "https://github.com/bnonni/assets",
+  "homepage": "https://github.com/bnonni/tapass",
   "bugs": {
-    "url": "https://github.com/bnonni/assets/issues"
+    "url": "https://github.com/bnonni/tapass/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/bnonni/assets.git"
+    "url": "git+ssh://git@github.com/bnonni/tapass.git"
   },
   "license": "MIT",
   "files": [
