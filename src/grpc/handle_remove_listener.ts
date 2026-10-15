@@ -1,20 +1,24 @@
-import { HandleRemoveListenerParams } from "./types.js";
-import { sumOf } from "../utils/generic.js";
+import type {EventEmitter} from 'node:events';
 
-/**
- * Get a function that emits an error from a gRPC subscription proxy
- * 
- * @param {Object} handleRemoveListenerParams; {@link EmitSubscriptionErrorParams}
- * {
- *  emitter: <EventEmitter Subscription Proxy Object>
- *  events: [<Event Name String>]
- *  subscription: <gRPC Subscription Object>
- * }
- *
- * @returns {void}
+import type {ClientReadableStream} from '@grpc/grpc-js';
+
+const sumOf = (arr: number[]) => arr.reduce((sum, n) => sum + n, Number());
+
+type Args = {
+  emitter: EventEmitter;
+  events: string[];
+  subscription: ClientReadableStream<unknown>;
+};
+
+/** Cancel a gRPC subscription when all its event listeners are removed
+
+  {
+    emitter: <EventEmitter Subscription Proxy Object>
+    events: [<Event Name String>]
+    subscription: <gRPC Subscription Object>
+  }
 */
-
-export default ({ emitter, events, subscription }: HandleRemoveListenerParams): void => {
+export default ({emitter, events, subscription}: Args) => {
   // Cancel the subscription when all listeners are removed
   emitter.on('removeListener', () => {
     const counts = events.map(n => emitter.listenerCount(n));

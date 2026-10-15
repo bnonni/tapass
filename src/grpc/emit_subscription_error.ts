@@ -1,21 +1,29 @@
-import { EmitSubscriptionErrorParams } from "./types.js";
+import type {EventEmitter} from 'node:events';
 
-/**
- * Get a function that emits an error from a gRPC subscription proxy
- * 
- * @param {Object} emitSubscriptionErrorParams; {@link EmitSubscriptionErrorParams}
- * {
- *  emitter: <Event Subscription Proxy Object>
- *  subscription: <gRPC Subscription Object>
- * }
- * 
- * @returns {Object} An event emitter that emits an error
+import type {ClientReadableStream} from '@grpc/grpc-js';
+
+const cancelError = 'Cancelled on client';
+
+type Args = {
+  emitter: EventEmitter;
+  subscription: ClientReadableStream<unknown>;
+};
+
+/** Get a function that emits an error from a gRPC subscription proxy
+
+  {
+    emitter: <Event Subscription Proxy Object>
+    subscription: <gRPC Subscription Object>
+  }
+
+  @returns
+  <Error Emission Function>
 */
-export default ({ emitter, subscription }: EmitSubscriptionErrorParams): object => {
-  return (err: { details: string; }) => {
+export default ({emitter, subscription}: Args) => {
+  return (err?: {details?: string}) => {
     subscription.cancel();
 
-    if (!!err && err.details === 'Cancelled on client') {
+    if (!!err && err.details === cancelError) {
       subscription.removeAllListeners();
     }
 
@@ -24,6 +32,8 @@ export default ({ emitter, subscription }: EmitSubscriptionErrorParams): object 
       return;
     }
 
-    return emitter.emit('error', err);
+    emitter.emit('error', err);
+
+    return;
   };
 };

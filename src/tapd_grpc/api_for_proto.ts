@@ -1,22 +1,42 @@
 import grpc from '@grpc/grpc-js';
-import { loadSync } from '@grpc/proto-loader';
+import type {ChannelCredentials, ChannelOptions} from '@grpc/grpc-js';
+import {loadSync} from '@grpc/proto-loader';
+
 import grpcOptions from './grpc_options.js';
-import { ApiForProtoParams, ApiObject, GrpcObjectExt } from './types.js';
 
-/**
- * Get an api for a proto file
- * 
- * @param {Object} apiForProtoParams; {@link ApiForProtoParams}
- * {
- *  path: <Proto File Path String>
- *  service: <Service Name String>
- *  type: <RPC Type String>
- * }
- * 
- * @returns <API Object>
+type Args = {
+  credentials: ChannelCredentials;
+  includes: string[];
+  params: ChannelOptions;
+  path: string;
+  service: string;
+  socket: string;
+  type: string;
+};
+
+/** Get an api for a proto file
+
+  {
+    credentials: <gRPC Credentials Object>
+    includes: [<Proto Import Directory Path String>]
+    params: <gRPC Channel Options Object>
+    path: <Proto File Path String>
+    service: <Service Name String>
+    socket: <Host:Port Network Address String>
+    type: <RPC Type String>
+  }
+
+  @returns
+  <API Object>
 */
+export default (args: Args) => {
+  const options = {...grpcOptions, includeDirs: args.includes};
 
-export default ({ credentials, params, path, service, socket, type }: ApiForProtoParams): ApiObject => {
-  const rpc: GrpcObjectExt = grpc.loadPackageDefinition(loadSync(path, grpcOptions));
-  return new rpc[type][service](socket, credentials, params);
+  const rpc = grpc.loadPackageDefinition(loadSync(args.path, options)) as any;
+
+  return new rpc[args.type][args.service](
+    args.socket,
+    args.credentials,
+    args.params,
+  );
 };
