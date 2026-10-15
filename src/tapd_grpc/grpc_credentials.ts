@@ -2,20 +2,15 @@ import grpc from '@grpc/grpc-js';
 
 import decodeSerialized from './decode_serialized.js';
 import grpcSsl from './grpc_ssl.js';
-import { Logger } from 'scclogger';
 
-const { combineChannelCredentials } = grpc.credentials;
-const { createFromMetadataGenerator } = grpc.credentials;
-const { Metadata } = grpc;
+const {combineChannelCredentials} = grpc.credentials;
+const {createFromMetadataGenerator} = grpc.credentials;
+const {Metadata} = grpc;
 
-const generate = (macaroon: Buffer<ArrayBufferLike> | undefined) => {
+const generate = (macaroon: Buffer) => {
   const metadata = new Metadata();
 
-  try {
-    metadata.add('macaroon', macaroon!.toString('hex'));
-  } catch (err) {
-    Logger.error('Error adding macaroon to metadata', err);
-  }
+  metadata.add('macaroon', macaroon.toString('hex'));
 
   return metadata;
 };
@@ -23,7 +18,7 @@ const generate = (macaroon: Buffer<ArrayBufferLike> | undefined) => {
 /** Credentials for gRPC
 
   {
-    [cert]: <Base64 or Hex Serialized LND TLS Cert>
+    [cert]: <Base64 or Hex Serialized tapd TLS Cert String>
     [macaroon]: <Base64 or Hex Serialized Macaroon String>
   }
 
@@ -35,25 +30,19 @@ const generate = (macaroon: Buffer<ArrayBufferLike> | undefined) => {
     credentials: <gRPC Credentials Object>
   }
 */
-export default ({ cert, macaroon }: { cert?: string; macaroon?: string }): { credentials: grpc.ChannelCredentials } => {
-  if (!cert) {
-    throw new Error('ExpectedCertToCreateCredentials');
-  }
-
+export default ({cert, macaroon}: {cert?: string; macaroon?: string}) => {
   if (!macaroon) {
-    return { credentials: grpcSsl({ cert }).ssl };
+    return {credentials: grpcSsl({cert}).ssl};
   }
 
-  const mac = decodeSerialized({ serialized: macaroon }).decoded;
+  const mac = decodeSerialized({serialized: macaroon}).decoded;
 
-  if (!mac) {
-    generate(mac);
-
+  if (!mac?.length) {
     throw new Error('ExpectedBase64OrHexEncodedMacaroonToCreateCredentials');
   }
 
   const creds = createFromMetadataGenerator((_, c) => c(null, generate(mac)));
-  const { ssl } = grpcSsl({ cert });
+  const {ssl} = grpcSsl({cert});
 
-  return { credentials: combineChannelCredentials(ssl, creds) };
+  return {credentials: combineChannelCredentials(ssl, creds)};
 };

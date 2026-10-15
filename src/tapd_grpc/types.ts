@@ -1,43 +1,35 @@
-import { GrpcObject, ServiceClientConstructor } from '@grpc/grpc-js';
-import { ProtobufTypeDefinition } from '@grpc/proto-loader';
+/** gRPC methods of one tapd service */
+export type TapdService = {[method: string]: (...args: any[]) => any};
 
-export interface ApiForProtoParams {
-    credentials: any;
-    params: any;
-    path: string;
-    service: string;
-    socket: string;
-    type: string;
+/** Authenticated tapd gRPC API Object */
+export type AuthenticatedTapd = {
+  /** AssetWallet Methods */
+  assetwallet: TapdService;
+  /** TaprootAssets Methods */
+  default: TapdService;
+  /** Mailbox Methods */
+  mailbox: TapdService;
+  /** Mint Methods */
+  mint: TapdService;
+  /** Rfq Methods */
+  rfq: TapdService;
+  /** TaprootAssetChannels Methods */
+  tapchannel: TapdService;
+  /** TapDev Methods */
+  tapdev: TapdService;
+  /** Universe Methods */
+  universe: TapdService;
 };
 
-export type GrpcObjectExt = GrpcObject & { [index: string]: any };
+export type TapdServiceType = keyof AuthenticatedTapd;
 
-export type ApiObject =
-    | GrpcObject
-    | ServiceClientConstructor
-    | ProtobufTypeDefinition;
-
-export interface Tapd {
-    default: any;
-    assetwallet: any;
-    mint: any;
-    price_oracle: any;
-    rfq: any;
-    tapchannel: any;
-    tapdev: any;
-    universe: any;
-}
-
-export type IsTapdResponse = {
-    tapd: Tapd;
-    method: string;
-    type:
-    | 'default'
-    | 'assetwallet'
-    | 'mint'
-    | 'price_oracle'
-    | 'rfq'
-    | 'tapchannel'
-    | 'tapdev'
-    | 'universe'
-}
+export type TapdAuthentication = {
+  /** Base64 or Hex Serialized tapd TLS Cert String */
+  cert?: string;
+  /** Base64 or Hex Serialized Macaroon String */
+  macaroon?: string;
+  /** Path to Protos Directory With taprpc and lnrpc Directories String */
+  path?: string;
+  /** Host:Port Network Address String */
+  socket?: string;
+};
