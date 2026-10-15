@@ -5,9 +5,13 @@ Methods for the Taproot Assets daemon (tapd), in the style of
 
 ## Install
 
-    npm install tapass
+    npm install tapass lightning
 
 tapass needs Node.js 22.12 or later.
+
+[lightning](https://github.com/alexbosworth/lightning) is a peer dependency.
+The asset channel methods use it to return lnd payments, invoices, and payment
+requests in the same shape as lightning.
 
 ## tapd Authentication
 
