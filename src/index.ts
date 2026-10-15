@@ -13,3 +13,5 @@ export type {ReceiveUpdate} from './tapd_responses/index.js';
 export type {SendEvent} from './tapd_responses/index.js';
 export type {Transfer} from './tapd_responses/index.js';
 export type * from './typescript/index.js';
+export type {Batch} from './tapd_responses/index.js';
+export type {PendingAsset} from './tapd_responses/index.js';
