@@ -49,6 +49,7 @@
     "clean": "rimraf dist coverage",
     "format": "oxfmt",
     "lint": "oxlint --type-aware --deny-warnings && oxfmt --check",
+    "prepublishOnly": "pnpm lint && pnpm test && pnpm build",
     "sync-protos": "sh scripts/sync-protos.sh",
     "test": "tsc -p tsconfig.test.json && bun test",
     "wipe": "rimraf node_modules"
