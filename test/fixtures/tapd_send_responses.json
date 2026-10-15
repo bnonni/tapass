@@ -1,0 +1,899 @@
+{
+  "sendAsset": {
+    "transfer": {
+      "inputs": [
+        {
+          "anchor_point": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "script_key": {
+            "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+          },
+          "amount": "1000000",
+          "group_key": {
+            "$hex": ""
+          },
+          "asset_type": "NORMAL"
+        }
+      ],
+      "outputs": [
+        {
+          "anchor": {
+            "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:0",
+            "value": "1000",
+            "internal_key": {
+              "$hex": "03cd10657a444e4ffd90afdb918a3d2e686fc9696626d4a5053b50c41ffdc6592e"
+            },
+            "taproot_asset_root": {
+              "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+            },
+            "merkle_root": {
+              "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+            },
+            "tapscript_sibling": {
+              "$hex": ""
+            },
+            "num_passive_assets": 0,
+            "pk_script": {
+              "$hex": "51203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcab"
+            }
+          },
+          "script_key": {
+            "$hex": "02d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb32891"
+          },
+          "script_key_is_local": true,
+          "amount": "999990",
+          "new_proof_blob": {
+            "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "split_commit_root_hash": {
+            "$hex": "6e1ab4bf50d99528d1ad1075f39725b7fb219e8484d22dd8b306972a24757a87"
+          },
+          "output_type": "OUTPUT_TYPE_SPLIT_ROOT",
+          "asset_version": "ASSET_VERSION_V0",
+          "lock_time": "0",
+          "relative_lock_time": "0",
+          "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "proof_courier_addr": "",
+          "tap_addr": "",
+          "group_key": {
+            "$hex": ""
+          },
+          "asset_type": "NORMAL"
+        },
+        {
+          "anchor": {
+            "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:1",
+            "value": "1000",
+            "internal_key": {
+              "$hex": "024accaa7b99d3abdafd3f792f8a1ec19b2d2c40fc5236d7180e09f2fb3c0d493a"
+            },
+            "taproot_asset_root": {
+              "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+            },
+            "merkle_root": {
+              "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+            },
+            "tapscript_sibling": {
+              "$hex": ""
+            },
+            "num_passive_assets": 0,
+            "pk_script": {
+              "$hex": "5120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c33"
+            }
+          },
+          "script_key": {
+            "$hex": "02cc6bcc2fad410de4502ba784ddb989bc732e08c5dcd9ed15a77c31407ba69413"
+          },
+          "script_key_is_local": true,
+          "amount": "10",
+          "new_proof_blob": {
+            "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "split_commit_root_hash": {
+            "$hex": ""
+          },
+          "output_type": "OUTPUT_TYPE_SIMPLE",
+          "asset_version": "ASSET_VERSION_V0",
+          "lock_time": "0",
+          "relative_lock_time": "0",
+          "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+          "tap_addr": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcss9nrtesh66sgdu3gzhfuymkucn0rn9cyvthxea526wlp3gpa6d9qnpqssyjkv4faen5atmt7n77f03g0vrxed93q0c53k6uvquz0jlv7q6jf6pgqs5rqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xv49wut3",
+          "group_key": {
+            "$hex": ""
+          },
+          "asset_type": "NORMAL"
+        }
+      ],
+      "transfer_timestamp": "1792100897",
+      "anchor_tx_hash": {
+        "$hex": "6469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac9"
+      },
+      "anchor_tx_height_hint": 108,
+      "anchor_tx_chain_fees": "6362",
+      "anchor_tx_block_hash": null,
+      "anchor_tx_block_height": 0,
+      "label": "fork-send-1792100897086",
+      "anchor_tx": {
+        "$hex": "02000000000102ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000000000002251203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcabe803000000000000225120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c333ed5052a01000000225120ccd1713fb76f2c2c556ec966d73731414d573af24cea1f3e9bb7388a5562c8a1014024c1c37ab77f209a49e3a03aa44b2fd66c6cbf8e271c57a773b654c5917e0906e8aeca637104c031236173d6c5e86f2a117940390c5fe173bc9ed10312060398014021dbd6796f29c9be32837a9671f3407c0c6a44a9d9b7169308095e27d51bf6683b92b23abaa4490af1b7dd382e805ff578b4d623965b0106f65734357921a3d200000000"
+      }
+    }
+  },
+  "sendEvents": [
+    {
+      "addresses": [],
+      "virtual_packets": [],
+      "passive_virtual_packets": [],
+      "timestamp": "1792100897646290",
+      "send_state": "SendStateStartHandleAddrParcel",
+      "parcel_type": "PARCEL_TYPE_ADDRESS",
+      "anchor_transaction": null,
+      "transfer": null,
+      "error": "",
+      "transfer_label": "fork-send-1792100897086",
+      "next_send_state": "SendStateVirtualCommitmentSelect"
+    },
+    {
+      "addresses": [],
+      "virtual_packets": [
+        {
+          "$hex": "70736274ff010089020000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000236420f0000000000225120d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb328910a00"
+        }
+      ],
+      "passive_virtual_packets": [],
+      "timestamp": "1792100897728149",
+      "send_state": "SendStateStorePreBroadcast",
+      "parcel_type": "PARCEL_TYPE_ADDRESS",
+      "anchor_transaction": {
+        "lnd_locked_utxos": [
+          {
+            "txid": {
+              "$hex": "8abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e"
+            },
+            "output_index": 0
+          }
+        ],
+        "anchor_psbt": {
+          "$hex": "70736274ff0100dd0200000002ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000"
+        },
+        "change_output_index": 2,
+        "chain_fees_sats": "6362",
+        "target_fee_rate_sat_kw": 6250,
+        "final_tx": {
+          "$hex": "02000000000102ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000000000002251203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcabe803000000000000225120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c333ed5052a01000000225120ccd1713fb76f2c2c556ec966d73731414d573af24cea1f3e9bb7388a5562c8a1014024c1c37ab77f209a49e3a03aa44b2fd66c6cbf8e271c57a773b654c5917e0906e8aeca637104c031236173d6c5e86f2a117940390c5fe173bc9ed10312060398014021dbd6796f29c9be32837a9671f3407c0c6a44a9d9b7169308095e27d51bf6683b92b23abaa4490af1b7dd382e805ff578b4d623965b0106f65734357921a3d200000000"
+        }
+      },
+      "transfer": {
+        "inputs": [
+          {
+            "anchor_point": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "script_key": {
+              "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+            },
+            "amount": "1000000",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          }
+        ],
+        "outputs": [
+          {
+            "anchor": {
+              "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:0",
+              "value": "1000",
+              "internal_key": {
+                "$hex": "03cd10657a444e4ffd90afdb918a3d2e686fc9696626d4a5053b50c41ffdc6592e"
+              },
+              "taproot_asset_root": {
+                "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+              },
+              "merkle_root": {
+                "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "num_passive_assets": 0,
+              "pk_script": {
+                "$hex": "51203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcab"
+              }
+            },
+            "script_key": {
+              "$hex": "02d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb32891"
+            },
+            "script_key_is_local": true,
+            "amount": "999990",
+            "new_proof_blob": {
+              "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "split_commit_root_hash": {
+              "$hex": "6e1ab4bf50d99528d1ad1075f39725b7fb219e8484d22dd8b306972a24757a87"
+            },
+            "output_type": "OUTPUT_TYPE_SPLIT_ROOT",
+            "asset_version": "ASSET_VERSION_V0",
+            "lock_time": "0",
+            "relative_lock_time": "0",
+            "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "proof_courier_addr": "",
+            "tap_addr": "",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          },
+          {
+            "anchor": {
+              "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:1",
+              "value": "1000",
+              "internal_key": {
+                "$hex": "024accaa7b99d3abdafd3f792f8a1ec19b2d2c40fc5236d7180e09f2fb3c0d493a"
+              },
+              "taproot_asset_root": {
+                "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+              },
+              "merkle_root": {
+                "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "num_passive_assets": 0,
+              "pk_script": {
+                "$hex": "5120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c33"
+              }
+            },
+            "script_key": {
+              "$hex": "02cc6bcc2fad410de4502ba784ddb989bc732e08c5dcd9ed15a77c31407ba69413"
+            },
+            "script_key_is_local": true,
+            "amount": "10",
+            "new_proof_blob": {
+              "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "split_commit_root_hash": {
+              "$hex": ""
+            },
+            "output_type": "OUTPUT_TYPE_SIMPLE",
+            "asset_version": "ASSET_VERSION_V0",
+            "lock_time": "0",
+            "relative_lock_time": "0",
+            "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+            "tap_addr": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcss9nrtesh66sgdu3gzhfuymkucn0rn9cyvthxea526wlp3gpa6d9qnpqssyjkv4faen5atmt7n77f03g0vrxed93q0c53k6uvquz0jlv7q6jf6pgqs5rqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xv49wut3",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          }
+        ],
+        "transfer_timestamp": "1792100897",
+        "anchor_tx_hash": {
+          "$hex": "6469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac9"
+        },
+        "anchor_tx_height_hint": 108,
+        "anchor_tx_chain_fees": "6362",
+        "anchor_tx_block_hash": null,
+        "anchor_tx_block_height": 0,
+        "label": "fork-send-1792100897086",
+        "anchor_tx": {
+          "$hex": "02000000000102ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000000000002251203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcabe803000000000000225120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c333ed5052a01000000225120ccd1713fb76f2c2c556ec966d73731414d573af24cea1f3e9bb7388a5562c8a1014024c1c37ab77f209a49e3a03aa44b2fd66c6cbf8e271c57a773b654c5917e0906e8aeca637104c031236173d6c5e86f2a117940390c5fe173bc9ed10312060398014021dbd6796f29c9be32837a9671f3407c0c6a44a9d9b7169308095e27d51bf6683b92b23abaa4490af1b7dd382e805ff578b4d623965b0106f65734357921a3d200000000"
+        }
+      },
+      "error": "",
+      "transfer_label": "fork-send-1792100897086",
+      "next_send_state": "SendStateBroadcast"
+    },
+    {
+      "addresses": [],
+      "virtual_packets": [
+        {
+          "$hex": "70736274ff010089020000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000236420f0000000000225120d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb328910a00"
+        }
+      ],
+      "passive_virtual_packets": [],
+      "timestamp": "1792100899887830",
+      "send_state": "SendStateComplete",
+      "parcel_type": "PARCEL_TYPE_ADDRESS",
+      "anchor_transaction": {
+        "lnd_locked_utxos": [
+          {
+            "txid": {
+              "$hex": "8abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e"
+            },
+            "output_index": 0
+          }
+        ],
+        "anchor_psbt": {
+          "$hex": "70736274ff0100dd0200000002ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000"
+        },
+        "change_output_index": 2,
+        "chain_fees_sats": "6362",
+        "target_fee_rate_sat_kw": 6250,
+        "final_tx": {
+          "$hex": "02000000000102ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000000000002251203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcabe803000000000000225120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c333ed5052a01000000225120ccd1713fb76f2c2c556ec966d73731414d573af24cea1f3e9bb7388a5562c8a1014024c1c37ab77f209a49e3a03aa44b2fd66c6cbf8e271c57a773b654c5917e0906e8aeca637104c031236173d6c5e86f2a117940390c5fe173bc9ed10312060398014021dbd6796f29c9be32837a9671f3407c0c6a44a9d9b7169308095e27d51bf6683b92b23abaa4490af1b7dd382e805ff578b4d623965b0106f65734357921a3d200000000"
+        }
+      },
+      "transfer": {
+        "inputs": [
+          {
+            "anchor_point": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "script_key": {
+              "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+            },
+            "amount": "1000000",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          }
+        ],
+        "outputs": [
+          {
+            "anchor": {
+              "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:0",
+              "value": "1000",
+              "internal_key": {
+                "$hex": "03cd10657a444e4ffd90afdb918a3d2e686fc9696626d4a5053b50c41ffdc6592e"
+              },
+              "taproot_asset_root": {
+                "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+              },
+              "merkle_root": {
+                "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "num_passive_assets": 0,
+              "pk_script": {
+                "$hex": "51203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcab"
+              }
+            },
+            "script_key": {
+              "$hex": "02d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb32891"
+            },
+            "script_key_is_local": true,
+            "amount": "999990",
+            "new_proof_blob": {
+              "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "split_commit_root_hash": {
+              "$hex": "6e1ab4bf50d99528d1ad1075f39725b7fb219e8484d22dd8b306972a24757a87"
+            },
+            "output_type": "OUTPUT_TYPE_SPLIT_ROOT",
+            "asset_version": "ASSET_VERSION_V0",
+            "lock_time": "0",
+            "relative_lock_time": "0",
+            "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "proof_courier_addr": "",
+            "tap_addr": "",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          },
+          {
+            "anchor": {
+              "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:1",
+              "value": "1000",
+              "internal_key": {
+                "$hex": "024accaa7b99d3abdafd3f792f8a1ec19b2d2c40fc5236d7180e09f2fb3c0d493a"
+              },
+              "taproot_asset_root": {
+                "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+              },
+              "merkle_root": {
+                "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "num_passive_assets": 0,
+              "pk_script": {
+                "$hex": "5120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c33"
+              }
+            },
+            "script_key": {
+              "$hex": "02cc6bcc2fad410de4502ba784ddb989bc732e08c5dcd9ed15a77c31407ba69413"
+            },
+            "script_key_is_local": true,
+            "amount": "10",
+            "new_proof_blob": {
+              "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "split_commit_root_hash": {
+              "$hex": ""
+            },
+            "output_type": "OUTPUT_TYPE_SIMPLE",
+            "asset_version": "ASSET_VERSION_V0",
+            "lock_time": "0",
+            "relative_lock_time": "0",
+            "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+            "tap_addr": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcss9nrtesh66sgdu3gzhfuymkucn0rn9cyvthxea526wlp3gpa6d9qnpqssyjkv4faen5atmt7n77f03g0vrxed93q0c53k6uvquz0jlv7q6jf6pgqs5rqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xv49wut3",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          }
+        ],
+        "transfer_timestamp": "1792100897",
+        "anchor_tx_hash": {
+          "$hex": "6469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac9"
+        },
+        "anchor_tx_height_hint": 108,
+        "anchor_tx_chain_fees": "6362",
+        "anchor_tx_block_hash": {
+          "hash": {
+            "$hex": "75287e16abfae2af0a6f1037bfb9061c10c99514b352e1b29c8c84293221961d"
+          },
+          "hash_str": "1d96213229848c9cb2e152b31495c9101c06b9bf37106f0aafe2faab167e2875"
+        },
+        "anchor_tx_block_height": 109,
+        "label": "fork-send-1792100897086",
+        "anchor_tx": {
+          "$hex": "02000000000102ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000000000002251203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcabe803000000000000225120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c333ed5052a01000000225120ccd1713fb76f2c2c556ec966d73731414d573af24cea1f3e9bb7388a5562c8a1014024c1c37ab77f209a49e3a03aa44b2fd66c6cbf8e271c57a773b654c5917e0906e8aeca637104c031236173d6c5e86f2a117940390c5fe173bc9ed10312060398014021dbd6796f29c9be32837a9671f3407c0c6a44a9d9b7169308095e27d51bf6683b92b23abaa4490af1b7dd382e805ff578b4d623965b0106f65734357921a3d200000000"
+        }
+      },
+      "error": "",
+      "transfer_label": "fork-send-1792100897086",
+      "next_send_state": "SendStateComplete"
+    }
+  ],
+  "listTransfers": {
+    "transfers": [
+      {
+        "inputs": [
+          {
+            "anchor_point": "35c4f78c160694f4d2401edf6b8c483cc0e2853a43c1648f2e09596da19a5aae:0",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "script_key": {
+              "$hex": "02aa423ce3a4f9727445d6f9eb3ad99ae9d3fdc01959913a844045ac17504a316b"
+            },
+            "amount": "1000000",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          }
+        ],
+        "outputs": [
+          {
+            "anchor": {
+              "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:0",
+              "value": "1000",
+              "internal_key": {
+                "$hex": "03cd10657a444e4ffd90afdb918a3d2e686fc9696626d4a5053b50c41ffdc6592e"
+              },
+              "taproot_asset_root": {
+                "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+              },
+              "merkle_root": {
+                "$hex": "51246d74eb02c52593c274f744a806aa330bd40639519f6db2b7c8809e19c874"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "num_passive_assets": 0,
+              "pk_script": {
+                "$hex": "51203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcab"
+              }
+            },
+            "script_key": {
+              "$hex": "02d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb32891"
+            },
+            "script_key_is_local": true,
+            "amount": "999990",
+            "new_proof_blob": {
+              "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "split_commit_root_hash": {
+              "$hex": "6e1ab4bf50d99528d1ad1075f39725b7fb219e8484d22dd8b306972a24757a87"
+            },
+            "output_type": "OUTPUT_TYPE_SPLIT_ROOT",
+            "asset_version": "ASSET_VERSION_V0",
+            "lock_time": "0",
+            "relative_lock_time": "0",
+            "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "proof_courier_addr": "",
+            "tap_addr": "",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          },
+          {
+            "anchor": {
+              "outpoint": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:1",
+              "value": "1000",
+              "internal_key": {
+                "$hex": "024accaa7b99d3abdafd3f792f8a1ec19b2d2c40fc5236d7180e09f2fb3c0d493a"
+              },
+              "taproot_asset_root": {
+                "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+              },
+              "merkle_root": {
+                "$hex": "a0e6c2bd1f1ab9fe04624ed5d8a82d18313c363ca04bae1c66b7cdf66f70a28c"
+              },
+              "tapscript_sibling": {
+                "$hex": ""
+              },
+              "num_passive_assets": 0,
+              "pk_script": {
+                "$hex": "5120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c33"
+              }
+            },
+            "script_key": {
+              "$hex": "02cc6bcc2fad410de4502ba784ddb989bc732e08c5dcd9ed15a77c31407ba69413"
+            },
+            "script_key_is_local": true,
+            "amount": "10",
+            "new_proof_blob": {
+              "$hex": "544150500004000000000224ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "split_commit_root_hash": {
+              "$hex": ""
+            },
+            "output_type": "OUTPUT_TYPE_SIMPLE",
+            "asset_version": "ASSET_VERSION_V0",
+            "lock_time": "0",
+            "relative_lock_time": "0",
+            "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+            "asset_id": {
+              "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+            },
+            "proof_courier_addr": "universerpc://polar-n4-bob:8443",
+            "tap_addr": "taprt1qqqszqspqqzzqejdz69760sr3uss2yrl44mj75ef08gua9wxp76ppn2u0pzgmf8zqcss9nrtesh66sgdu3gzhfuymkucn0rn9cyvthxea526wlp3gpa6d9qnpqssyjkv4faen5atmt7n77f03g0vrxed93q0c53k6uvquz0jlv7q6jf6pgqs5rqlw4hxjan9wfek2unsvvaz7tmsdakxzu3ddc6z6cn0vgarsdp5xv49wut3",
+            "group_key": {
+              "$hex": ""
+            },
+            "asset_type": "NORMAL"
+          }
+        ],
+        "transfer_timestamp": "1792100897",
+        "anchor_tx_hash": {
+          "$hex": "6469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac9"
+        },
+        "anchor_tx_height_hint": 108,
+        "anchor_tx_chain_fees": "6362",
+        "anchor_tx_block_hash": {
+          "hash": {
+            "$hex": "75287e16abfae2af0a6f1037bfb9061c10c99514b352e1b29c8c84293221961d"
+          },
+          "hash_str": "1d96213229848c9cb2e152b31495c9101c06b9bf37106f0aafe2faab167e2875"
+        },
+        "anchor_tx_block_height": 109,
+        "label": "fork-send-1792100897086",
+        "anchor_tx": {
+          "$hex": "02000000000102ae5a9aa16d59092e8f64c1433a85e2c03c488c6bdf1e40d2f49406168cf7c4350000000000000000008abedce8f858dd845e6377a696c626c41d8f0b2c6bf8b28bfaf7df26aa907b1e00000000000000000003e8030000000000002251203f0416deaaffde5c651b85667bd3b000eb9f1527a736a6dbe9214068207dbcabe803000000000000225120859a184fc211e9d0f4a329cfedf1c23dc75e8f48cdab66626cb7137fc7673c333ed5052a01000000225120ccd1713fb76f2c2c556ec966d73731414d573af24cea1f3e9bb7388a5562c8a1014024c1c37ab77f209a49e3a03aa44b2fd66c6cbf8e271c57a773b654c5917e0906e8aeca637104c031236173d6c5e86f2a117940390c5fe173bc9ed10312060398014021dbd6796f29c9be32837a9671f3407c0c6a44a9d9b7169308095e27d51bf6683b92b23abaa4490af1b7dd382e805ff578b4d623965b0106f65734357921a3d200000000"
+        }
+      }
+    ]
+  },
+  "burnAsset": {
+    "burn_proofs": [],
+    "burn_transfer": {
+      "inputs": [
+        {
+          "anchor_point": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:0",
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "script_key": {
+            "$hex": "02d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb32891"
+          },
+          "amount": "999990",
+          "group_key": {
+            "$hex": ""
+          },
+          "asset_type": "NORMAL"
+        }
+      ],
+      "outputs": [
+        {
+          "anchor": {
+            "outpoint": "2272ef668566570cf57ec502d2fb6302ee439bb33ce8d856d03e6f00bb31c661:1",
+            "value": "1000",
+            "internal_key": {
+              "$hex": "02788247ce04aeb2deb6b47f72a55d7a39ad15cccc9cba36c678ad15b4e170f046"
+            },
+            "taproot_asset_root": {
+              "$hex": "abdd4c517763f81e9111e599736f5febdae84e6903f02c6b90f957274cff4eb0"
+            },
+            "merkle_root": {
+              "$hex": "abdd4c517763f81e9111e599736f5febdae84e6903f02c6b90f957274cff4eb0"
+            },
+            "tapscript_sibling": {
+              "$hex": ""
+            },
+            "num_passive_assets": 0,
+            "pk_script": {
+              "$hex": "51202b01d8f4ea9c6d467bdf8018a35f4571fd1a13cf1b4ac9154b1de5f6a0fa7eb1"
+            }
+          },
+          "script_key": {
+            "$hex": "02e07cab33d494875a36de6e7b05bb597bbb7a8282d4612a19162a1f26dfbca6ba"
+          },
+          "script_key_is_local": true,
+          "amount": "999985",
+          "new_proof_blob": {
+            "$hex": "5441505000040000000002246469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac90000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "split_commit_root_hash": {
+            "$hex": "9774471ec55ae4b4c9ab7eafce0776bd0f5d5426947991c7b3bb5713b0916a8a"
+          },
+          "output_type": "OUTPUT_TYPE_SPLIT_ROOT",
+          "asset_version": "ASSET_VERSION_V0",
+          "lock_time": "0",
+          "relative_lock_time": "0",
+          "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "proof_courier_addr": "",
+          "tap_addr": "",
+          "group_key": {
+            "$hex": ""
+          },
+          "asset_type": "NORMAL"
+        },
+        {
+          "anchor": {
+            "outpoint": "2272ef668566570cf57ec502d2fb6302ee439bb33ce8d856d03e6f00bb31c661:0",
+            "value": "1000",
+            "internal_key": {
+              "$hex": "02db9a15610b9c3c0f4479ecef94fed1a6f81ec9262c197a37287236702bcf32c1"
+            },
+            "taproot_asset_root": {
+              "$hex": "ef1f8f6d5456fa21d499b2d825afda91c3b39449777b4c5db65e186441ab9065"
+            },
+            "merkle_root": {
+              "$hex": "ef1f8f6d5456fa21d499b2d825afda91c3b39449777b4c5db65e186441ab9065"
+            },
+            "tapscript_sibling": {
+              "$hex": ""
+            },
+            "num_passive_assets": 0,
+            "pk_script": {
+              "$hex": "51207bf37bcea007d6a1cfdad9a82da8c3398a727f9f499380a1e2c836236983ecd5"
+            }
+          },
+          "script_key": {
+            "$hex": "022ebe35372f1d84007e3efbf5bc57c21d8d0fcb93ef34314becd5b8662a8d2826"
+          },
+          "script_key_is_local": false,
+          "amount": "5",
+          "new_proof_blob": {
+            "$hex": "5441505000040000000002246469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac90000000004500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "split_commit_root_hash": {
+            "$hex": ""
+          },
+          "output_type": "OUTPUT_TYPE_SIMPLE",
+          "asset_version": "ASSET_VERSION_V0",
+          "lock_time": "0",
+          "relative_lock_time": "0",
+          "proof_delivery_status": "PROOF_DELIVERY_STATUS_NOT_APPLICABLE",
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "proof_courier_addr": "",
+          "tap_addr": "",
+          "group_key": {
+            "$hex": ""
+          },
+          "asset_type": "NORMAL"
+        }
+      ],
+      "transfer_timestamp": "1792100952",
+      "anchor_tx_hash": {
+        "$hex": "61c631bb006f3ed056d8e83cb39b43ee0263fbd202c57ef50c57668566ef7222"
+      },
+      "anchor_tx_height_hint": 111,
+      "anchor_tx_chain_fees": "6362",
+      "anchor_tx_block_hash": null,
+      "anchor_tx_block_height": 0,
+      "label": "",
+      "anchor_tx": {
+        "$hex": "020000000001026469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac900000000000000000006ea15674a02a8bc27111c872ad86cb91684425e7ee40d28fc2fc4ab34eaae2200000000000000000003e8030000000000002251207bf37bcea007d6a1cfdad9a82da8c3398a727f9f499380a1e2c836236983ecd5e8030000000000002251202b01d8f4ea9c6d467bdf8018a35f4571fd1a13cf1b4ac9154b1de5f6a0fa7eb13ed5052a01000000225120b115cd5307e97d8bfc9f8f18cf402a1decbdac6a8207f2d29ccb2438e17c380d0140237206996e87d1076c6b6cddcb19b9effb58772a6b5980b930ac33d0b2b73f557553b0ff1efe577f20b3b18b4e0a207407bc3946b93eee1d5cfdb544dd3487330140e109ed5f44067de31a1e1accc255d05076fc507fbfd75cd17b02ddde4090ff237cbee63b5cff9d4d234f5bc9b90516aa4caaa6914229e72dc9311d4865752f3900000000"
+      }
+    },
+    "burn_proof": {
+      "exclusion_proofs": [
+        {
+          "$hex": "000400000001022102788247ce04aeb2deb6b47f72a55d7a39ad15cccc9cba36c678ad15b4e170f04603c401710001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2044a0001c0edfd32c8872440a184de39b27e330f76de4cf2a9d2cbde066384207ef795a500000000000f4231ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f024f000102024a0001b1325768237c1c49d77d84b988efae91ca9c0a184084aab442dba2f68861eb310000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdf"
+        },
+        {
+          "$hex": "0004000000020221020295d8e06288953fc61ebb47dd65bfef6792381fc39373f562ade2eae627642c0503040101"
+        }
+      ],
+      "challenge_witness": [],
+      "proof_at_depth": 0,
+      "number_of_proofs": 0,
+      "asset": {
+        "prev_witnesses": [
+          {
+            "tx_witness": [],
+            "prev_id": {
+              "anchor_point": "0000000000000000000000000000000000000000000000000000000000000000:0",
+              "asset_id": {
+                "$hex": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "script_key": {
+                "$hex": "000000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "amount": "0"
+            },
+            "split_commitment": {
+              "root_asset": {
+                "prev_witnesses": [
+                  {
+                    "tx_witness": [
+                      {
+                        "$hex": "dbbda56a9bdf3ad890cd519fd6fa775e56e8f956cb80551d1eb34c1a434ec64d7c0f459ebe17e094cff1a467e8127aefe001975a6baa557f315ac802dd5f6c21"
+                      }
+                    ],
+                    "prev_id": {
+                      "anchor_point": "c94adff6655fcbadf9d5acefa3a552c573b305846a9397927a73f7603b276964:0",
+                      "asset_id": {
+                        "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+                      },
+                      "script_key": {
+                        "$hex": "02d1bb20f95ce70c1fc298e31e53ac42f07427810b75b2574d923e82b94eb32891"
+                      },
+                      "amount": "0"
+                    },
+                    "split_commitment": null
+                  }
+                ],
+                "version": "ASSET_VERSION_V0",
+                "asset_genesis": {
+                  "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+                  "name": "smoke-coin",
+                  "meta_hash": {
+                    "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+                  },
+                  "asset_id": {
+                    "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+                  },
+                  "asset_type": "NORMAL",
+                  "output_index": 0
+                },
+                "amount": "999985",
+                "lock_time": 0,
+                "relative_lock_time": 0,
+                "script_version": 0,
+                "script_key": {
+                  "$hex": "02e07cab33d494875a36de6e7b05bb597bbb7a8282d4612a19162a1f26dfbca6ba"
+                },
+                "script_key_is_local": false,
+                "asset_group": null,
+                "chain_anchor": null,
+                "is_spent": false,
+                "lease_owner": {
+                  "$hex": ""
+                },
+                "lease_expiry": "0",
+                "is_burn": false,
+                "script_key_declared_known": false,
+                "script_key_has_script_path": false,
+                "decimal_display": {
+                  "decimal_display": 0
+                },
+                "script_key_type": "SCRIPT_KEY_UNKNOWN"
+              }
+            }
+          }
+        ],
+        "version": "ASSET_VERSION_V0",
+        "asset_genesis": {
+          "genesis_point": "194b2d31fa33b89c7045a4fa5ce859e70ae3c6bdf41164b7bd3cee31f4a9323b:0",
+          "name": "smoke-coin",
+          "meta_hash": {
+            "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+          },
+          "asset_id": {
+            "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+          },
+          "asset_type": "NORMAL",
+          "output_index": 0
+        },
+        "amount": "5",
+        "lock_time": 0,
+        "relative_lock_time": 0,
+        "script_version": 0,
+        "script_key": {
+          "$hex": "022ebe35372f1d84007e3efbf5bc57c21d8d0fcb93ef34314becd5b8662a8d2826"
+        },
+        "script_key_is_local": false,
+        "asset_group": null,
+        "chain_anchor": {
+          "anchor_tx": {
+            "$hex": "020000000001026469273b60f7737a9297936a8405b373c552a5a3efacd5f9adcb5f65f6df4ac900000000000000000006ea15674a02a8bc27111c872ad86cb91684425e7ee40d28fc2fc4ab34eaae2200000000000000000003e8030000000000002251207bf37bcea007d6a1cfdad9a82da8c3398a727f9f499380a1e2c836236983ecd5e8030000000000002251202b01d8f4ea9c6d467bdf8018a35f4571fd1a13cf1b4ac9154b1de5f6a0fa7eb13ed5052a01000000225120b115cd5307e97d8bfc9f8f18cf402a1decbdac6a8207f2d29ccb2438e17c380d0140237206996e87d1076c6b6cddcb19b9effb58772a6b5980b930ac33d0b2b73f557553b0ff1efe577f20b3b18b4e0a207407bc3946b93eee1d5cfdb544dd3487330140e109ed5f44067de31a1e1accc255d05076fc507fbfd75cd17b02ddde4090ff237cbee63b5cff9d4d234f5bc9b90516aa4caaa6914229e72dc9311d4865752f3900000000"
+          },
+          "anchor_block_hash": "64f0387fc6daa6555c013e1e78c775f75b51149d948d0f681554705b791116ce",
+          "anchor_outpoint": "2272ef668566570cf57ec502d2fb6302ee439bb33ce8d856d03e6f00bb31c661:0",
+          "internal_key": {
+            "$hex": "02db9a15610b9c3c0f4479ecef94fed1a6f81ec9262c197a37287236702bcf32c1"
+          },
+          "merkle_root": {
+            "$hex": "469479bc6979e9c81c139a67e9829c0bb86d84ac567f96ea36054b2fe22dbb83"
+          },
+          "tapscript_sibling": {
+            "$hex": ""
+          },
+          "block_height": 0,
+          "block_timestamp": "2288912640"
+        },
+        "is_spent": false,
+        "lease_owner": {
+          "$hex": ""
+        },
+        "lease_expiry": "0",
+        "is_burn": true,
+        "script_key_declared_known": false,
+        "script_key_has_script_path": false,
+        "decimal_display": {
+          "decimal_display": 0
+        },
+        "script_key_type": "SCRIPT_KEY_UNKNOWN"
+      },
+      "meta_reveal": null,
+      "tx_merkle_proof": {
+        "$hex": "00"
+      },
+      "inclusion_proof": {
+        "$hex": "000400000000022102db9a15610b9c3c0f4479ecef94fed1a6f81ec9262c197a37287236702bcf32c1037401490001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e204220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff022700010202220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "split_root_proof": {
+        "$hex": "000400000001022102788247ce04aeb2deb6b47f72a55d7a39ad15cccc9cba36c678ad15b4e170f046039c01490001000220664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e204220000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff024f000102024a0001b1325768237c1c49d77d84b988efae91ca9c0a184084aab442dba2f68861eb310000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdf"
+      },
+      "num_additional_inputs": 0,
+      "is_burn": true,
+      "genesis_reveal": null,
+      "group_key_reveal": {
+        "raw_group_key": {
+          "$hex": ""
+        },
+        "tapscript_root": {
+          "$hex": ""
+        }
+      },
+      "alt_leaves": {
+        "$hex": ""
+      }
+    }
+  }
+}

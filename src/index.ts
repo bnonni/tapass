@@ -10,4 +10,6 @@ export type {Utxo} from './tapd_responses/index.js';
 export type {Proof} from './tapd_responses/index.js';
 export type {Receive} from './tapd_responses/index.js';
 export type {ReceiveUpdate} from './tapd_responses/index.js';
+export type {SendEvent} from './tapd_responses/index.js';
+export type {Transfer} from './tapd_responses/index.js';
 export type * from './typescript/index.js';
