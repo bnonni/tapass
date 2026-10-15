@@ -1,3 +1,14 @@
 export {default as createAssetAddress} from './create_asset_address.js';
 export type {CreateAssetAddressArgs} from './create_asset_address.js';
 export type {CreateAssetAddressResult} from './create_asset_address.js';
+export {default as decodeAssetAddress} from './decode_asset_address.js';
+export type {DecodeAssetAddressArgs} from './decode_asset_address.js';
+export type {DecodeAssetAddressResult} from './decode_asset_address.js';
+export {default as getAssetAddresses} from './get_asset_addresses.js';
+export type {GetAssetAddressesArgs} from './get_asset_addresses.js';
+export type {GetAssetAddressesResult} from './get_asset_addresses.js';
+export {default as getAssetReceives} from './get_asset_receives.js';
+export type {GetAssetReceivesArgs} from './get_asset_receives.js';
+export type {GetAssetReceivesResult} from './get_asset_receives.js';
+export {default as subscribeToAssetReceives} from './subscribe_to_asset_receives.js';
+export type {SubscribeToAssetReceivesArgs} from './subscribe_to_asset_receives.js';
