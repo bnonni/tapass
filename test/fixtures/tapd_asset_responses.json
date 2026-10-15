@@ -1,0 +1,42 @@
+{
+  "fetchAssetMeta": {
+    "canonical_universe_urls": [],
+    "unknown_odd_types": {},
+    "data": {
+      "$hex": ""
+    },
+    "type": "META_TYPE_OPAQUE",
+    "meta_hash": {
+      "$hex": "f19bbf25df2e3f02ef33bd8edfdea2a176f38f608065f920aeef077644a268bd"
+    },
+    "decimal_display": 0,
+    "universe_commitments": false,
+    "delegation_key": {
+      "$hex": ""
+    }
+  },
+  "fetchAssetMetaUnknown": {
+    "error": {
+      "code": 2,
+      "details": "unable to fetch asset meta: asset lookup failed for asset: issuance-0707070707070707070707070707070707070707070707070707070707070707"
+    }
+  },
+  "listBurns": {
+    "burns": [
+      {
+        "note": "fork test burn",
+        "asset_id": {
+          "$hex": "664d168bed3e038f2105107fad772f532979d1ce95c60fb410cd5c78448da4e2"
+        },
+        "tweaked_group_key": {
+          "$hex": ""
+        },
+        "amount": "5",
+        "anchor_txid": {
+          "$hex": "61c631bb006f3ed056d8e83cb39b43ee0263fbd202c57ef50c57668566ef7222"
+        },
+        "asset_type": "NORMAL"
+      }
+    ]
+  }
+}
