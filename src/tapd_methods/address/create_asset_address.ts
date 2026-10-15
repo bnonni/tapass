@@ -2,6 +2,7 @@ import {auto as asyncAuto} from 'async';
 import {returnResult} from 'asyncjs-util';
 
 import {isConnectionFailure} from '../../tapd_requests/index.js';
+import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {isTapd} from '../../tapd_requests/index.js';
 import type {AuthenticatedTapdArgs} from '../../typescript/index.js';
 import type {TapdCallback} from '../../typescript/index.js';
@@ -21,6 +22,7 @@ const isBuffer = (n: unknown): n is Buffer => Buffer.isBuffer(n);
 const isHex = (n: string) => !!n && !(n.length % 2) && /^[0-9A-F]*$/i.test(n);
 const isNumeric = (n: unknown) => typeof n === 'string' && /^\d+$/.test(n);
 const method = 'newAddr';
+const notFoundError = 'unable to find asset or group';
 const type = 'default';
 const unspecifiedVersion = 'ADDR_VERSION_UNSPECIFIED';
 
@@ -163,6 +165,19 @@ const createAssetAddress: TapdMethod<
             return args.tapd[type][method](request, (err: any, res: any) => {
               if (isConnectionFailure({err})) {
                 return cbk([503, 'FailedToConnectToTapdToCreateAssetAddress']);
+              }
+
+              if (isPermissionDenied({err})) {
+                return cbk([403, 'PermissionDeniedToCreateAssetAddress']);
+              }
+
+              if (!!err && String(err.details).includes(notFoundError)) {
+                const isGroup = !!args.group_key;
+
+                return cbk([
+                  404,
+                  isGroup ? 'AssetGroupNotFound' : 'AssetNotFound',
+                ]);
               }
 
               if (!!err) {

@@ -82,6 +82,8 @@ const {address} = await createAssetAddress({amount: '100', asset_id, tapd});
 Methods return errors as arrays: `[code, 'ErrorMessage', {err}]`.
 
 - `400`: An argument is not correct.
+- `403`: The macaroon does not have the permission for the method.
+- `404`: tapd does not have the item, for example an asset.
 - `503`: tapd returned an error, or tapd is not available.
 
 ## Development

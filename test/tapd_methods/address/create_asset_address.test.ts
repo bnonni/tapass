@@ -75,6 +75,34 @@ const tests = [
     error: [503, 'FailedToConnectToTapdToCreateAssetAddress'],
   },
   {
+    args: {
+      asset_id: assetId,
+      tapd: tapdWith((_, cbk) => cbk({code: 2, details: 'permission denied'})),
+    },
+    description: 'A permission failure is returned',
+    error: [403, 'PermissionDeniedToCreateAssetAddress'],
+  },
+  {
+    args: {
+      asset_id: assetId,
+      tapd: tapdWith((_, cbk) => {
+        return cbk({code: 2, details: 'unable to find asset or group: x'});
+      }),
+    },
+    description: 'An unknown asset is returned as not found',
+    error: [404, 'AssetNotFound'],
+  },
+  {
+    args: {
+      group_key: key(2).toString('hex'),
+      tapd: tapdWith((_, cbk) => {
+        return cbk({code: 2, details: 'unable to find asset or group: x'});
+      }),
+    },
+    description: 'An unknown asset group is returned as not found',
+    error: [404, 'AssetGroupNotFound'],
+  },
+  {
     args: {asset_id: assetId, tapd: tapdWith((_, cbk) => cbk('err'))},
     description: 'An unexpected error is returned',
     error: [503, 'UnexpectedErrorCreatingAssetAddress', {err: 'err'}],
