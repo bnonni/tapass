@@ -121,6 +121,9 @@ type Tasks = {
   When there is no `min_amount`, the quote must fill the `amount`. Use `"0"` to
   accept a partial fill.
 
+  The asset amount must be at least the minimum transportable amount of the
+  quote. A smaller amount is a 400.
+
   `min_amount`, `min_rate`, and `is_fill_or_kill` need tapd v0.8.0 or later.
   Older tapd versions ignore them.
 

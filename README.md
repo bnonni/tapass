@@ -564,6 +564,9 @@ A random `secret` is used when there is no `secret` and no `id`
 When there is no `min_amount`, the quote must fill the `amount`. Use `"0"` to
 accept a partial fill.
 
+The asset amount must be at least the minimum transportable amount of the
+quote. A smaller amount is a 400.
+
 `min_amount`, `min_rate`, and `is_fill_or_kill` need tapd v0.8.0 or later.
 Older tapd versions ignore them.
 
@@ -1903,6 +1906,8 @@ The default `pathfinding_timeout` is 25 seconds. The default `max_paths` is 1.
 
 tapd rejects a payment that is too small to carry one asset unit, unless
 `is_overpay_allowed` is set
+
+A payment request that is already paid is a 409
 
     {
       [asset_id]: <Asset Id Hex String>

@@ -53,6 +53,8 @@ type Tasks = {
   tapd rejects a payment that is too small to carry one asset unit, unless
   `is_overpay_allowed` is set
 
+  A payment request that is already paid is a 409
+
   {
     [asset_id]: <Asset Id Hex String>
     [group_key]: <Asset Group Key Hex String>

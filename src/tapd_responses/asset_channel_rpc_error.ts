@@ -22,6 +22,11 @@ const knownErrors: {details: string; error: TapdError}[] = [
     details: 'unable to query peer feature bits: peer not found',
     error: [503, 'ExpectedConnectedPeerForAssetChannel'],
   },
+  // This text can also be in an 'error acquiring buy order' error
+  {
+    details: 'as the minimal transportable amount is',
+    error: [400, 'ExpectedAtLeastMinTransportableAssetAmount'],
+  },
   {
     details: 'error acquiring buy order for invoice',
     error: [503, 'FailedToGetAssetBuyQuoteForInvoice'],
@@ -42,6 +47,7 @@ const knownErrors: {details: string; error: TapdError}[] = [
     details: 'rejecting payment of',
     error: [400, 'ExpectedOverpayAllowedForSmallAssetPayment'],
   },
+  {details: 'invoice is already paid', error: [409, 'InvoiceIsAlreadyPaid']},
   {details: 'price oracle is not set', error: [503, 'PriceOracleIsNotSet']},
   {
     details: 'no genesis found for decoded asset',

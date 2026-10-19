@@ -47,6 +47,37 @@ const tests = [
     args: {err: {details: 'no genesis found for decoded asset'}},
     expected: [404, 'AssetNotFound'],
   },
+  {
+    args: {
+      err: {
+        details:
+          'error acquiring buy order for invoice: cannot create invoice ' +
+          'over 100 asset units, as the minimal transportable amount is 354 ' +
+          'units with the current rate of coefficient:"100000000" units/BTC',
+      },
+    },
+    expected: [400, 'ExpectedAtLeastMinTransportableAssetAmount'],
+  },
+  {
+    args: {
+      err: {
+        details:
+          'cannot create invoice for 100 asset units, as the minimal ' +
+          'transportable amount is 354 units with the current rate of 1',
+      },
+    },
+    expected: [400, 'ExpectedAtLeastMinTransportableAssetAmount'],
+  },
+  {
+    args: {
+      err: {
+        details:
+          'failed to receive payment update: rpc error: code = ' +
+          'AlreadyExists desc = invoice is already paid',
+      },
+    },
+    expected: [409, 'InvoiceIsAlreadyPaid'],
+  },
 ];
 
 tests.forEach(({args, expected}) => {
