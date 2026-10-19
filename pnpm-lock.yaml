@@ -42,6 +42,9 @@ importers:
       oxlint-tsgolint:
         specifier: ^7.0.2004
         version: 7.0.2004
+      polarln:
+        specifier: ^0.1.0
+        version: 0.1.0
       rimraf:
         specifier: ^6.1.3
         version: 6.1.3
@@ -664,6 +667,11 @@ packages:
     resolution: {integrity: sha512-3O/iVVsJAPsOnpwWIeD+d6z/7PmqApyQePUtCndjatj/9I5LylHvt5qluFaBT3I5h3r1ejfR056c+FCv+NnNXg==}
     engines: {node: 18 || 20 || >=22}
 
+  polarln@0.1.0:
+    resolution: {integrity: sha512-AhIkIMTmh+EwxtXjTABZHyz9vWAj3gYbM9CgW6JJjhyKK5lfOwbQk7pLcTJN27UQg3F+3xBkufAVhHjuseHlkw==}
+    engines: {node: '>=22.12.0'}
+    hasBin: true
+
   protobufjs@7.6.6:
     resolution: {integrity: sha512-dYDWdjSl5RNb7SgPxGQcRU+GtvP7s2fpkrY0r432PcOIaZ0/rBcxEZnQN67iJhFuQiVw754JDoPruPCNdGsbjg==}
     engines: {node: '>=12.0.0'}
@@ -1161,6 +1169,8 @@ snapshots:
     dependencies:
       lru-cache: 11.0.2
       minipass: 7.1.2
+
+  polarln@0.1.0: {}
 
   protobufjs@7.6.6:
     dependencies:

@@ -52,6 +52,7 @@
     "prepublishOnly": "pnpm lint && pnpm test && pnpm build",
     "sync-protos": "sh scripts/sync-protos.sh",
     "test": "tsc -p tsconfig.test.json && bun test",
+    "test:live": "bun test/live/run.ts",
     "wipe": "rimraf node_modules"
   },
   "dependencies": {
@@ -68,6 +69,7 @@
     "oxfmt": "^0.73.0",
     "oxlint": "^1.88.0",
     "oxlint-tsgolint": "^7.0.2004",
+    "polarln": "^0.1.0",
     "rimraf": "^6.1.3",
     "typescript": "^7.0.2"
   },

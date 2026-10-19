@@ -2890,3 +2890,21 @@ Methods return errors as arrays: `[code, 'ErrorMessage', {err}]`.
 To copy the protos of a different tapd release into `protos/`:
 
     pnpm sync-protos v0.8.5
+
+### Live Test
+
+The live test runs each method against a Polar network. It does not run in
+CI, because it needs the [Polar](https://lightningpolar.com) desktop app.
+
+The network must have two started litd nodes with tapd v0.8.1 or later. The
+proof courier of the network must also run. If the first node has no asset
+channel to the second node, the test funds the node, mints an asset, and opens
+the channel.
+
+Each run mints a new asset and sends some of its units on-chain to the second
+node.
+
+    NETWORK_ID=1 NODES=alice,bob pnpm test:live
+
+To also check the 501 of the methods that need a newer tapd, set `OLD_NODE` to
+a tapd node that is older than v0.8.0.
