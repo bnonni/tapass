@@ -1,3 +1,5 @@
+import type {Routes} from 'lightning';
+
 import type {AuthenticatedTapd} from '../tapd_grpc/types.js';
 
 /** [Status Code Number, Error Message String, Error Details Object] */
@@ -87,5 +89,46 @@ export type ConfirmedPayment = {
   /** Expiration Block Height */
   timeout: number;
   /** Total Tokens Paid Rounded Down */
+  tokens: number;
+};
+
+/** The result of the lightning paymentRequestDetails response mapper */
+export type PaymentRequestDetails = {
+  /** Fallback Chain Address */
+  chain_address?: string;
+  /** Final CLTV Delta */
+  cltv_delta?: number;
+  /** Payment Request Created At ISO 8601 Date */
+  created_at: string;
+  /** Payment Description */
+  description: string;
+  /** Payment Longer Description Hash Hex */
+  description_hash?: string;
+  /** Public Key Hex */
+  destination: string;
+  /** ISO 8601 Date */
+  expires_at: string;
+  features: {
+    /** BOLT 09 Feature Bit */
+    bit: number;
+    /** Feature is Known */
+    is_known: boolean;
+    /** Feature Support is Required To Pay */
+    is_required: boolean;
+    /** Feature Type */
+    type: string;
+  }[];
+  /** Payment Hash Hex */
+  id: string;
+  /** Invoice is Expired */
+  is_expired: boolean;
+  /** Requested Millitokens */
+  mtokens: string;
+  /** Payment Identifier Hex Encoded */
+  payment?: string;
+  routes: Routes;
+  /** Requested Tokens Rounded Up */
+  safe_tokens: number;
+  /** Requested Tokens Rounded Down */
   tokens: number;
 };

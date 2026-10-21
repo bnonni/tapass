@@ -1,4 +1,5 @@
 import {deepStrictEqual} from 'node:assert/strict';
+import {equal} from 'node:assert/strict';
 import {rejects} from 'node:assert/strict';
 import test from 'node:test';
 
@@ -93,10 +94,20 @@ tests.forEach(({args, description, error}) => {
 });
 
 test('A payment request is decoded with the asset amount', async () => {
+  const decoded = await decodeAssetPaymentRequest(args);
+
   deepStrictEqual(
-    await decodeAssetPaymentRequest(args),
+    decoded,
     rpcAssetPayReqAsRequest(responses.decodeAssetPayReq),
   );
+  equal(decoded.chain_address, undefined, 'There is no fallback address');
+  equal(
+    decoded.created_at,
+    '2026-10-15T22:25:36.000Z',
+    'Got the creation date',
+  );
+  equal(decoded.description_hash, undefined, 'There is no description hash');
+  equal(decoded.is_expired, true, 'The request is expired');
 });
 
 test('A 32 byte group key is accepted', async () => {

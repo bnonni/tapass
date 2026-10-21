@@ -1,5 +1,4 @@
 declare module 'lightning/lnd_responses/index.js' {
-  import type {DecodePaymentRequestResult} from 'lightning';
   import type {GetInvoicesResult} from 'lightning';
   import type {GetPaymentsResult} from 'lightning';
   import type {SubscribeToPastPaymentFailedEvent} from 'lightning';
@@ -21,7 +20,7 @@ declare module 'lightning/lnd_responses/index.js' {
   /** Payment request details from an lnrpc.PayReq */
   export function paymentRequestDetails(
     details: unknown,
-  ): DecodePaymentRequestResult;
+  ): import('./index.js').PaymentRequestDetails;
 
   /** Pending payment details from an IN_FLIGHT lnrpc.Payment
 

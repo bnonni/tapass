@@ -1,5 +1,6 @@
-import type {DecodePaymentRequestResult} from 'lightning';
 import {paymentRequestDetails} from 'lightning/lnd_responses/index.js';
+
+import type {PaymentRequestDetails} from '../typescript/index.js';
 
 const hexOf = (n?: Buffer | null) =>
   !n?.length ? undefined : n.toString('hex');
@@ -19,7 +20,7 @@ export type RpcAssetPayReq = {
   pay_req: unknown;
 };
 
-export type AssetPaymentRequest = DecodePaymentRequestResult & {
+export type AssetPaymentRequest = PaymentRequestDetails & {
   asset: {
     /** Asset Units To Pay Numeric String */
     amount: string;
