@@ -2,6 +2,9 @@ const defaultMaxPaths = 1;
 const defaultTimeoutSeconds = 25;
 const {from} = Buffer;
 const msPerSecond = 1e3;
+// tapd counts the timeout in whole seconds, and 0 seconds is the default
+const timeoutSeconds = (ms?: number) =>
+  !ms ? 0 : Math.max(1, Math.round(ms / msPerSecond));
 
 export type AssetPaymentRequestArgs = {
   /** Asset Id Hex String */
@@ -57,7 +60,7 @@ export type AssetPaymentRequestArgs = {
   }
 */
 export default (args: AssetPaymentRequestArgs) => {
-  const timeout = Math.round((args.pathfinding_timeout || 0) / msPerSecond);
+  const timeout = timeoutSeconds(args.pathfinding_timeout);
 
   return {
     allow_overpay: !!args.is_overpay_allowed,

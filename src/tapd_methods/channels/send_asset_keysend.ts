@@ -69,6 +69,7 @@ type Tasks = {
   `max_fee` and `max_fee_mtokens` are not supported together
 
   The default `pathfinding_timeout` is 25 seconds. The default `max_paths` is 1.
+  tapd uses the `pathfinding_timeout` in whole seconds, with a minimum of 1.
 
   {
     amount: <Asset Units To Send Numeric String>
@@ -194,7 +195,11 @@ const sendAssetKeysend: TapdMethod<
         send: [
           'validate',
           ({}, cbk) => {
-            const common = assetPaymentRequest(args);
+            // The keysend type has no overpay flag, so a JS value is ignored
+            const common = assetPaymentRequest({
+              ...args,
+              is_overpay_allowed: false,
+            });
 
             const preimage = !!args.secret
               ? Buffer.from(args.secret, 'hex')

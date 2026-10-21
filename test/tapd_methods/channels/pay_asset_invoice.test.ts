@@ -260,3 +260,30 @@ test('The payment request has the payment details', async () => {
     rfq_id: Buffer.alloc(32, 4),
   });
 });
+
+test('The pathfinding timeout is in whole seconds', async () => {
+  const cases = [
+    {ms: 0, seconds: 25},
+    {ms: 300, seconds: 1},
+    {ms: 1499, seconds: 1},
+    {ms: 1500, seconds: 2},
+  ];
+
+  for (const {ms, seconds} of cases) {
+    let sent: any;
+
+    const tapd = {
+      tapchannel: {
+        sendPayment: (req: any) => {
+          sent = req;
+
+          return fakeStream([['data', paymentUpdate('SUCCEEDED')]]);
+        },
+      },
+    } as unknown as AuthenticatedTapd;
+
+    await payAssetInvoice({...args, tapd, pathfinding_timeout: ms});
+
+    equal(sent.payment_request.timeout_seconds, seconds, `${ms} ms`);
+  }
+});

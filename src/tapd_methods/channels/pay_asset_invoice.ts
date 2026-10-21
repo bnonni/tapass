@@ -51,6 +51,7 @@ type Tasks = {
   `max_fee` and `max_fee_mtokens` are not supported together
 
   The default `pathfinding_timeout` is 25 seconds. The default `max_paths` is 1.
+  tapd uses the `pathfinding_timeout` in whole seconds, with a minimum of 1.
 
   tapd rejects a payment that is too small to carry one asset unit, unless
   `is_overpay_allowed` is set

@@ -6,6 +6,7 @@ import test from 'node:test';
 
 import {sendAssetKeysend} from '../../../src/index.js';
 import type {AuthenticatedTapd} from '../../../src/index.js';
+import type {SendAssetKeysendArgs} from '../../../src/index.js';
 import {fakeStream} from '../../fixtures/tapd_channel_responses.js';
 import {makeLndPayment} from '../../fixtures/tapd_channel_responses.js';
 import {overTheWireResponse} from '../../fixtures/tapd_channel_responses.js';
@@ -128,4 +129,16 @@ test('A random preimage is used when there is no secret', async () => {
     sent.payment_request.payment_hash,
     createHash('sha256').update(preimage).digest(),
   );
+});
+
+test('A keysend does not allow an overpay', async () => {
+  let sent: any;
+
+  await sendAssetKeysend({
+    ...args,
+    is_overpay_allowed: true,
+    tapd: tapdWith([['data', succeeded]], (req: any) => (sent = req)),
+  } as SendAssetKeysendArgs);
+
+  equal(sent.allow_overpay, false, 'The overpay flag is not sent');
 });
