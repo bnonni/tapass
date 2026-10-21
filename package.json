@@ -47,8 +47,9 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "clean": "rimraf dist coverage",
+    "docs": "bun scripts/docs.ts",
     "format": "oxfmt",
-    "lint": "oxlint --type-aware --deny-warnings && oxfmt --check",
+    "lint": "oxlint --type-aware --deny-warnings && oxfmt --check && bun scripts/docs.ts --check",
     "prepublishOnly": "pnpm lint && pnpm test && pnpm build",
     "sync-protos": "sh scripts/sync-protos.sh",
     "test": "tsc -p tsconfig.test.json && bun test",

@@ -23,7 +23,9 @@ pnpm build
 ```
 
 - `pnpm test` type-checks the tests, then runs them with Bun.
-- `pnpm lint` runs oxlint and checks the format with oxfmt.
+- `pnpm lint` runs oxlint, checks the format with oxfmt, and checks that the
+  API pages are current.
+- `pnpm docs` writes the API pages from the JSDoc.
 - `pnpm format` formats the code with oxfmt.
 - `pnpm build` compiles the package to `dist/`.
 
@@ -35,8 +37,15 @@ Each method has a JSDoc block in `src/tapd_methods/`. The block shows the
 arguments and the result of the method, or the events of a subscription. The
 [API reference](api/README.md) copies this block, and adds an example.
 
-If you change the arguments or the result of a method, update its JSDoc block
-and its API page.
+Do not edit the API pages by hand, except for the examples. To change the
+docs of a method:
+
+1. Change the JSDoc block of the method.
+2. Run `pnpm docs` to write the API pages.
+
+The script keeps the example of each method from its page. For a new method,
+add a `## methodName` section with `Example:` and a code block to its page.
+Then run `pnpm docs`.
 
 ## Protos
 
