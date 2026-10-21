@@ -1,6 +1,6 @@
 {
   "name": "tapass",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Taproot Assets daemon (tapd) client methods in the style of lightning",
   "keywords": [
     "grpc",

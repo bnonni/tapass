@@ -9,6 +9,7 @@ This file shows the planned work for tapass. The order can change.
 - CI (2026-10-19): GitHub Actions runs lint, test, and build on each push to `main` and on each pull request.
 - Live test (2026-10-19): `pnpm test:live` runs each method against a Polar network. The script gets the node credentials from polarln (`getNodeCredentials`). It does not run in CI, because it needs the Polar desktop app.
 - Release 0.2.1 (2026-10-19): `createAssetInvoice` gives 400 for an amount below the minimum transportable amount, and `payAssetInvoice` gives 409 for a paid request. Both errors were 503.
+- Release 0.2.2 (2026-10-21): `subscribeToAssetReceives`, `subscribeToAssetSends`, and `subscribeToMintEvents` emit error arrays. The payment result types match the results. A short `pathfinding_timeout` is at least 1 second. The docs moved to `docs/`, and `pnpm docs` writes the API pages from the JSDoc.
 
 ## Status
 
