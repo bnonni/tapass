@@ -46,7 +46,10 @@ type Tasks = {
 
   This is only necessary when the batch needs a custom witness before
   `finalizeMintBatch`. tapd makes a new funded batch when there is no pending
-  batch.
+  batch. tapd fails when the pending batch is already funded.
+
+  If an asset in the batch starts or joins a group, `assets` is empty and each
+  asset of the batch is in `unsealed_assets`.
 
   A tapscript sibling is optional: give `tapscript_leaves` or a
   `tapscript_branch`, not both.
@@ -73,7 +76,7 @@ type Tasks = {
       is_new_group: <Asset Starts a New Group Bool>
       [metadata]: <Metadata Hex String>
       [metadata_hash]: <Metadata Hash Hex String>
-      [metadata_type]: <Metadata Type String> // json, opaque
+      [metadata_type]: <Metadata Type String> // json, opaque, unknown
       name: <Asset Name String>
       [script_key]: <Script Key Hex String>
       version: <Asset Version Number>
@@ -96,7 +99,7 @@ type Tasks = {
       is_new_group: <Asset Starts a New Group Bool>
       [metadata]: <Metadata Hex String>
       [metadata_hash]: <Metadata Hash Hex String>
-      [metadata_type]: <Metadata Type String> // json, opaque
+      [metadata_type]: <Metadata Type String> // json, opaque, unknown
       name: <Asset Name String>
       [script_key]: <Script Key Hex String>
       version: <Asset Version Number>

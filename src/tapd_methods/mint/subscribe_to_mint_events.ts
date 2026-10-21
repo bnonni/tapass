@@ -19,6 +19,10 @@ export type SubscribeToMintEventsArgs = AuthenticatedTapdArgs;
 
   Requires `mint:read` permission
 
+  When a batch has committed assets, tapd does not return the asset version,
+  the new group flag, or the group anchor: `version` is 0 and `is_new_group`
+  is false.
+
   {
     tapd: <Authenticated tapd API Object>
   }
@@ -44,7 +48,7 @@ export type SubscribeToMintEventsArgs = AuthenticatedTapdArgs;
         is_new_group: <Asset Starts a New Group Bool>
         [metadata]: <Metadata Hex String>
         [metadata_hash]: <Metadata Hash Hex String>
-        [metadata_type]: <Metadata Type String> // json, opaque
+        [metadata_type]: <Metadata Type String> // json, opaque, unknown
         name: <Asset Name String>
         [script_key]: <Script Key Hex String>
         version: <Asset Version Number>
@@ -60,6 +64,13 @@ export type SubscribeToMintEventsArgs = AuthenticatedTapdArgs;
     [error]: <State Change Error String>
     state: <Last Done Batch State String>
   }
+  @event 'end'
+
+  @event 'error'
+  <gRPC Error Object> or [<Error Code Number>, <Error Message String>]
+
+  @event 'status'
+  <gRPC Status Object>
 */
 export default ({tapd}: SubscribeToMintEventsArgs): EventEmitter => {
   if (!isTapd({method, type, tapd})) {

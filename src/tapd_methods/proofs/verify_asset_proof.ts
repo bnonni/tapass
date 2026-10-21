@@ -51,7 +51,45 @@ type Tasks = {
     [proof]: {
       additional_inputs_count: <Additional Inputs Count Number>
       [alt_leaves]: <Alternative Leaves Hex String>
-      asset: <Asset Object>
+      asset: {
+        amount: <Asset Units Numeric String>
+        [anchor]: {
+          [block_hash]: <Anchor Block Hash Hex String>
+          [block_height]: <Anchor Block Height Number>
+          [confirmed_at]: <Anchor Confirmed At ISO 8601 Date String>
+          internal_key: <Anchor Internal Key Hex String>
+          merkle_root: <Anchor Taproot Merkle Root Hex String>
+          [tapscript_sibling]: <Tapscript Sibling Preimage Hex String>
+          transaction: <Raw Anchor Transaction Hex String>
+          transaction_id: <Anchor Transaction Id Hex String>
+          transaction_vout: <Anchor Transaction Output Index Number>
+        }
+        asset_id: <Asset Id Hex String>
+        [decimal_display]: <Decimal Places To Show Number>
+        genesis_output_index: <Genesis Commitment Output Index Number>
+        genesis_transaction_id: <Genesis Point Transaction Id Hex String>
+        genesis_transaction_vout: <Genesis Point Output Index Number>
+        [group]: {
+          key: <Tweaked Group Key Hex String>
+          raw_key: <Raw Group Key Hex String>
+          [tapscript_root]: <Group Tapscript Root Hex String>
+          [witness]: <Group Membership Witness Hex String>
+        }
+        is_burn: <Asset Is Burned Bool>
+        is_collectible: <Asset Is Collectible Bool>
+        is_local: <Script Key Belongs To This Node Bool>
+        is_spent: <Asset Is Spent Bool>
+        [lease_expires_at]: <Lease Expires At ISO 8601 Date String>
+        [lease_owner]: <Lease Owner Id Hex String>
+        [lock_time]: <Lock Time Number>
+        meta_hash: <Asset Metadata Hash Hex String>
+        name: <Asset Name String>
+        [relative_lock_time]: <Relative Lock Time Number>
+        script_key: <Script Key Hex String>
+        script_key_type: <Script Key Type String>
+        script_version: <Script Version Number>
+        version: <Asset Version Number>
+      }
       challenge_witness: [<Challenge Witness Element Hex String>]
       depth: <Proof Depth From the Last Proof In the File Number>
       exclusion_proofs: [<Exclusion Proof Hex String>]

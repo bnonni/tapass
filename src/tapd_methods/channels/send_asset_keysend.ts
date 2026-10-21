@@ -66,6 +66,10 @@ type Tasks = {
   Without `max_fee` or `max_fee_mtokens`, only routes with no fee are used,
   the same as lnd
 
+  `max_fee` and `max_fee_mtokens` are not supported together
+
+  The default `pathfinding_timeout` is 25 seconds. The default `max_paths` is 1.
+
   {
     amount: <Asset Units To Send Numeric String>
     [asset_id]: <Asset Id Hex String>
@@ -91,23 +95,47 @@ type Tasks = {
     fee_mtokens: <Total Fee Millitokens Paid String>
     hops: [{
       channel: <Standard Format Channel Id String>
-      channel_capacity: <Channel Capacity Tokens Number>
       fee: <Fee Tokens Rounded Down Number>
       fee_mtokens: <Fee Millitokens String>
       forward: <Forward Tokens Number>
       forward_mtokens: <Forward Millitokens String>
       public_key: <Public Key Hex String>
-      timeout: <Timeout Block Height Number>
+      [timeout]: <Timeout Block Height Number>
     }]
     id: <Payment Hash Hex String>
-    [index]: <Payment Index Number String>
+    index: <Payment Index Number String>
     mtokens: <Total Millitokens Paid String>
     paths: [{
+      fee: <Total Fee Tokens Paid Rounded Down Number>
       fee_mtokens: <Total Fee Millitokens Paid String>
-      hops: [<Hop Object>]
+      hops: [{
+        channel: <Standard Format Channel Id String>
+        fee: <Fee Tokens Rounded Down Number>
+        fee_mtokens: <Fee Millitokens String>
+        forward: <Forward Tokens Number>
+        forward_mtokens: <Forward Millitokens String>
+        public_key: <Public Key Hex String>
+        [timeout]: <Timeout Block Height Number>
+      }]
       mtokens: <Total Millitokens Paid String>
+      [payment]: <Payment Identifier Hex String>
+      [timeout]: <Expiration Block Height Number>
+      tokens: <Total Tokens Paid Rounded Down Number>
+      [total_mtokens]: <Total Payment Millitokens String>
     }]
-    quotes: [<Accepted Sell Quote Object>]
+    quotes: [{
+      [accepted_max_mtokens]: <Accepted Maximum Payment Millitokens String>
+      amount: <Asset Units Numeric String>
+      [asset_id]: <Asset Id Hex String>
+      channel: <Channel To Pay Over Standard Format Channel Id String>
+      expires_at: <Quote Expires At ISO 8601 Date String>
+      [group_key]: <Asset Group BIP340 Public Key Hex String>
+      id: <Quote Request Id Hex String>
+      min_transportable_mtokens: <Minimum Millitokens To Send One Unit String>
+      peer_public_key: <Peer Public Key Hex String>
+      [price_oracle_metadata]: <Price Oracle Metadata String>
+      rate: <Bid Rate Asset Units Per BTC Exact Decimal String>
+    }]
     safe_fee: <Total Fee Tokens Paid Rounded Up Number>
     safe_tokens: <Total Tokens Paid, Rounded Up Number>
     secret: <Payment Preimage Hex String>

@@ -53,8 +53,8 @@ type Tasks = {
   All addresses must be for the same asset id or asset group
 
   An `amount` is only for an address without an amount, for example a V2
-  address. When an address has an `amount`, tapd v0.8.0 or later is
-  necessary.
+  address. An address without an amount needs an `amount`. An `amount` needs
+  tapd v0.7.0 or later.
 
   A fee rate below 253 tokens per thousand weight units (about 1.012 tokens
   per virtual byte) is raised to 253, because tapd rejects a lower rate

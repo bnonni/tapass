@@ -60,6 +60,9 @@ type Tasks = {
 
   The payment fields are the same as in lightning getPayments
 
+  A `limit` and a `token` are not supported together. The default
+  `limit` is 250.
+
   {
     [created_after]: <Created At or After ISO 8601 Date String>
     [created_before]: <Created At or Before ISO 8601 Date String>
@@ -76,7 +79,32 @@ type Tasks = {
         asset_id: <Asset Id Hex String>
         [group_key]: <Asset Group Key Hex String>
       }]
-      attempts: [<lightning Payment Attempt Object>]
+      attempts: [{
+        [confirmed_at]: <Payment Attempt Succeeded At ISO 8601 Date String>
+        created_at: <Attempt Was Started At ISO 8601 Date String>
+        [failed_at]: <Payment Attempt Failed At ISO 8601 Date String>
+        is_confirmed: <Payment Attempt Succeeded Bool>
+        is_failed: <Payment Attempt Failed Bool>
+        is_pending: <Payment Attempt is Waiting For Resolution Bool>
+        route: {
+          fee: <Route Fee Tokens Number>
+          fee_mtokens: <Route Fee Millitokens String>
+          hops: [{
+            channel: <Standard Format Channel Id String>
+            fee: <Fee Tokens Rounded Down Number>
+            fee_mtokens: <Fee Millitokens String>
+            forward: <Forward Tokens Number>
+            forward_mtokens: <Forward Millitokens String>
+            public_key: <Forward Edge Public Key Hex String>
+            [timeout]: <Timeout Block Height Number>
+          }]
+          mtokens: <Total Fee-Inclusive Millitokens String>
+          [payment]: <Payment Identifier Hex String>
+          [timeout]: <Timeout Block Height Number>
+          tokens: <Total Fee-Inclusive Tokens Number>
+          [total_mtokens]: <Total Payment Millitokens String>
+        }
+      }]
       [confirmed_at]: <Payment Confirmed At ISO 8601 Date String>
       created_at: <Payment at ISO-8601 Date String>
       [destination]: <Destination Node Public Key Hex String>

@@ -77,7 +77,12 @@ type Tasks = {
 
   Spent assets and leased assets are not supported together.
 
-  Use the `next` token with the same filters to get the next page.
+  Without an `asset_id`, the assets are newest first. Use the `next` token
+  with the same filters to get the next page. A `limit` and a `token` are not
+  supported together. The maximum `limit` is 16384.
+
+  Paging needs tapd v0.8.0 or later. An older tapd sends all the assets in one
+  page.
 
   {
     [asset_id]: <Asset Id Hex String>

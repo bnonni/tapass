@@ -57,6 +57,11 @@ type Tasks = {
 
   `assets` or an `rfq_id` is required
 
+  Each `asset_id` in `assets` must be unique. The records are in ascending
+  `type` order.
+
+  tapd v0.8.5 marks the EncodeCustomRecords RPC as deprecated
+
   {
     [assets]: [{
       amount: <Asset Units Numeric String>

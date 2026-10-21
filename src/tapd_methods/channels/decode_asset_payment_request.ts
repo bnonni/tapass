@@ -65,11 +65,11 @@ type Tasks = {
       meta_hash: <Asset Metadata Hash Hex String>
       name: <Asset Name String>
     }
-    chain_address: <Fallback Chain Address String>
+    [chain_address]: <Fallback Chain Address String>
     [cltv_delta]: <Final CLTV Delta Number>
     created_at: <Payment Request Created At ISO 8601 Date String>
     description: <Payment Description String>
-    description_hash: <Payment Longer Description Hash Hex String>
+    [description_hash]: <Payment Longer Description Hash Hex String>
     destination: <Public Key Hex String>
     expires_at: <ISO 8601 Date String>
     features: [{

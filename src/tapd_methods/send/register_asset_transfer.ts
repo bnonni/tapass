@@ -49,7 +49,7 @@ type Tasks = {
   different way. The proof must already be in the local universe, and the
   script key must already be known to this node.
 
-  Requires `assets:write` permission
+  Requires `assets:write` and `proofs:write` permissions
 
   {
     asset_id: <Asset Id Hex String>

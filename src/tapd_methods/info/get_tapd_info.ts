@@ -25,7 +25,7 @@ export type GetTapdInfoResult = {
   current_block_hash: string;
   /** Best Chain Block Height */
   current_block_height: number;
-  /** tapd Is Synced To Chain */
+  /** lnd Is Synced To Chain */
   is_synced_to_chain: boolean;
   /** lnd Version */
   lnd_version: string;
@@ -55,7 +55,7 @@ type Tasks = {
     alias: <lnd Node Alias String>
     current_block_hash: <Best Chain Block Hash Hex String>
     current_block_height: <Best Chain Block Height Number>
-    is_synced_to_chain: <tapd Is Synced To Chain Bool>
+    is_synced_to_chain: <lnd Is Synced To Chain Bool>
     lnd_version: <lnd Version String>
     network: <Network Name String>
     public_key: <lnd Identity Public Key Hex String>

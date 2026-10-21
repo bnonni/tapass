@@ -34,7 +34,8 @@ export type SubscribeToAssetInvoicesArgs = {
 
   This method needs tapd v0.8.1 or later
 
-  The invoice fields are the same as in lightning getInvoices
+  The invoice fields are the same as in lightning getInvoices. `assets` has the
+  asset units of settled HTLCs only.
 
   {
     [added_after]: <Invoice Add Index To Start After Number>
@@ -55,12 +56,59 @@ export type SubscribeToAssetInvoicesArgs = {
       asset_id: <Asset Id Hex String>
       [group_key]: <Asset Group Key Hex String>
     }]
+    [chain_address]: <Fallback Chain Address String>
+    cltv_delta: <Final CLTV Delta Number>
+    [confirmed_at]: <Settled at ISO 8601 Date String>
+    [confirmed_index]: <Confirmed Index Number>
     created_at: <ISO 8601 Date String>
+    description: <Description String>
+    [description_hash]: <Description Hash Hex String>
+    expires_at: <ISO 8601 Date String>
+    features: [{
+      bit: <BOLT 09 Feature Bit Number>
+      is_known: <Feature is Known Bool>
+      is_required: <Feature Support is Required To Pay Bool>
+      type: <Feature Type String>
+    }]
     id: <Payment Hash Hex String>
     index: <Invoice Add Index Number>
+    [is_canceled]: <Invoice is Canceled Bool>
     is_confirmed: <Invoice is Confirmed Bool>
-    ...<lightning Invoice Object>
+    [is_held]: <HTLC is Held Bool>
+    is_private: <Invoice is Private Bool>
+    [is_push]: <Invoice is Push Payment Bool>
+    mtokens: <Millitokens String>
+    [payment]: <Payment Identifying Secret Hex String>
+    payments: [{
+      [canceled_at]: <Payment Canceled At ISO 8601 Date String>
+      [confirmed_at]: <Payment Settled At ISO 8601 Date String>
+      created_at: <Payment Held Since ISO 8601 Date String>
+      created_height: <Payment Held Since Block Height Number>
+      in_channel: <Incoming Payment Through Channel Id String>
+      is_canceled: <Payment is Canceled Bool>
+      is_confirmed: <Payment is Confirmed Bool>
+      is_held: <Payment is Held Bool>
+      messages: [{
+        type: <Message Type Number String>
+        value: <Raw Value Hex String>
+      }]
+      mtokens: <Incoming Payment Millitokens String>
+      [pending_index]: <Pending Payment Channel HTLC Index Number>
+      timeout: <HTLC CLTV Timeout Height Number>
+      tokens: <Payment Tokens Number>
+      [total_mtokens]: <Total Millitokens String>
+    }]
+    received: <Received Tokens Number>
+    received_mtokens: <Received Millitokens String>
+    [request]: <Bolt 11 Invoice String>
+    secret: <Secret Preimage Hex String>
+    tokens: <Tokens Number>
   }
+
+  @event 'end'
+
+  @event 'error'
+  [<Error Code Number>, <Error Message String>, <Error Details Object>]
 */
 export default (args: SubscribeToAssetInvoicesArgs) => {
   if (args.added_after !== undefined && !isIndex(args.added_after)) {

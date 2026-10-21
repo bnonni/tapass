@@ -44,7 +44,13 @@ type Tasks = {
 
   Requires `mint:write` permission
 
-  tapd funds the batch first when it is not funded yet
+  tapd funds the batch first when it is not funded yet. If the batch is already
+  funded, do not give `fee_tokens_per_vbyte`, `tapscript_branch`, or
+  `tapscript_leaves`: tapd rejects them.
+
+  When a batch has committed assets, tapd does not return the asset version,
+  the new group flag, or the group anchor: `version` is 0 and `is_new_group`
+  is false.
 
   A tapscript sibling is optional: give `tapscript_leaves` or a
   `tapscript_branch`, not both.
@@ -71,7 +77,7 @@ type Tasks = {
       is_new_group: <Asset Starts a New Group Bool>
       [metadata]: <Metadata Hex String>
       [metadata_hash]: <Metadata Hash Hex String>
-      [metadata_type]: <Metadata Type String> // json, opaque
+      [metadata_type]: <Metadata Type String> // json, opaque, unknown
       name: <Asset Name String>
       [script_key]: <Script Key Hex String>
       version: <Asset Version Number>

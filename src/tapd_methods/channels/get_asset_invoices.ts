@@ -51,7 +51,7 @@ type Tasks = {
   validate: undefined;
 };
 
-/** Get invoices that received an asset, newest first
+/** Get asset invoices, newest first
 
   lnd pages over all invoices, then tapd keeps only the asset invoices, so a
   page can have fewer invoices than the limit. Use `next` until it is empty.
@@ -60,7 +60,11 @@ type Tasks = {
 
   This method needs tapd v0.8.1 or later
 
-  The invoice fields are the same as in lightning getInvoices
+  The invoice fields are the same as in lightning getInvoices. `assets` has the
+  asset units of settled HTLCs only, so an unpaid invoice has no `assets`.
+
+  A `limit` and a `token` are not supported together. The default
+  `limit` is 100.
 
   {
     [created_after]: <Created At or After ISO 8601 Date String>
@@ -102,7 +106,25 @@ type Tasks = {
       [is_push]: <Invoice is Push Payment Bool>
       mtokens: <Millitokens String>
       [payment]: <Payment Identifying Secret Hex String>
-      payments: [<lightning Invoice Payment Object>]
+      payments: [{
+        [canceled_at]: <Payment Canceled At ISO 8601 Date String>
+        [confirmed_at]: <Payment Settled At ISO 8601 Date String>
+        created_at: <Payment Held Since ISO 8601 Date String>
+        created_height: <Payment Held Since Block Height Number>
+        in_channel: <Incoming Payment Through Channel Id String>
+        is_canceled: <Payment is Canceled Bool>
+        is_confirmed: <Payment is Confirmed Bool>
+        is_held: <Payment is Held Bool>
+        messages: [{
+          type: <Message Type Number String>
+          value: <Raw Value Hex String>
+        }]
+        mtokens: <Incoming Payment Millitokens String>
+        [pending_index]: <Pending Payment Channel HTLC Index Number>
+        timeout: <HTLC CLTV Timeout Height Number>
+        tokens: <Payment Tokens Number>
+        [total_mtokens]: <Total Millitokens String>
+      }]
       received: <Received Tokens Number>
       received_mtokens: <Received Millitokens String>
       [request]: <Bolt 11 Invoice String>

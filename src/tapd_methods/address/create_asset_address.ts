@@ -53,6 +53,11 @@ type Tasks = {
 
   When there is a `group_key` and no `version`, tapd makes a V2 address
 
+  A V2 address for a grouped asset must use the `group_key`
+
+  An `amount` is required, except for a V2 address of a normal asset. The
+  `amount` of a collectible must be 1.
+
   {
     [amount]: <Asset Units To Receive Numeric String>
     [asset_id]: <Asset Id Hex String>

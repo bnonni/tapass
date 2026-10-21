@@ -60,6 +60,13 @@ export type SubscribeToAssetReceivesArgs = AuthenticatedTapdArgs<{
     [transaction_vout]: <Anchor Transaction Output Index Number>
     updated_at: <Updated At ISO 8601 Date String>
   }
+  @event 'end'
+
+  @event 'error'
+  <gRPC Error Object> or [<Error Code Number>, <Error Message String>]
+
+  @event 'status'
+  <gRPC Status Object>
 */
 export default (args: SubscribeToAssetReceivesArgs) => {
   if (args.address !== undefined && typeof args.address !== 'string') {

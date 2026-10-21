@@ -28,6 +28,9 @@ type Tasks = {
   Use a level for all subsystems, for example `debug`, or a level for each
   subsystem, for example `TADB=trace,FRTR=info`
 
+  In litd integrated mode, tapd has no log subsystems. Then only a level for
+  all subsystems works.
+
   Requires `daemon:write` permission
 
   {

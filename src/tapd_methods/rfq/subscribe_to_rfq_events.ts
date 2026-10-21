@@ -20,7 +20,7 @@ export type SubscribeToRfqEventsArgs = {
 
 /** Subscribe to RFQ events
 
-  Requires `rfq:read` permission
+  Requires `rfq:write` permission
 
   A rate is a number of asset units per BTC, as an exact decimal string
 
@@ -76,6 +76,9 @@ export type SubscribeToRfqEventsArgs = {
 
   @event 'error'
   [<Error Code Number>, <Error Message String>, <Error Details Object>]
+
+  @event 'status'
+  <gRPC Status Object>
 */
 export default ({tapd}: SubscribeToRfqEventsArgs) => {
   if (!isTapd({method, tapd, type})) {

@@ -111,10 +111,10 @@ type Tasks = {
 
   An `asset_id` or a `group_key` is required, but not both
 
-  One of `amount`, `tokens`, or `mtokens` is required. With `tokens` or
-  `mtokens`, the payer pays that satoshi value in the asset.
+  Exactly one of `amount`, `tokens`, or `mtokens` is required. With `tokens`
+  or `mtokens`, the payer pays that satoshi value in the asset.
 
-  Use an `id` to make a hold invoice. A hold invoice has no `secret`.
+  Use an `id` to make a hold invoice. Do not give a `secret` with an `id`.
 
   A random `secret` is used when there is no `secret` and no `id`
 

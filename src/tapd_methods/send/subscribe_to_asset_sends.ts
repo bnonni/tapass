@@ -27,8 +27,9 @@ export type SubscribeToAssetSendsArgs = AuthenticatedTapdArgs<{
 
   Requires `assets:read` permission
 
-  A `start_at` date in the past replays the events from that date. Without a
-  `start_at`, the events start now.
+  A `start_at` date in the past replays the events from that date. The
+  `start_at` date must not be in the future. Without a `start_at`, the events
+  start now.
 
   {
     [label]: <Transfer Label String>
@@ -74,7 +75,8 @@ export type SubscribeToAssetSendsArgs = AuthenticatedTapdArgs<{
     [error]: <Send State Error String>
     [label]: <Transfer Label String>
     [next_state]: <Next Send State String>
-    parcel_type: <Parcel Type String> // address, pending, pre_anchored, ...
+    parcel_type: <Parcel Type String> // address, pending, pre_anchored,
+                                      // pre_signed
     passive_virtual_packets: [<Passive Virtual Packet Hex String>]
     state: <Executed Send State String> // for example anchor_sign, complete
     [transfer]: {
@@ -126,6 +128,13 @@ export type SubscribeToAssetSendsArgs = AuthenticatedTapdArgs<{
     }
     virtual_packets: [<Virtual Packet Hex String>]
   }
+  @event 'end'
+
+  @event 'error'
+  <gRPC Error Object> or [<Error Code Number>, <Error Message String>]
+
+  @event 'status'
+  <gRPC Status Object>
 */
 export default (args: SubscribeToAssetSendsArgs) => {
   if (!isTapd({method, type, tapd: args.tapd})) {

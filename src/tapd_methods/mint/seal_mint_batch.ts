@@ -70,7 +70,7 @@ type Tasks = {
       is_new_group: <Asset Starts a New Group Bool>
       [metadata]: <Metadata Hex String>
       [metadata_hash]: <Metadata Hash Hex String>
-      [metadata_type]: <Metadata Type String> // json, opaque
+      [metadata_type]: <Metadata Type String> // json, opaque, unknown
       name: <Asset Name String>
       [script_key]: <Script Key Hex String>
       version: <Asset Version Number>

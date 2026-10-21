@@ -51,7 +51,7 @@ export type AddAssetToMintBatchArgs = AuthenticatedTapdArgs<{
     /** Extended Public Key String */
     xpub: string;
   };
-  /** Name of an Asset in the Batch That Anchors a New Group String */
+  /** Name of an Asset in the Batch That Anchors a Group String */
   group_anchor?: string;
   group_internal_key?: {
     /** Key Family Number */
@@ -105,10 +105,14 @@ type Tasks = {
   metadata. If the JSON metadata has a different decimal display, tapd fails.
 
   To mint into an existing group, give a `group_key`, or a `group_anchor` that
-  names an asset in this batch that starts a new group.
+  names an asset in this batch that starts a new group. Do not give both, and
+  do not use them with `is_new_group`.
 
   `group_internal_key`, `group_tapscript_root`, `external_group_key`, and
-  `is_supply_committed` are only for an asset that starts a new group.
+  `is_supply_committed` are only for an asset that starts a new group. Give a
+  `group_internal_key` or an `external_group_key`, not both.
+
+  The asset `name` must be 64 bytes or less.
 
   {
     [amount]: <Asset Units To Mint Numeric String>
@@ -149,7 +153,7 @@ type Tasks = {
       is_new_group: <Asset Starts a New Group Bool>
       [metadata]: <Metadata Hex String>
       [metadata_hash]: <Metadata Hash Hex String>
-      [metadata_type]: <Metadata Type String> // json, opaque
+      [metadata_type]: <Metadata Type String> // json, opaque, unknown
       name: <Asset Name String>
       [script_key]: <Script Key Hex String>
       version: <Asset Version Number>

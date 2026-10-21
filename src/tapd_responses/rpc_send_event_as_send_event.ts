@@ -153,7 +153,8 @@ const stateFrom = (state: string) => {
     [error]: <Send State Error String>
     [label]: <Transfer Label String>
     [next_state]: <Next Send State String>
-    parcel_type: <Parcel Type String> // address, pending, pre_anchored, ...
+    parcel_type: <Parcel Type String> // address, pending, pre_anchored,
+                                      // pre_signed
     passive_virtual_packets: [<Passive Virtual Packet Hex String>]
     state: <Executed Send State String>
     [transfer]: <Transfer Object>

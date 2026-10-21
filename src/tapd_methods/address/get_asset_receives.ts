@@ -72,14 +72,19 @@ type Tasks = {
 
   Use the `next` token with the same filters to get the next page
 
-  The maximum `limit` is 16384
+  A `limit` and a `token` are not supported together. The maximum
+  `limit` is 16384.
+
+  Paging and the newest first order need tapd v0.8.0 or later
 
   {
     [address]: <Encoded Taproot Assets Address String>
     [created_after]: <Created After ISO 8601 Date String>
     [created_before]: <Created Before ISO 8601 Date String>
     [limit]: <Page Result Limit Number>
-    [status]: <Receive Status String>
+    [status]: <Receive Status String> // completed, proof_received,
+                                      // transaction_confirmed,
+                                      // transaction_detected
     tapd: <Authenticated tapd API Object>
     [token]: <Opaque Paging Token String>
   }

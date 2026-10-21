@@ -49,7 +49,7 @@ type Tasks = {
       [group_key]: <Asset Group BIP340 Public Key Hex String>
       id: <Quote Request Id Hex String>
       max_amount: <Maximum Asset Units Numeric String>
-      min_transportable_amount: <Minimum Asset Units In One HTLC String>
+      min_transportable_amount: <Minimum Asset Units In One HTLC Numeric String>
       peer_public_key: <Peer Public Key Hex String>
       [price_oracle_metadata]: <Price Oracle Metadata String>
       rate: <Ask Rate Asset Units Per BTC Exact Decimal String>

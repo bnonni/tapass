@@ -77,6 +77,10 @@ type Tasks = {
   When there is no `min_amount`, the quote must fill the `max_amount`. Use
   `"0"` to accept a partial fill.
 
+  The `min_amount` must not be more than the `max_amount`
+
+  The `price_oracle_metadata` must be 32768 bytes or less
+
   The default `timeout_seconds` is 60
 
   `min_amount`, `min_rate`, and `is_fill_or_kill` need tapd v0.8.0 or later.
@@ -86,7 +90,7 @@ type Tasks = {
     [asset_id]: <Asset Id Hex String>
     expires_at: <Order Expires At ISO 8601 Date String>
     [group_key]: <Asset Group Key Hex String>
-    [is_asset_channel_check_skipped]: <Skip Asset Channel Check Bool>
+    [is_asset_channel_check_skipped]: <Skip Channel Check For Tests Only Bool>
     [is_fill_or_kill]: <Reject a Quote That Does Not Fill the Maximum Bool>
     max_amount: <Maximum Asset Units Numeric String>
     [min_amount]: <Minimum Asset Units Numeric String>

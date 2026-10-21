@@ -29,11 +29,11 @@ const {stringify} = JSON;
 const type = 'rfq';
 
 export type GetAssetForwardsArgs = AuthenticatedTapdArgs<{
-  /** Settled At Or After ISO 8601 Date String */
+  /** Started At Or After ISO 8601 Date String */
   after?: string;
   /** Asset Id Hex String */
   asset_id?: string;
-  /** Settled At Or Before ISO 8601 Date String */
+  /** Started At Or Before ISO 8601 Date String */
   before?: string;
   /** Asset Group Key Hex String */
   group_key?: string;
@@ -62,14 +62,20 @@ type Tasks = {
 
   This method needs tapd v0.8.0 or later
 
-  Use the `next` token with the same filters to get the next page
+  The forwards are newest first, by the start date. Failed and unsettled
+  forwards are included.
+
+  An `asset_id` or a `group_key` is a filter, but not both
+
+  Use the `next` token with the same filters to get the next page. A `limit`
+  and a `token` are not supported together. The default `limit` is 100.
 
   A rate is a number of asset units per BTC, as an exact decimal string
 
   {
-    [after]: <Settled At Or After ISO 8601 Date String>
+    [after]: <Started At Or After ISO 8601 Date String>
     [asset_id]: <Asset Id Hex String>
-    [before]: <Settled At Or Before ISO 8601 Date String>
+    [before]: <Started At Or Before ISO 8601 Date String>
     [group_key]: <Asset Group Key Hex String>
     [limit]: <Page Result Limit Number>
     [peer_public_key]: <Peer Public Key Hex String>

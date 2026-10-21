@@ -37,8 +37,14 @@ type Tasks = {
 
   Requires `mint:read` permission
 
-  With `is_verbose`, a funded pending batch has the group details of its
-  unsealed assets, and tapd does not return unfunded or empty batches.
+  With `is_verbose`, tapd returns only pending batches that are funded and have
+  assets. If an asset in such a batch starts or joins a group, `assets` is
+  empty and each asset of the batch is in `unsealed_assets`, with the group
+  details. Without `is_verbose`, `unsealed_assets` is empty.
+
+  When a batch has committed assets, tapd does not return the asset version,
+  the new group flag, or the group anchor: `version` is 0 and `is_new_group`
+  is false.
 
   {
     [id]: <Batch Key Hex String>
@@ -59,7 +65,7 @@ type Tasks = {
         is_new_group: <Asset Starts a New Group Bool>
         [metadata]: <Metadata Hex String>
         [metadata_hash]: <Metadata Hash Hex String>
-        [metadata_type]: <Metadata Type String> // json, opaque
+        [metadata_type]: <Metadata Type String> // json, opaque, unknown
         name: <Asset Name String>
         [script_key]: <Script Key Hex String>
         version: <Asset Version Number>
@@ -82,7 +88,7 @@ type Tasks = {
         is_new_group: <Asset Starts a New Group Bool>
         [metadata]: <Metadata Hex String>
         [metadata_hash]: <Metadata Hash Hex String>
-        [metadata_type]: <Metadata Type String> // json, opaque
+        [metadata_type]: <Metadata Type String> // json, opaque, unknown
         name: <Asset Name String>
         [script_key]: <Script Key Hex String>
         version: <Asset Version Number>
