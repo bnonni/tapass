@@ -212,6 +212,9 @@ test('A paid invoice returns the payment and the quotes', async () => {
     quotes: [sellQuote],
   });
   equal(paid.secret, '08'.repeat(32), 'Got the preimage');
+  equal(paid.confirmed_at, '2023-11-14T22:13:20.200Z', 'Got the confirm date');
+  equal(paid.index, '3', 'Got the payment index');
+  equal(paid.paths.length, 1, 'Got the payment paths');
 });
 
 test('The payment request has the payment details', async () => {

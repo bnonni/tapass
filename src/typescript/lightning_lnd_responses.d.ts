@@ -2,7 +2,6 @@ declare module 'lightning/lnd_responses/index.js' {
   import type {DecodePaymentRequestResult} from 'lightning';
   import type {GetInvoicesResult} from 'lightning';
   import type {GetPaymentsResult} from 'lightning';
-  import type {SubscribeToPastPaymentConfirmedEvent} from 'lightning';
   import type {SubscribeToPastPaymentFailedEvent} from 'lightning';
   import type {SubscribeToPastPaymentPayingEvent} from 'lightning';
 
@@ -12,7 +11,7 @@ declare module 'lightning/lnd_responses/index.js' {
   */
   export function confirmedFromPayment(
     payment: unknown,
-  ): SubscribeToPastPaymentConfirmedEvent;
+  ): import('./index.js').ConfirmedPayment;
 
   /** Failed payment details from a FAILED lnrpc.Payment */
   export function failureFromPayment(

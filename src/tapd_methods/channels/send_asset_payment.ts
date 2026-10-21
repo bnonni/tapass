@@ -1,4 +1,3 @@
-import type {SubscribeToPastPaymentConfirmedEvent} from 'lightning';
 import {confirmedFromPayment} from 'lightning/lnd_responses/index.js';
 
 import type {AuthenticatedTapd} from '../../tapd_grpc/index.js';
@@ -7,6 +6,7 @@ import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {assetChannelRpcError} from '../../tapd_responses/index.js';
 import {rpcSellQuoteAsQuote} from '../../tapd_responses/index.js';
 import type {SellQuote} from '../../tapd_responses/index.js';
+import type {ConfirmedPayment} from '../../typescript/index.js';
 import type {TapdError} from '../../typescript/index.js';
 
 const {isArray} = Array;
@@ -34,7 +34,7 @@ type Args = {
   tapd: AuthenticatedTapd;
 };
 
-export type SendAssetPaymentResult = SubscribeToPastPaymentConfirmedEvent & {
+export type SendAssetPaymentResult = ConfirmedPayment & {
   quotes: SellQuote[];
 };
 
