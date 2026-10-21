@@ -441,7 +441,7 @@ is false.
     @event 'end'
 
     @event 'error'
-    <gRPC Error Object> or [<Error Code Number>, <Error Message String>]
+    [<Error Code Number>, <Error Message String>, <Error Details Object>]
 
     @event 'status'
     <gRPC Status Object>

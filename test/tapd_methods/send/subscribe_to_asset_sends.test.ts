@@ -140,8 +140,40 @@ test('A stream error is emitted and the stream is cancelled', () => {
 
   stream.emit('error', {details: 'failure'});
 
-  deepStrictEqual(errors, [{details: 'failure'}]);
+  deepStrictEqual(errors, [
+    [
+      503,
+      'UnexpectedErrorInAssetSendsSubscription',
+      {err: {details: 'failure'}},
+    ],
+  ]);
   equal(stream.cancels, 1);
+});
+
+test('Connection and permission errors are mapped', () => {
+  const cases = [
+    {
+      err: {code: 14, details: 'unavailable'},
+      expected: [503, 'FailedToConnectToTapdToSubscribeToAssetSends'],
+    },
+    {
+      err: {code: 2, details: 'permission denied'},
+      expected: [403, 'PermissionDeniedToSubscribeToAssetSends'],
+    },
+  ];
+
+  cases.forEach(({err, expected}) => {
+    const stream = makeStream();
+    const sub = subscribeToAssetSends({tapd: tapdWith(stream)});
+    const errors: any[] = [];
+
+    sub.on('error', err => errors.push(err));
+
+    stream.emit('error', err);
+
+    deepStrictEqual(errors, [expected]);
+    equal(stream.cancels, 1, 'An error cancels the stream');
+  });
 });
 
 test('The end and status of the stream are emitted', () => {
@@ -166,10 +198,17 @@ test('The stream is cancelled when all send listeners are removed', () => {
 
   const sub = subscribeToAssetSends({tapd: tapdWith(stream)});
 
+  const errors: any[] = [];
   const listener = () => {};
 
   sub.on('send', listener);
+  sub.on('error', err => errors.push(err));
   sub.removeListener('send', listener);
 
   equal(stream.cancels, 1);
+
+  stream.emit('error', {code: 1, details: 'Cancelled on client'});
+
+  deepStrictEqual(errors, [], 'A client cancel is not an error');
+  equal(stream.listenerCount('data'), 0, 'Stream listeners are removed');
 });

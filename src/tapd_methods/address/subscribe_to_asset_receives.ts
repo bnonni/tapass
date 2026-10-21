@@ -2,10 +2,13 @@ import EventEmitter from 'node:events';
 
 import {emitSubscriptionError} from '../../grpc/index.js';
 import {handleRemoveListener} from '../../grpc/index.js';
+import {isConnectionFailure} from '../../tapd_requests/index.js';
+import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {isTapd} from '../../tapd_requests/index.js';
 import {rpcReceiveEventAsReceiveUpdate} from '../../tapd_responses/index.js';
 import type {AuthenticatedTapdArgs} from '../../typescript/index.js';
 
+const cancelError = 'Cancelled on client';
 const event = 'receive';
 const isDate = (n: string) => Date.parse(n) > 0;
 const method = 'subscribeReceiveEvents';
@@ -63,7 +66,7 @@ export type SubscribeToAssetReceivesArgs = AuthenticatedTapdArgs<{
   @event 'end'
 
   @event 'error'
-  <gRPC Error Object> or [<Error Code Number>, <Error Message String>]
+  [<Error Code Number>, <Error Message String>, <Error Details Object>]
 
   @event 'status'
   <gRPC Status Object>
@@ -93,14 +96,33 @@ export default (args: SubscribeToAssetReceivesArgs) => {
     start_timestamp: start,
   });
 
-  const errored = emitSubscriptionError({emitter, subscription});
+  // The error helper only reads `details` to find a client cancel
+  const errored = emitSubscriptionError({emitter, subscription}) as (
+    err: unknown,
+  ) => void;
 
   // Terminate the subscription when all listeners are removed
   handleRemoveListener({emitter, subscription, events: [event]});
 
   subscription.on('end', () => emitter.emit('end'));
-  subscription.on('error', (err: any) => errored(err));
   subscription.on('status', (n: unknown) => emitter.emit('status', n));
+
+  subscription.on('error', (err: any) => {
+    // Exit early when the client cancelled the subscription
+    if (err?.details === cancelError) {
+      return subscription.removeAllListeners();
+    }
+
+    if (isConnectionFailure({err})) {
+      return errored([503, 'FailedToConnectToTapdToSubscribeToAssetReceives']);
+    }
+
+    if (isPermissionDenied({err})) {
+      return errored([403, 'PermissionDeniedToSubscribeToAssetReceives']);
+    }
+
+    return errored([503, 'UnexpectedErrorInAssetReceivesSubscription', {err}]);
+  });
 
   subscription.on('data', (data: any) => {
     try {

@@ -112,7 +112,42 @@ test('A stream error is emitted, and end and status pass through', () => {
   stream.emit('error', {details: 'connection dropped'});
   stream.emit('end');
 
-  deepStrictEqual(emitted, [{code: 0}, {details: 'connection dropped'}, 'end']);
+  deepStrictEqual(emitted, [
+    {code: 0},
+    [503, 'FailedToConnectToTapdToSubscribeToMintEvents'],
+    'end',
+  ]);
+  equal(stream.cancels, 1);
+});
+
+test('Permission and unexpected errors are mapped', () => {
+  const cases = [
+    {
+      err: {code: 2, details: 'permission denied'},
+      expected: [403, 'PermissionDeniedToSubscribeToMintEvents'],
+    },
+    {
+      err: {details: 'failure'},
+      expected: [
+        503,
+        'UnexpectedErrorInMintEventsSubscription',
+        {err: {details: 'failure'}},
+      ],
+    },
+  ];
+
+  cases.forEach(({err, expected}) => {
+    const stream = makeStream();
+    const sub = subscribeToMintEvents({tapd: tapdWith(stream)});
+    const errors: any[] = [];
+
+    sub.on('error', err => errors.push(err));
+
+    stream.emit('error', err);
+
+    deepStrictEqual(errors, [expected]);
+    equal(stream.cancels, 1, 'An error cancels the stream');
+  });
 });
 
 test('The stream is cancelled when all batch listeners are removed', () => {
@@ -120,13 +155,20 @@ test('The stream is cancelled when all batch listeners are removed', () => {
 
   const sub = subscribeToMintEvents({tapd: tapdWith(stream)});
 
+  const errors: any[] = [];
   const listener = () => {};
 
   sub.on('batch', listener);
+  sub.on('error', err => errors.push(err));
 
   equal(stream.cancels, 0);
 
   sub.removeListener('batch', listener);
 
   equal(stream.cancels, 1);
+
+  stream.emit('error', {code: 1, details: 'Cancelled on client'});
+
+  deepStrictEqual(errors, [], 'A client cancel is not an error');
+  equal(stream.listenerCount('data'), 0, 'Stream listeners are removed');
 });

@@ -109,7 +109,7 @@ test('A bad event is emitted as an error', () => {
   deepStrictEqual(errors, [[503, 'ExpectedKnownStatusInRpcReceiveEvent']]);
 });
 
-test('Stream errors, status, and end are passed on', () => {
+test('Stream errors are mapped, and status and end are passed on', () => {
   const stream = makeStream();
   const sub = subscribeToAssetReceives({tapd: tapdWith(stream)});
   const events: any[] = [];
@@ -122,17 +122,58 @@ test('Stream errors, status, and end are passed on', () => {
   stream.emit('error', {details: 'failure'});
   stream.emit('end');
 
-  deepStrictEqual(events, [{code: 0}, {details: 'failure'}, 'end']);
+  deepStrictEqual(events, [
+    {code: 0},
+    [
+      503,
+      'UnexpectedErrorInAssetReceivesSubscription',
+      {err: {details: 'failure'}},
+    ],
+    'end',
+  ]);
   equal(stream.cancelled, 1, 'An error cancels the stream');
+});
+
+test('Connection and permission errors are mapped', () => {
+  const cases = [
+    {
+      err: {code: 14, details: 'unavailable'},
+      expected: [503, 'FailedToConnectToTapdToSubscribeToAssetReceives'],
+    },
+    {
+      err: {code: 2, details: 'permission denied'},
+      expected: [403, 'PermissionDeniedToSubscribeToAssetReceives'],
+    },
+  ];
+
+  cases.forEach(({err, expected}) => {
+    const stream = makeStream();
+    const sub = subscribeToAssetReceives({tapd: tapdWith(stream)});
+    const errors: any[] = [];
+
+    sub.on('error', err => errors.push(err));
+
+    stream.emit('error', err);
+
+    deepStrictEqual(errors, [expected]);
+    equal(stream.cancelled, 1, 'An error cancels the stream');
+  });
 });
 
 test('Removing all receive listeners cancels the stream', () => {
   const stream = makeStream();
   const sub = subscribeToAssetReceives({tapd: tapdWith(stream)});
+  const errors: any[] = [];
   const listener = () => {};
 
   sub.on('receive', listener);
+  sub.on('error', err => errors.push(err));
   sub.removeListener('receive', listener);
 
   equal(stream.cancelled, 1, 'Stream is cancelled');
+
+  stream.emit('error', {code: 1, details: 'Cancelled on client'});
+
+  deepStrictEqual(errors, [], 'A client cancel is not an error');
+  equal(stream.listenerCount('data'), 0, 'Stream listeners are removed');
 });

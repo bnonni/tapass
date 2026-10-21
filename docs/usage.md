@@ -47,9 +47,9 @@ sub.on('end', () => console.log('tapd closed the stream'));
 - To stop a subscription, remove all its listeners, for example with
   `sub.removeAllListeners()`. tapass then cancels the gRPC stream.
 
-The `error` event gives an error array. Refer to [Errors](errors.md). For a
-stream failure in `subscribeToAssetReceives`, `subscribeToAssetSends`, and
-`subscribeToMintEvents`, the event gives the gRPC error object.
+The `error` event gives an error array. Refer to [Errors](errors.md). If you
+remove the event listeners but keep an `error` listener, the cancel does not
+emit an error.
 
 ## Arguments and Results
 

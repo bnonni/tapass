@@ -2,11 +2,14 @@ import EventEmitter from 'node:events';
 
 import {emitSubscriptionError} from '../../grpc/index.js';
 import {handleRemoveListener} from '../../grpc/index.js';
+import {isConnectionFailure} from '../../tapd_requests/index.js';
+import {isPermissionDenied} from '../../tapd_requests/index.js';
 import {isTapd} from '../../tapd_requests/index.js';
 import {batchStates} from '../../tapd_responses/index.js';
 import {rpcBatchAsBatch} from '../../tapd_responses/index.js';
 import type {AuthenticatedTapdArgs} from '../../typescript/index.js';
 
+const cancelError = 'Cancelled on client';
 const events = ['batch'];
 const isNumeric = (n: unknown) => typeof n === 'string' && /^\d+$/.test(n);
 const method = 'subscribeMintEvents';
@@ -67,7 +70,7 @@ export type SubscribeToMintEventsArgs = AuthenticatedTapdArgs;
   @event 'end'
 
   @event 'error'
-  <gRPC Error Object> or [<Error Code Number>, <Error Message String>]
+  [<Error Code Number>, <Error Message String>, <Error Details Object>]
 
   @event 'status'
   <gRPC Status Object>
@@ -80,14 +83,33 @@ export default ({tapd}: SubscribeToMintEventsArgs): EventEmitter => {
   const emitter = new EventEmitter();
   const subscription = tapd[type][method]({short_response: false});
 
-  const errored = emitSubscriptionError({emitter, subscription});
+  // The error helper only reads `details` to find a client cancel
+  const errored = emitSubscriptionError({emitter, subscription}) as (
+    err: unknown,
+  ) => void;
 
   // Terminate the subscription when all listeners are removed
   handleRemoveListener({emitter, events, subscription});
 
   subscription.on('end', () => emitter.emit('end'));
-  subscription.on('error', (err: any) => errored(err));
   subscription.on('status', (n: unknown) => emitter.emit('status', n));
+
+  subscription.on('error', (err: any) => {
+    // Exit early when the client cancelled the subscription
+    if (err?.details === cancelError) {
+      return subscription.removeAllListeners();
+    }
+
+    if (isConnectionFailure({err})) {
+      return errored([503, 'FailedToConnectToTapdToSubscribeToMintEvents']);
+    }
+
+    if (isPermissionDenied({err})) {
+      return errored([403, 'PermissionDeniedToSubscribeToMintEvents']);
+    }
+
+    return errored([503, 'UnexpectedErrorInMintEventsSubscription', {err}]);
+  });
 
   subscription.on('data', (event: any) => {
     try {
@@ -107,7 +129,7 @@ export default ({tapd}: SubscribeToMintEventsArgs): EventEmitter => {
         state: batchStates[event.batch_state] || 'unknown',
       });
     } catch (err: any) {
-      return errored([503, err.message] as any);
+      return errored([503, err.message]);
     }
   });
 
